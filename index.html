@@ -21,6 +21,7 @@
     --muted:#94a3b8;
     --border:#2c4261;
     --danger:#ef4444;
+    --success:#22c55e;
 }
 
 *{
@@ -112,6 +113,17 @@ header{
     color:#cbd5e1;
     line-height:1.9;
     margin-bottom:15px;
+}
+
+.parser-status{
+    display:inline-block;
+    background:#09291f;
+    border:1px solid #166534;
+    color:#86efac;
+    border-radius:10px;
+    padding:7px 12px;
+    margin-top:10px;
+    font-size:13px;
 }
 
 .chat-box{
@@ -314,6 +326,7 @@ label{
     border-radius:12px;
     margin-top:10px;
     font-size:14px;
+    color:#cbd5e1;
 }
 
 footer{
@@ -402,64 +415,43 @@ footer{
 <div class="container">
 
 
-<!-- =========================
-     اختيار جهد النظام
-========================= -->
-
 <div class="card">
 
-    <h2>
-        ⚡ اختيار جهد النظام
-    </h2>
+    <h2>⚡ اختيار جهد النظام</h2>
 
     <div class="system-options">
 
         <label class="option active">
-
             <input
                 type="radio"
                 name="system"
                 value="auto"
                 checked>
-
             🤖 تلقائي
-
         </label>
 
-
         <label class="option">
-
             <input
                 type="radio"
                 name="system"
                 value="12">
-
             🔋 12V
-
         </label>
 
-
         <label class="option">
-
             <input
                 type="radio"
                 name="system"
                 value="24">
-
             🔋 24V
-
         </label>
 
-
         <label class="option">
-
             <input
                 type="radio"
                 name="system"
                 value="48">
-
             🔋 48V
-
         </label>
 
     </div>
@@ -467,20 +459,14 @@ footer{
 </div>
 
 
-<!-- =========================
-     AI
-========================= -->
-
 <div class="card" id="agentCard">
 
-    <h2>
-        🤖 تحدث مع YAWAHAB SOLAR AI
-    </h2>
+    <h2>🤖 تحدث مع YAWAHAB SOLAR AI</h2>
 
     <p class="agent-info">
 
         اكتب الأجهزة بطريقتك الطبيعية،
-        وسيحاول النظام فهم العدد والجهاز وساعات التشغيل.
+        وسيقوم المحلل بفهم العدد والجهاز وساعات التشغيل.
 
         <br><br>
 
@@ -509,6 +495,12 @@ footer{
         <br>
 
         عندي اتنين تلاجة واربعة مراوح وتمانية لمبات
+
+        <br><br>
+
+        <span class="parser-status">
+            🟢 محلل اللهجة السودانية يعمل محلياً بدون API
+        </span>
 
     </p>
 
@@ -553,15 +545,9 @@ footer{
 </div>
 
 
-<!-- =========================
-     الأجهزة
-========================= -->
-
 <div class="card" id="devicesCard">
 
-    <h2>
-        🔌 الأجهزة والأحمال
-    </h2>
+    <h2>🔌 الأجهزة والأحمال</h2>
 
     <div
         class="devices"
@@ -572,9 +558,7 @@ footer{
     <div class="custom-device">
 
         <h3 style="color:#f5c542;margin-bottom:15px;">
-
             ➕ إضافة جهاز يدوي
-
         </h3>
 
 
@@ -617,15 +601,9 @@ footer{
 </div>
 
 
-<!-- =========================
-     إعدادات التصميم
-========================= -->
-
 <div class="card" id="settingsCard">
 
-    <h2>
-        ⚙️ إعدادات التصميم
-    </h2>
+    <h2>⚙️ إعدادات التصميم</h2>
 
 
     <div class="device">
@@ -643,9 +621,7 @@ footer{
 
         <div class="input-group">
 
-            <label>
-                ساعات
-            </label>
+            <label>ساعات</label>
 
             <input
                 type="number"
@@ -674,9 +650,7 @@ footer{
 
         <div class="input-group">
 
-            <label>
-                ساعات
-            </label>
+            <label>ساعات</label>
 
             <input
                 type="number"
@@ -692,17 +666,13 @@ footer{
     <div class="device">
 
         <div class="device-name">
-
             ☀️ قدرة اللوح الشمسي
-
         </div>
 
 
         <div class="input-group">
 
-            <label>
-                W
-            </label>
+            <label>W</label>
 
             <input
                 type="number"
@@ -734,15 +704,9 @@ footer{
 </div>
 
 
-<!-- =========================
-     النتائج
-========================= -->
-
 <div class="card results" id="results">
 
-    <h2>
-        📊 تقرير YAWAHAB SOLAR AI
-    </h2>
+    <h2>📊 تقرير YAWAHAB SOLAR AI</h2>
 
 
     <div class="result-grid">
@@ -757,9 +721,7 @@ footer{
             <div
                 class="result-value"
                 id="totalPower">
-
                 0 W
-
             </div>
 
         </div>
@@ -774,9 +736,7 @@ footer{
             <div
                 class="result-value"
                 id="dailyEnergy">
-
                 0 kWh
-
             </div>
 
         </div>
@@ -791,9 +751,7 @@ footer{
             <div
                 class="result-value"
                 id="systemVoltage">
-
                 0V
-
             </div>
 
         </div>
@@ -808,9 +766,7 @@ footer{
             <div
                 class="result-value"
                 id="inverter">
-
                 -
-
             </div>
 
         </div>
@@ -825,9 +781,7 @@ footer{
             <div
                 class="result-value"
                 id="battery">
-
                 -
-
             </div>
 
         </div>
@@ -842,9 +796,7 @@ footer{
             <div
                 class="result-value"
                 id="runtime">
-
                 -
-
             </div>
 
         </div>
@@ -859,9 +811,7 @@ footer{
             <div
                 class="result-value"
                 id="panels">
-
                 -
-
             </div>
 
         </div>
@@ -876,9 +826,7 @@ footer{
             <div
                 class="result-value"
                 id="pvPower">
-
                 -
-
             </div>
 
         </div>
@@ -955,9 +903,9 @@ Smart Solar Engineering System ☀️🤖
 
 <script>
 
-
 /* =========================================================
-   قاعدة بيانات الأجهزة
+   YAWAHAB SOLAR AI
+   DATABASE
 ========================================================= */
 
 const devices = [
@@ -988,7 +936,6 @@ const devices = [
     ]
 },
 
-
 {
     name:"🌀 مروحة",
     power:120,
@@ -997,8 +944,7 @@ const devices = [
     keywords:[
         "مروحة",
         "مراوح",
-        "مروحه",
-        "مراوح"
+        "مروحه"
     ],
 
     dual:[
@@ -1006,7 +952,6 @@ const devices = [
         "مروحتان"
     ]
 },
-
 
 {
     name:"📺 تلفزيون",
@@ -1026,10 +971,9 @@ const devices = [
         "تلفزيونين",
         "تلفزيونان",
         "شاشتين",
-        "شاشتان"
+        "شاشاتان"
     ]
 },
-
 
 {
     name:"🧊 ثلاجة",
@@ -1053,7 +997,6 @@ const devices = [
     ]
 },
 
-
 {
     name:"❄️ فريزر",
     power:600,
@@ -1074,7 +1017,6 @@ const devices = [
     ]
 },
 
-
 {
     name:"💧 مكيف موية / صحراوي",
     power:300,
@@ -1083,24 +1025,29 @@ const devices = [
     keywords:[
         "مكيف موية",
         "مكيف مياه",
+        "مكيف مويه",
         "مكيف صحراوي",
         "مكيف صحراوى",
         "مبرد موية",
         "مبرد ماء",
-        "مبرد صحراوي"
+        "مبرد مويه",
+        "مبرد صحراوي",
+        "مبرد صحراوى"
     ],
 
     dual:[
         "مكيفين موية",
         "مكيفين مياه",
+        "مكيفين مويه",
         "مكيفين صحراوي",
         "مكيفين صحراوى",
         "مبردين موية",
         "مبردين ماء",
-        "مبردين صحراوي"
+        "مبردين مويه",
+        "مبردين صحراوي",
+        "مبردين صحراوى"
     ]
 },
-
 
 {
     name:"❄️ مكيف اسبلت",
@@ -1111,7 +1058,7 @@ const devices = [
         "اسبلت",
         "سبلت",
         "سبليت",
-        "اسبلت",
+        "سبلت",
         "split",
         "مكيف اسبلت",
         "مكيف سبليت",
@@ -1131,7 +1078,6 @@ const devices = [
     ]
 },
 
-
 {
     name:"🧺 غسالة",
     power:600,
@@ -1149,7 +1095,6 @@ const devices = [
     ]
 },
 
-
 {
     name:"💧 مضخة 1HP",
     power:750,
@@ -1166,7 +1111,8 @@ const devices = [
         "طرمبات",
         "طرمبه",
         "موتور مياه",
-        "موتور موية"
+        "موتور موية",
+        "موتور مويه"
     ],
 
     dual:[
@@ -1178,7 +1124,6 @@ const devices = [
         "طرمبتان"
     ]
 },
-
 
 {
     name:"💻 لابتوب",
@@ -1196,7 +1141,6 @@ const devices = [
         "لابتوبان"
     ]
 },
-
 
 {
     name:"🖥️ كمبيوتر",
@@ -1218,7 +1162,6 @@ const devices = [
     ]
 },
 
-
 {
     name:"🖨️ طابعة",
     power:500,
@@ -1237,7 +1180,6 @@ const devices = [
     ]
 },
 
-
 {
     name:"📠 ماسح ضوئي",
     power:50,
@@ -1255,7 +1197,6 @@ const devices = [
         "سكانرين"
     ]
 },
-
 
 {
     name:"📹 كاميرا مراقبة",
@@ -1277,7 +1218,6 @@ const devices = [
     ]
 },
 
-
 {
     name:"📼 DVR / NVR",
     power:50,
@@ -1295,7 +1235,6 @@ const devices = [
         "مسجلان"
     ]
 },
-
 
 {
     name:"🏥 جهاز طبي",
@@ -1315,7 +1254,6 @@ const devices = [
         "جهازان طبيان"
     ]
 },
-
 
 {
     name:"🔬 جهاز مختبر",
@@ -1343,7 +1281,7 @@ const devices = [
 
 
 /* =========================================================
-   خيارات البطاريات
+   BATTERY DATABASE
 ========================================================= */
 
 const batteryOptions = {
@@ -1368,7 +1306,6 @@ const batteryOptions = {
     }
 ],
 
-
 24:[
     {
         name:"1 × Lithium 24V 200Ah",
@@ -1382,7 +1319,6 @@ const batteryOptions = {
         priority:1
     }
 ],
-
 
 48:[
     {
@@ -1414,12 +1350,12 @@ const batteryOptions = {
 
 
 /* =========================================================
-   عرض الأجهزة
+   RENDER DEVICES
 ========================================================= */
 
 function renderDevices(){
 
-    const container=
+    const container =
         document.getElementById(
             "devicesContainer"
         );
@@ -1429,7 +1365,7 @@ function renderDevices(){
 
     devices.forEach((device,index)=>{
 
-        container.innerHTML+=`
+        container.innerHTML += `
 
         <div class="device">
 
@@ -1444,12 +1380,9 @@ function renderDevices(){
 
             </div>
 
-
             <div class="input-group">
 
-                <label>
-                    العدد
-                </label>
+                <label>العدد</label>
 
                 <input
                     type="number"
@@ -1460,12 +1393,9 @@ function renderDevices(){
 
             </div>
 
-
             <div class="input-group">
 
-                <label>
-                    ساعات/يوم
-                </label>
+                <label>ساعات/يوم</label>
 
                 <input
                     type="number"
@@ -1488,39 +1418,36 @@ renderDevices();
 
 
 /* =========================================================
-   إضافة جهاز يدوي
+   CUSTOM DEVICE
 ========================================================= */
 
 function addCustomDevice(){
 
-    const name=
+    const name =
         document
         .getElementById("customName")
         .value
         .trim();
 
-
-    const power=
+    const power =
         parseFloat(
-            document
-            .getElementById("customPower")
-            .value
+            document.getElementById(
+                "customPower"
+            ).value
         );
 
-
-    const qty=
+    const qty =
         parseFloat(
-            document
-            .getElementById("customQty")
-            .value
+            document.getElementById(
+                "customQty"
+            ).value
         ) || 1;
 
-
-    const hours=
+    const hours =
         parseFloat(
-            document
-            .getElementById("customHours")
-            .value
+            document.getElementById(
+                "customHours"
+            ).value
         ) || 8;
 
 
@@ -1552,38 +1479,38 @@ function addCustomDevice(){
     renderDevices();
 
 
-    const index=
+    const index =
         devices.length-1;
 
 
-    document
-    .getElementById(`qty${index}`)
-    .value=qty;
+    document.getElementById(
+        `qty${index}`
+    ).value=qty;
 
 
-    document
-    .getElementById(`hours${index}`)
-    .value=hours;
+    document.getElementById(
+        `hours${index}`
+    ).value=hours;
 
 
-    document
-    .getElementById("customName")
-    .value="";
+    document.getElementById(
+        "customName"
+    ).value="";
 
 
-    document
-    .getElementById("customPower")
-    .value="";
+    document.getElementById(
+        "customPower"
+    ).value="";
 
 
-    document
-    .getElementById("customQty")
-    .value="1";
+    document.getElementById(
+        "customQty"
+    ).value="1";
 
 
-    document
-    .getElementById("customHours")
-    .value="8";
+    document.getElementById(
+        "customHours"
+    ).value="8";
 
 
     alert(
@@ -1594,7 +1521,7 @@ function addCustomDevice(){
 
 
 /* =========================================================
-   اختيار النظام
+   SYSTEM OPTION
 ========================================================= */
 
 document
@@ -1608,15 +1535,10 @@ document
             document
             .querySelectorAll(".option")
             .forEach(o=>{
-                o.classList.remove(
-                    "active"
-                );
+                o.classList.remove("active");
             });
 
-
-            this.classList.add(
-                "active"
-            );
+            this.classList.add("active");
 
         }
     );
@@ -1625,7 +1547,7 @@ document
 
 
 /* =========================================================
-   تطبيع الأرقام العربية
+   NORMALIZE ARABIC NUMBERS
 ========================================================= */
 
 function normalizeArabicNumbers(text){
@@ -1641,14 +1563,25 @@ function normalizeArabicNumbers(text){
         "٦":"6",
         "٧":"7",
         "٨":"8",
-        "٩":"9"
+        "٩":"9",
+
+        "۰":"0",
+        "۱":"1",
+        "۲":"2",
+        "۳":"3",
+        "۴":"4",
+        "۵":"5",
+        "۶":"6",
+        "۷":"7",
+        "۸":"8",
+        "۹":"9"
 
     };
 
 
     return String(text)
         .replace(
-            /[٠-٩]/g,
+            /[٠-٩۰-۹]/g,
             c=>map[c]
         );
 
@@ -1656,89 +1589,101 @@ function normalizeArabicNumbers(text){
 
 
 /* =========================================================
-   تطبيع النص
+   NORMALIZE ARABIC TEXT
 ========================================================= */
 
 function normalizeArabicText(text){
 
-    let s=
-        String(text||"");
+    let s =
+        String(text || "");
 
 
-    s=
+    s =
         normalizeArabicNumbers(s);
 
 
-    s=
+    s =
         s.toLowerCase();
 
 
-    /* إزالة التشكيل */
+    /*
+     * إزالة التشكيل
+     */
 
-    s=
+    s =
         s.replace(
             /[\u064B-\u065F\u0670]/g,
             ""
         );
 
 
-    /* إزالة التطويل */
+    /*
+     * إزالة التطويل
+     */
 
-    s=
+    s =
         s.replace(
             /ـ/g,
             ""
         );
 
 
-    /* توحيد الهمزات */
+    /*
+     * توحيد الألف
+     */
 
-    s=
+    s =
         s.replace(
-            /[أإآ]/g,
+            /[أإآٱ]/g,
             "ا"
         );
 
 
-    /* الياء */
+    /*
+     * توحيد الياء
+     */
 
-    s=
+    s =
         s.replace(
             /ى/g,
             "ي"
         );
 
 
-    /* واو الهمزة */
+    /*
+     * توحيد الهمزات
+     */
 
-    s=
+    s =
         s.replace(
             /ؤ/g,
             "و"
         );
 
 
-    /* ياء الهمزة */
-
-    s=
+    s =
         s.replace(
             /ئ/g,
             "ي"
         );
 
 
-    /* علامات الترقيم */
+    /*
+     * إزالة علامات الترقيم
+     */
 
-    s=
+    s =
         s.replace(
-            /[،,؛;:!?؟()\[\]{}.\-_/]/g,
+            /[،,؛;:!?؟()\[\]{}."“”'‘’\-_/\\+=*#@]/g,
             " "
         );
 
 
-    /* مسافات */
+    /*
+     * توحيد المسافات
+     */
 
-    s=
+    s =
         s.replace(
             /\s+/g,
             " "
@@ -1752,41 +1697,26 @@ function normalizeArabicText(text){
 
 
 /* =========================================================
-   حماية HTML
+   ESCAPE HTML
 ========================================================= */
 
 function escapeHTML(text){
 
     return String(text)
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-        .replace(
-            /</g,
-            "&lt;"
-        )
-        .replace(
-            />/g,
-            "&gt;"
-        )
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-        .replace(
-            /'/g,
-            "&#039;"
-        );
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
 
 }
 
 
 /* =========================================================
-   أرقام عربية + سودانية
+   SUDANESE / ARABIC NUMBER WORDS
 ========================================================= */
 
-const arabicWordNumbers={
+const arabicWordNumbers = {
 
     "صفر":0,
 
@@ -1798,20 +1728,23 @@ const arabicWordNumbers={
     "اثنان":2,
     "اثنتين":2,
     "اثنتان":2,
-    "اثنين":2,
 
     "اتنين":2,
-    "اتنين":2,
+    "اتنان":2,
+
     "تنين":2,
+    "تنين":2,
+
     "ثنتين":2,
     "ثنتان":2,
 
-    "اثنين":2,
-
     "ثلاث":3,
     "ثلاثة":3,
+    "ثلاثه":3,
+
     "تلات":3,
     "تلاتة":3,
+    "تلاته":3,
 
     "اربع":4,
     "اربعة":4,
@@ -1830,11 +1763,16 @@ const arabicWordNumbers={
     "سبعه":7,
 
     "ثمان":8,
+    "ثماني":8,
     "ثمانية":8,
-    "تمانية":8,
+
     "تماني":8,
+    "تمانية":8,
     "تمنية":8,
     "تمني":8,
+
+    "ثمانه":8,
+    "تمانيه":8,
 
     "تسع":9,
     "تسعة":9,
@@ -1848,18 +1786,17 @@ const arabicWordNumbers={
 
 
 /* =========================================================
-   تطبيع رقم سوداني
+   GET WORD NUMBER
 ========================================================= */
 
 function getWordNumber(word){
 
-    const clean=
+    const clean =
         normalizeArabicText(word);
 
 
     if(
-        Object.prototype.hasOwnProperty
-        .call(
+        Object.prototype.hasOwnProperty.call(
             arabicWordNumbers,
             clean
         )
@@ -1870,32 +1807,13 @@ function getWordNumber(word){
     }
 
 
-    return 0;
+    return null;
 
 }
 
 
 /* =========================================================
-   اختبار هل النص يحتوي على كلمة
-========================================================= */
-
-function hasWord(text,word){
-
-    const pattern=
-        new RegExp(
-            "(^|\\s)"+
-            escapeRegExp(word)+
-            "(?=\\s|$)"
-        );
-
-
-    return pattern.test(text);
-
-}
-
-
-/* =========================================================
-   Escape Regex
+   ESCAPE REGEX
 ========================================================= */
 
 function escapeRegExp(text){
@@ -1910,48 +1828,454 @@ function escapeRegExp(text){
 
 
 /* =========================================================
-   مطابقة عبارة
+   TOKENIZE
 ========================================================= */
 
-function containsPhrase(text,phrase){
+function tokenize(text){
 
-    const p=
+    return normalizeArabicText(text)
+        .split(/\s+/)
+        .filter(Boolean);
+
+}
+
+
+/* =========================================================
+   EXACT PHRASE
+========================================================= */
+
+function phraseRegex(phrase){
+
+    const p =
         normalizeArabicText(
             phrase
         );
 
+    return new RegExp(
+        "(^|\\s)" +
+        escapeRegExp(p) +
+        "(?=\\s|$)",
+        "i"
+    );
 
-    if(!p){
+}
+
+
+function containsPhrase(
+    text,
+    phrase
+){
+
+    const normalizedText =
+        normalizeArabicText(text);
+
+    const normalizedPhrase =
+        normalizeArabicText(phrase);
+
+
+    if(!normalizedPhrase){
+
         return false;
+
     }
 
 
-    return (
-        text===p ||
-        text.includes(" "+p+" ") ||
-        text.startsWith(p+" ") ||
-        text.endsWith(" "+p)
+    return phraseRegex(
+        normalizedPhrase
+    ).test(
+        normalizedText
     );
 
 }
 
 
 /* =========================================================
-   محلل الكمية الذكي
+   ALIAS LIST
 ========================================================= */
 
-function getQuantity(message,device){
+function getAliases(device){
 
-    const text=
-        normalizeArabicText(
-            message
+    return [
+        ...(device.keywords || []),
+        ...(device.dual || [])
+    ]
+    .map(
+        x =>
+            normalizeArabicText(x)
+    )
+    .filter(Boolean)
+    .filter(
+        (x,i,a)=>
+            a.indexOf(x)===i
+    )
+    .sort(
+        (a,b)=>
+            b.length-a.length
+    );
+
+}
+
+
+/* =========================================================
+   MATCH TOKEN SEQUENCE
+========================================================= */
+
+function sequenceMatches(
+    tokens,
+    start,
+    aliasTokens
+){
+
+    if(
+        start<0 ||
+        start+aliasTokens.length >
+        tokens.length
+    ){
+
+        return false;
+
+    }
+
+
+    for(
+        let i=0;
+        i<aliasTokens.length;
+        i++
+    ){
+
+        if(
+            tokens[start+i] !==
+            aliasTokens[i]
+        ){
+
+            return false;
+
+        }
+
+    }
+
+
+    return true;
+
+}
+
+
+/* =========================================================
+   NUMERIC QUANTITY BEFORE ALIAS
+
+   2 ثلاجة
+   10 لمبات
+   ٣ مراوح
+   2 من الثلاجات
+========================================================= */
+
+function findNumericQuantityBefore(
+    text,
+    alias
+){
+
+    const a =
+        normalizeArabicText(alias);
+
+
+    if(!a){
+
+        return null;
+
+    }
+
+
+    const regex =
+        new RegExp(
+            "(^|\\s)" +
+            "(\\d+(?:\\.\\d+)?)" +
+            "\\s+" +
+            "(?:من\\s+)?" +
+            escapeRegExp(a) +
+            "(?=\\s|$)",
+            "i"
         );
 
 
-    const keywords=
-        (device.keywords||[])
-        .map(k=>
-            normalizeArabicText(k)
+    const match =
+        text.match(regex);
+
+
+    if(match){
+
+        const value =
+            parseFloat(
+                match[2]
+            );
+
+
+        if(
+            Number.isFinite(value) &&
+            value>0
+        ){
+
+            return value;
+
+        }
+
+    }
+
+
+    return null;
+
+}
+
+
+/* =========================================================
+   NUMERIC QUANTITY AFTER ALIAS
+
+   ثلاجة 2
+   لمبات 10
+========================================================= */
+
+function findNumericQuantityAfter(
+    text,
+    alias
+){
+
+    const a =
+        normalizeArabicText(alias);
+
+
+    if(!a){
+
+        return null;
+
+    }
+
+
+    const regex =
+        new RegExp(
+            "(^|\\s)" +
+            escapeRegExp(a) +
+            "\\s+" +
+            "(\\d+(?:\\.\\d+)?)" +
+            "(?=\\s|$)",
+            "i"
+        );
+
+
+    const match =
+        text.match(regex);
+
+
+    if(match){
+
+        const value =
+            parseFloat(
+                match[2]
+            );
+
+
+        if(
+            Number.isFinite(value) &&
+            value>0
+        ){
+
+            return value;
+
+        }
+
+    }
+
+
+    return null;
+
+}
+
+
+/* =========================================================
+   WORD QUANTITY BEFORE ALIAS
+
+   تلاتة تلاجات
+   خمسة مراوح
+   اتنين اسبلت
+   اربعة لمبات
+   اتنين من التلاجات
+========================================================= */
+
+function findWordQuantityBefore(
+    text,
+    alias
+){
+
+    const tokens =
+        tokenize(text);
+
+
+    const aliasTokens =
+        tokenize(alias);
+
+
+    if(
+        !aliasTokens.length
+    ){
+
+        return null;
+
+    }
+
+
+    for(
+        let i=0;
+        i<tokens.length;
+        i++
+    ){
+
+        const number =
+            getWordNumber(
+                tokens[i]
+            );
+
+
+        if(
+            number===null
+        ){
+
+            continue;
+
+        }
+
+
+        let start =
+            i+1;
+
+
+        if(
+            tokens[start]==="من"
+        ){
+
+            start++;
+
+        }
+
+
+        if(
+            sequenceMatches(
+                tokens,
+                start,
+                aliasTokens
+            )
+        ){
+
+            if(
+                number>0
+            ){
+
+                return number;
+
+            }
+
+        }
+
+    }
+
+
+    return null;
+
+}
+
+
+/* =========================================================
+   WORD QUANTITY AFTER ALIAS
+
+   ثلاجة واحدة
+   تلاجات ثلاثة
+========================================================= */
+
+function findWordQuantityAfter(
+    text,
+    alias
+){
+
+    const tokens =
+        tokenize(text);
+
+
+    const aliasTokens =
+        tokenize(alias);
+
+
+    if(
+        !aliasTokens.length
+    ){
+
+        return null;
+
+    }
+
+
+    for(
+        let i=0;
+        i<tokens.length;
+        i++
+    ){
+
+        if(
+            !sequenceMatches(
+                tokens,
+                i,
+                aliasTokens
+            )
+        ){
+
+            continue;
+
+        }
+
+
+        const numberIndex =
+            i + aliasTokens.length;
+
+
+        const number =
+            getWordNumber(
+                tokens[numberIndex]
+            );
+
+
+        if(
+            number!==null &&
+            number>0
+        ){
+
+            return number;
+
+        }
+
+    }
+
+
+    return null;
+
+}
+
+
+/* =========================================================
+   SPECIAL DUAL FORMS
+
+   ثلاجتين
+   تلاجتين
+   مروحتين
+   مكيفين موية
+   اسبلتين
+========================================================= */
+
+function findDualQuantity(
+    text,
+    device
+){
+
+    const dual =
+        (device.dual || [])
+        .map(
+            x =>
+                normalizeArabicText(x)
         )
         .filter(Boolean)
         .sort(
@@ -1959,24 +2283,6 @@ function getQuantity(message,device){
                 b.length-a.length
         );
 
-
-    const dual=
-        (device.dual||[])
-        .map(k=>
-            normalizeArabicText(k)
-        )
-        .filter(Boolean)
-        .sort(
-            (a,b)=>
-                b.length-a.length
-        );
-
-
-    /* =====================================================
-       المرحلة 1
-       الصيغ الثنائية الصريحة
-       مثال: ثلاجتين / مروحتين / فريزرين
-    ===================================================== */
 
     for(
         const form of dual
@@ -1996,265 +2302,188 @@ function getQuantity(message,device){
     }
 
 
-    /* =====================================================
-       المرحلة 2
-       أرقام مباشرة قبل الجهاز
-       2 ثلاجة
-       ٢ ثلاجات
-       10 لمبات
-    ===================================================== */
+    return null;
 
-    for(
-        const keyword of keywords
+}
+
+
+/* =========================================================
+   GET DEVICE QUANTITY
+
+   PRIORITY:
+
+   1. Explicit dual form
+   2. Numeric before
+   3. Numeric after
+   4. Word number before
+   5. Word number after
+   6. Plain device
+
+========================================================= */
+
+function getQuantity(
+    message,
+    device
+){
+
+    const text =
+        normalizeArabicText(
+            message
+        );
+
+
+    /*
+     * 1
+     * Dual forms first.
+     *
+     * This is critical:
+     *
+     * ثلاجتين
+     *
+     * must NOT become
+     * ثلاجة = 1
+     */
+
+    const dualQuantity =
+        findDualQuantity(
+            text,
+            device
+        );
+
+
+    if(
+        dualQuantity!==null
     ){
 
-        const escaped=
-            escapeRegExp(
-                keyword
-            );
-
-
-        const regexBefore=
-            new RegExp(
-                "(^|\\s)(\\d+(?:\\.\\d+)?)\\s*"+
-                escaped+
-                "(?=\\s|$)"
-            );
-
-
-        const matchBefore=
-            text.match(
-                regexBefore
-            );
-
-
-        if(matchBefore){
-
-            const q=
-                parseFloat(
-                    matchBefore[2]
-                );
-
-
-            if(
-                q>0
-            ){
-
-                return q;
-
-            }
-
-        }
+        return dualQuantity;
 
     }
 
 
-    /* =====================================================
-       المرحلة 3
-       الجهاز ثم الرقم
-       ثلاجة 2
-       مروحة 3
-    ===================================================== */
+    const aliases =
+        (device.keywords || [])
+        .map(
+            x =>
+                normalizeArabicText(x)
+        )
+        .filter(Boolean)
+        .filter(
+            (x,i,a)=>
+                a.indexOf(x)===i
+        )
+        .sort(
+            (a,b)=>
+                b.length-a.length
+        );
+
+
+    /*
+     * 2 + 3
+     * Numeric quantity
+     */
 
     for(
-        const keyword of keywords
+        const alias of aliases
     ){
 
-        const escaped=
-            escapeRegExp(
-                keyword
-            );
-
-
-        const regexAfter=
-            new RegExp(
-                escaped+
-                "\\s*(\\d+(?:\\.\\d+)?)"+
-                "(?=\\s|$)"
-            );
-
-
-        const matchAfter=
-            text.match(
-                regexAfter
-            );
-
-
-        if(matchAfter){
-
-            const q=
-                parseFloat(
-                    matchAfter[1]
-                );
-
-
-            if(
-                q>0
-            ){
-
-                return q;
-
-            }
-
-        }
-
-    }
-
-
-    /* =====================================================
-       المرحلة 4
-       رقم مكتوب بالكلمات
-       تلاتة تلاجات
-       خمسة مراوح
-       اتنين اسبلت
-    ===================================================== */
-
-    const tokens=
-        text
-        .split(/\s+/)
-        .filter(Boolean);
-
-
-    for(
-        let i=0;
-        i<tokens.length;
-        i++
-    ){
-
-        const n=
-            getWordNumber(
-                tokens[i]
+        const before =
+            findNumericQuantityBefore(
+                text,
+                alias
             );
 
 
         if(
-            n<=0
+            before!==null
         ){
 
-            continue;
+            return before;
 
         }
 
 
-        for(
-            let j=1;
-            j<=3;
-            j++
-        ){
-
-            const candidate=
-                tokens[i+j];
-
-
-            if(!candidate){
-
-                continue;
-
-            }
-
-
-            const isDevice=
-                keywords.some(
-                    keyword=>{
-
-                        return (
-                            candidate===keyword ||
-                            candidate.startsWith(keyword) ||
-                            keyword.startsWith(candidate)
-                        );
-
-                    }
-                );
-
-
-            if(isDevice){
-
-                return n;
-
-            }
-
-        }
-
-    }
-
-
-    /* =====================================================
-       المرحلة 5
-       حالة "واحد"
-       ثلاجة واحدة
-       مروحة واحده
-    ===================================================== */
-
-    for(
-        let i=0;
-        i<tokens.length;
-        i++
-    ){
-
-        const current=
-            tokens[i];
+        const after =
+            findNumericQuantityAfter(
+                text,
+                alias
+            );
 
 
         if(
-            current!=="واحدة" &&
-            current!=="واحده" &&
-            current!=="واحد"
+            after!==null
         ){
 
-            continue;
-
-        }
-
-
-        for(
-            let j=1;
-            j<=3;
-            j++
-        ){
-
-            const candidate=
-                tokens[i+j];
-
-
-            if(!candidate){
-
-                continue;
-
-            }
-
-
-            if(
-                keywords.some(
-                    keyword=>
-                        candidate===keyword ||
-                        candidate.startsWith(keyword) ||
-                        keyword.startsWith(candidate)
-                )
-            ){
-
-                return 1;
-
-            }
+            return after;
 
         }
 
     }
 
 
-    /* =====================================================
-       المرحلة 6
-       ظهور الجهاز بدون رقم
-       = 1
-    ===================================================== */
+    /*
+     * Word numbers
+     */
 
     for(
-        const keyword of keywords
+        const alias of aliases
+    ){
+
+        const before =
+            findWordQuantityBefore(
+                text,
+                alias
+            );
+
+
+        if(
+            before!==null
+        ){
+
+            return before;
+
+        }
+
+
+        const after =
+            findWordQuantityAfter(
+                text,
+                alias
+            );
+
+
+        if(
+            after!==null
+        ){
+
+            return after;
+
+        }
+
+    }
+
+
+    /*
+     * Plain device
+     *
+     * Exact phrase only.
+     *
+     * Therefore:
+     *
+     * مكيف موية
+     *
+     * does not match:
+     *
+     * مكيفين موية
+     */
+
+    for(
+        const alias of aliases
     ){
 
         if(
             containsPhrase(
                 text,
-                keyword
+                alias
             )
         ){
 
@@ -2271,12 +2500,14 @@ function getQuantity(message,device){
 
 
 /* =========================================================
-   محلل خاص للجمل المركبة
+   PARSE SOLAR MESSAGE
 ========================================================= */
 
-function parseSolarMessage(message){
+function parseSolarMessage(
+    message
+){
 
-    const text=
+    const text =
         normalizeArabicText(
             message
         );
@@ -2285,16 +2516,12 @@ function parseSolarMessage(message){
     const detected=[];
 
 
-    /* =====================================================
-       اكتشاف الأجهزة
-    ===================================================== */
-
     devices.forEach(
         (device,index)=>{
 
             if(
                 !device.keywords ||
-                device.keywords.length===0
+                !device.keywords.length
             ){
 
                 return;
@@ -2302,7 +2529,7 @@ function parseSolarMessage(message){
             }
 
 
-            const qty=
+            const qty =
                 getQuantity(
                     text,
                     device
@@ -2329,258 +2556,41 @@ function parseSolarMessage(message){
     );
 
 
-    /* =====================================================
-       معالجة مكيف الموية
-    ===================================================== */
-
-    const waterIndex=
-        devices.findIndex(
-            d=>
-                d.name.includes(
-                    "مكيف موية"
-                )
-        );
-
-
-    if(
-        waterIndex>=0
-    ){
-
-        let qty=0;
-
-
-        if(
-            /(مكيفين موية|مكيفين مياه|مكيفين صحراوي|مكيفين صحراوى|مبردين موية|مبردين ماء)/.test(text)
-        ){
-
-            qty=2;
-
-        }
-
-
-        /* 3 مكيف موية */
-
-        const match=
-            text.match(
-                /(\d+)\s*(?:مكيف موية|مكيف مياه|مكيف صحراوي|مكيف صحراوى)/
-            );
-
-
-        if(match){
-
-            qty=
-                parseInt(
-                    match[1]
-                );
-
-        }
-
-
-        /* تلاتة مكيف موية */
-
-        const wordMatch=
-            text.match(
-                /(ثلاثة|ثلاث|تلاتة|تلات|اربعة|اربعه|خمسة|خمسه|ستة|سته|سبعة|سبعه|تمانية|تماني|تسعة|تسعه|عشرة|عشر)\s+(?:مكيف موية|مكيف مياه|مكيف صحراوي|مكيف صحراوى)/
-            );
-
-
-        if(wordMatch){
-
-            const wordQty=
-                getWordNumber(
-                    wordMatch[1]
-                );
-
-
-            if(
-                wordQty>0
-            ){
-
-                qty=wordQty;
-
-            }
-
-        }
-
-
-        if(
-            qty>0
-        ){
-
-            const existing=
-                detected.find(
-                    x=>
-                        x.index===waterIndex
-                );
-
-
-            if(existing){
-
-                existing.qty=
-                    Math.max(
-                        existing.qty,
-                        qty
-                    );
-
-            }else{
-
-                detected.push({
-
-                    index:waterIndex,
-
-                    device:
-                        devices[waterIndex],
-
-                    qty:qty
-
-                });
-
-            }
-
-        }
-
-    }
-
-
-    /* =====================================================
-       معالجة الاسبلت
-    ===================================================== */
-
-    const splitIndex=
-        devices.findIndex(
-            d=>
-                d.name.includes(
-                    "مكيف اسبلت"
-                )
-        );
-
-
-    if(
-        splitIndex>=0
-    ){
-
-        let qty=0;
-
-
-        if(
-            /(اسبلتين|اسبلتان|سبلتين|سبلتان|سبليتين|سبليتان|مكيفين اسبلت|مكيفين سبليت|مكيفين سبلت)/.test(text)
-        ){
-
-            qty=2;
-
-        }
-
-
-        const numeric=
-            text.match(
-                /(\d+)\s*(?:اسبلت|سبلت|سبليت|مكيف اسبلت|مكيف سبليت|مكيف سبلت)/
-            );
-
-
-        if(numeric){
-
-            qty=
-                parseInt(
-                    numeric[1]
-                );
-
-        }
-
-
-        const wordMatch=
-            text.match(
-                /(اثنين|اثنين|اتنين|ثلاثة|ثلاث|تلاتة|تلات|اربعة|اربعه|خمسة|خمسه|ستة|سته|سبعة|سبعه|تمانية|تماني|تسعة|تسعه|عشرة|عشر)\s+(?:اسبلت|سبلت|سبليت)/
-            );
-
-
-        if(wordMatch){
-
-            const wordQty=
-                getWordNumber(
-                    wordMatch[1]
-                );
-
-
-            if(
-                wordQty>0
-            ){
-
-                qty=wordQty;
-
-            }
-
-        }
-
-
-        if(
-            qty>0
-        ){
-
-            const existing=
-                detected.find(
-                    x=>
-                        x.index===splitIndex
-                );
-
-
-            if(existing){
-
-                existing.qty=
-                    Math.max(
-                        existing.qty,
-                        qty
-                    );
-
-            }else{
-
-                detected.push({
-
-                    index:splitIndex,
-
-                    device:
-                        devices[splitIndex],
-
-                    qty:qty
-
-                });
-
-            }
-
-        }
-
-    }
-
-
-    /* =====================================================
-       إزالة التكرار
-    ===================================================== */
-
-    const unique=[];
+    /*
+     * حماية إضافية من التكرار
+     */
+
+    const uniqueMap =
+        new Map();
 
 
     detected.forEach(
         item=>{
 
-            const existing=
-                unique.find(
-                    x=>
-                        x.index===item.index
+            if(
+                !uniqueMap.has(
+                    item.index
+                )
+            ){
+
+                uniqueMap.set(
+                    item.index,
+                    item
                 );
-
-
-            if(existing){
-
-                existing.qty=
-                    Math.max(
-                        existing.qty,
-                        item.qty
-                    );
 
             }else{
 
-                unique.push(
-                    item
-                );
+                const old =
+                    uniqueMap.get(
+                        item.index
+                    );
+
+
+                old.qty =
+                    Math.max(
+                        old.qty,
+                        item.qty
+                    );
 
             }
 
@@ -2588,41 +2598,58 @@ function parseSolarMessage(message){
     );
 
 
-    return unique;
+    return Array.from(
+        uniqueMap.values()
+    );
 
 }
 
 
 /* =========================================================
-   استخراج ساعات التشغيل
+   HOURS PARSER
 ========================================================= */
 
-function getHoursFromMessage(message){
+function getHoursFromMessage(
+    message
+){
 
-    const text=
+    const text =
         normalizeArabicText(
             message
         );
 
 
-    /* أرقام */
+    /*
+     * 8 ساعات
+     * ٨ ساعات
+     * لمدة 8 ساعات
+     * تشغيل 8 ساعات
+     */
 
-    const match=
+    const numericRegex =
+        /(?:لمدة\s+|تشغيل\s+|حوالي\s+|لمده\s+)?(\d+(?:\.\d+)?)\s*(?:ساعة|ساعات|ساعه)(?=\s|$)/i;
+
+
+    const numericMatch =
         text.match(
-            /(\d+(?:\.\d+)?)\s*(?:ساعة|ساعات|ساعه|ساعة تشغيل|ساعات تشغيل)/
+            numericRegex
         );
 
 
-    if(match){
+    if(
+        numericMatch
+    ){
 
-        const hours=
+        const hours =
             parseFloat(
-                match[1]
+                numericMatch[1]
             );
 
 
         if(
-            hours>0
+            Number.isFinite(hours) &&
+            hours>0 &&
+            hours<=24
         ){
 
             return hours;
@@ -2632,63 +2659,61 @@ function getHoursFromMessage(message){
     }
 
 
-    /* أرقام بالكلمات */
+    /*
+     * Word hours
+     *
+     * تمانية ساعات
+     * تماني ساعات
+     * تمنية ساعات
+     * ثمانية ساعات
+     * ست ساعات
+     */
 
-    const wordHours={
-
-        "واحد":1,
-        "واحدة":1,
-        "اثنين":2,
-        "اثنان":2,
-        "اتنين":2,
-        "ثلاث":3,
-        "ثلاثة":3,
-        "تلات":3,
-        "تلاتة":3,
-        "اربع":4,
-        "اربعة":4,
-        "اربعه":4,
-        "خمس":5,
-        "خمسة":5,
-        "خمسه":5,
-        "ست":6,
-        "ستة":6,
-        "سته":6,
-        "سبع":7,
-        "سبعة":7,
-        "سبعه":7,
-        "ثمان":8,
-        "ثمانية":8,
-        "تمانية":8,
-        "تماني":8,
-        "تمنية":8,
-        "تسع":9,
-        "تسعة":9,
-        "تسعه":9,
-        "عشر":10,
-        "عشرة":10,
-        "عشره":10
-
-    };
+    const tokens =
+        tokenize(text);
 
 
-    const wordRegex=
-        /(واحد|واحدة|اثنين|اثنان|اتنين|ثلاث|ثلاثة|تلات|تلاتة|اربع|اربعة|اربعه|خمس|خمسة|خمسه|ست|ستة|سته|سبع|سبعة|سبعه|ثمان|ثمانية|تمانية|تماني|تمنية|تسع|تسعة|تسعه|عشر|عشرة|عشره)\s+(?:ساعة|ساعات|ساعه)/;
+    for(
+        let i=0;
+        i<tokens.length;
+        i++
+    ){
+
+        const number =
+            getWordNumber(
+                tokens[i]
+            );
 
 
-    const wordMatch=
-        text.match(
-            wordRegex
-        );
+        if(
+            number===null
+        ){
+
+            continue;
+
+        }
 
 
-    if(wordMatch){
+        const next =
+            tokens[i+1];
 
-        return wordHours[
-            wordMatch[1]
-        ] || getWordNumber(
-            wordMatch[1]
-        );
+
+        if(
+            next==="ساعة" ||
+            next==="ساعات" ||
+            next==="ساعه"
+        ){
+
+            if(
+                number>0 &&
+                number<=24
+            ){
+
+                return number;
+
+            }
+
+        }
 
     }
 
@@ -2699,7 +2724,7 @@ function getHoursFromMessage(message){
 
 
 /* =========================================================
-   تطبيق الأجهزة المكتشفة
+   APPLY DETECTED DEVICES
 ========================================================= */
 
 function applyDetectedDevices(
@@ -2707,16 +2732,20 @@ function applyDetectedDevices(
     hours
 ){
 
+    /*
+     * تصفير الأجهزة القديمة
+     */
+
     devices.forEach(
         (device,index)=>{
 
-            const qtyInput=
+            const qtyInput =
                 document.getElementById(
                     `qty${index}`
                 );
 
 
-            const hoursInput=
+            const hoursInput =
                 document.getElementById(
                     `hours${index}`
                 );
@@ -2731,7 +2760,7 @@ function applyDetectedDevices(
 
             if(hoursInput){
 
-                hoursInput.value=
+                hoursInput.value =
                     device.hours;
 
             }
@@ -2740,16 +2769,20 @@ function applyDetectedDevices(
     );
 
 
+    /*
+     * تطبيق الأجهزة المكتشفة
+     */
+
     detected.forEach(
         item=>{
 
-            const qtyInput=
+            const qtyInput =
                 document.getElementById(
                     `qty${item.index}`
                 );
 
 
-            const hoursInput=
+            const hoursInput =
                 document.getElementById(
                     `hours${item.index}`
                 );
@@ -2757,7 +2790,7 @@ function applyDetectedDevices(
 
             if(qtyInput){
 
-                qtyInput.value=
+                qtyInput.value =
                     item.qty;
 
             }
@@ -2765,10 +2798,10 @@ function applyDetectedDevices(
 
             if(
                 hoursInput &&
-                hours
+                hours!==null
             ){
 
-                hoursInput.value=
+                hoursInput.value =
                     hours;
 
             }
@@ -2776,11 +2809,41 @@ function applyDetectedDevices(
         }
     );
 
+
+    /*
+     * إذا حدد المستخدم مدة:
+     *
+     * لمدة 8 ساعات
+     *
+     * يتم استخدامها أيضاً
+     * لتصميم البطارية.
+     */
+
+    if(
+        hours!==null &&
+        hours>0
+    ){
+
+        const backup =
+            document.getElementById(
+                "backupHours"
+            );
+
+
+        if(backup){
+
+            backup.value =
+                hours;
+
+        }
+
+    }
+
 }
 
 
 /* =========================================================
-   عرض الأجهزة المكتشفة
+   DETECTED HTML
 ========================================================= */
 
 function detectedHTML(
@@ -2802,7 +2865,7 @@ function detectedHTML(
             جرّب:
 
             <b>
-            ثلاجتين ومروحتين و10 لمبات
+                ثلاجتين ومروحتين و10 لمبات
             </b>
 
         </div>
@@ -2812,7 +2875,7 @@ function detectedHTML(
     }
 
 
-    let html=`
+    let html = `
 
     <div class="detected">
 
@@ -2828,13 +2891,15 @@ function detectedHTML(
     detected.forEach(
         item=>{
 
-            html+=`
+            html += `
 
             • ${escapeHTML(
                 item.device.name
             )}
 
-            × <b>
+            ×
+
+            <b>
                 ${item.qty}
             </b>
 
@@ -2846,7 +2911,7 @@ function detectedHTML(
     );
 
 
-    html+=`
+    html += `
 
     </div>
 
@@ -2859,7 +2924,7 @@ function detectedHTML(
 
 
 /* =========================================================
-   حساب البطارية
+   BATTERY CALCULATION
 ========================================================= */
 
 function calculateRequiredBatteryKwh(
@@ -2867,34 +2932,32 @@ function calculateRequiredBatteryKwh(
     backupHours
 ){
 
-    const inverterEfficiency=
+    const inverterEfficiency =
         0.92;
 
 
-    const batteryDoD=
+    const batteryDoD =
         0.90;
 
 
     return (
-
         (
-            totalPower*
-            backupHours/
+            totalPower *
+            backupHours /
             1000
         )
         /
         (
-            inverterEfficiency*
+            inverterEfficiency *
             batteryDoD
         )
-
     );
 
 }
 
 
 /* =========================================================
-   اختيار النظام
+   SYSTEM VOLTAGE
 ========================================================= */
 
 function selectSystemVoltage(
@@ -2902,13 +2965,13 @@ function selectSystemVoltage(
     requiredBatteryKwh
 ){
 
-    const selected=
+    const selected =
         document.querySelector(
             'input[name="system"]:checked'
         );
 
 
-    const requested=
+    const requested =
         selected
         ? selected.value
         : "auto";
@@ -2926,8 +2989,8 @@ function selectSystemVoltage(
 
 
     /*
-        12V للأحمال الصغيرة
-    */
+     * 12V
+     */
 
     if(
 
@@ -2935,8 +2998,8 @@ function selectSystemVoltage(
 
         batteryOptions[12]
         .some(
-            b=>
-                b.kwh>=
+            b =>
+                b.kwh >=
                 requiredBatteryKwh
         )
 
@@ -2948,8 +3011,8 @@ function selectSystemVoltage(
 
 
     /*
-        24V
-    */
+     * 24V
+     */
 
     if(
 
@@ -2957,8 +3020,8 @@ function selectSystemVoltage(
 
         batteryOptions[24]
         .some(
-            b=>
-                b.kwh>=
+            b =>
+                b.kwh >=
                 requiredBatteryKwh
         )
 
@@ -2970,8 +3033,8 @@ function selectSystemVoltage(
 
 
     /*
-        48V
-    */
+     * 48V
+     */
 
     return 48;
 
@@ -2979,7 +3042,7 @@ function selectSystemVoltage(
 
 
 /* =========================================================
-   اختيار البطارية
+   BATTERY SELECTION
 ========================================================= */
 
 function selectBattery(
@@ -2987,7 +3050,7 @@ function selectBattery(
     requiredKwh
 ){
 
-    const options=
+    const options =
         batteryOptions[
             voltage
         ] || [];
@@ -3002,7 +3065,7 @@ function selectBattery(
     }
 
 
-    const sorted=
+    const sorted =
         [...options]
         .sort(
             (a,b)=>{
@@ -3012,14 +3075,15 @@ function selectBattery(
                 ){
 
                     return (
-                        a.kwh-b.kwh
+                        a.kwh -
+                        b.kwh
                     );
 
                 }
 
 
                 return (
-                    a.priority-
+                    a.priority -
                     b.priority
                 );
 
@@ -3027,10 +3091,10 @@ function selectBattery(
         );
 
 
-    const exact=
+    const exact =
         sorted.find(
-            b=>
-                b.kwh>=
+            b =>
+                b.kwh >=
                 requiredKwh
         );
 
@@ -3042,15 +3106,20 @@ function selectBattery(
     }
 
 
-    const largest=
+    /*
+     * إذا كانت البطارية المطلوبة أكبر
+     * من أكبر بطارية مفردة
+     */
+
+    const largest =
         sorted[
             sorted.length-1
         ];
 
 
-    const count=
+    const count =
         Math.ceil(
-            requiredKwh/
+            requiredKwh /
             largest.kwh
         );
 
@@ -3067,7 +3136,7 @@ function selectBattery(
             }`,
 
         kwh:
-            largest.kwh*
+            largest.kwh *
             count,
 
         priority:
@@ -3079,7 +3148,7 @@ function selectBattery(
 
 
 /* =========================================================
-   اختيار الانفيرتر
+   INVERTER SELECTION
 ========================================================= */
 
 function selectInverter(
@@ -3091,9 +3160,9 @@ function selectInverter(
         totalPower>11000
     ){
 
-        const count=
+        const count =
             Math.ceil(
-                totalPower/
+                totalPower /
                 11000
             );
 
@@ -3104,7 +3173,7 @@ function selectInverter(
                 `${count} × 11kW أو Deye High Voltage`,
 
             capacity:
-                count*
+                count *
                 11000
 
         };
@@ -3123,9 +3192,9 @@ function selectInverter(
         ];
 
 
-        const selected=
+        const selected =
             sizes.find(
-                x=>
+                x =>
                     x>=totalPower
             );
 
@@ -3170,9 +3239,9 @@ function selectInverter(
         ];
 
 
-        const selected=
+        const selected =
             sizes.find(
-                x=>
+                x =>
                     x>=totalPower
             );
 
@@ -3214,9 +3283,9 @@ function selectInverter(
     ];
 
 
-    const selected=
+    const selected =
         sizes.find(
-            x=>
+            x =>
                 x>=totalPower
         );
 
@@ -3250,7 +3319,7 @@ function selectInverter(
 
 
 /* =========================================================
-   حساب النظام
+   SOLAR CALCULATION
 ========================================================= */
 
 function calculateSolar(){
@@ -3263,13 +3332,13 @@ function calculateSolar(){
     devices.forEach(
         (device,index)=>{
 
-            const qtyInput=
+            const qtyInput =
                 document.getElementById(
                     `qty${index}`
                 );
 
 
-            const hoursInput=
+            const hoursInput =
                 document.getElementById(
                     `hours${index}`
                 );
@@ -3285,13 +3354,13 @@ function calculateSolar(){
             }
 
 
-            const qty=
+            const qty =
                 parseFloat(
                     qtyInput.value
                 ) || 0;
 
 
-            const hours=
+            const hours =
                 parseFloat(
                     hoursInput.value
                 ) || 0;
@@ -3307,14 +3376,14 @@ function calculateSolar(){
             }
 
 
-            totalPower+=
-                device.power*
+            totalPower +=
+                device.power *
                 qty;
 
 
-            dailyWh+=
-                device.power*
-                qty*
+            dailyWh +=
+                device.power *
+                qty *
                 hours;
 
         }
@@ -3334,58 +3403,52 @@ function calculateSolar(){
     }
 
 
-    const backupHours=
+    const backupHours =
         parseFloat(
-            document
-            .getElementById(
+            document.getElementById(
                 "backupHours"
-            )
-            .value
+            ).value
         ) || 8;
 
 
-    const sunHours=
+    const sunHours =
         parseFloat(
-            document
-            .getElementById(
+            document.getElementById(
                 "sunHours"
-            )
-            .value
+            ).value
         ) || 5.5;
 
 
-    const panelPower=
+    const panelPower =
         parseFloat(
-            document
-            .getElementById(
+            document.getElementById(
                 "panelPower"
-            )
-            .value
+            ).value
         ) || 585;
 
 
-    const requiredBatteryKwh=
+    const requiredBatteryKwh =
         calculateRequiredBatteryKwh(
             totalPower,
             backupHours
         );
 
 
-    const voltage=
+    const voltage =
         selectSystemVoltage(
             totalPower,
             requiredBatteryKwh
         );
 
 
-    const battery=
+    const battery =
         selectBattery(
             voltage,
             requiredBatteryKwh
         );
 
 
-    const inverter=
+    const inverter =
         selectInverter(
             voltage,
             totalPower
@@ -3395,79 +3458,79 @@ function calculateSolar(){
     let runtime=0;
 
 
-    if(
-        battery
-    ){
+    if(battery){
 
-        runtime=
+        runtime =
             (
-                battery.kwh*
-                0.90*
+                battery.kwh *
+                0.90 *
                 0.92
             )
             /
             (
-                totalPower/1000
+                totalPower /
+                1000
             );
 
     }
 
 
-    const requiredPvPower=
-        dailyWh/
+    const requiredPvPower =
+        dailyWh /
         (
-            sunHours*
+            sunHours *
             0.80
         );
 
 
-    const panelCount=
+    const panelCount =
         Math.ceil(
-            requiredPvPower/
+            requiredPvPower /
             panelPower
         );
 
 
-    const totalPvPower=
-        panelCount*
+    const totalPvPower =
+        panelCount *
         panelPower;
 
 
-    const batteryCurrent=
-        totalPower/
-        voltage/
+    const batteryCurrent =
+        totalPower /
+        voltage /
         0.92;
 
 
     document.getElementById(
         "totalPower"
-    ).textContent=
+    ).textContent =
         `${totalPower.toLocaleString()} W`;
 
 
     document.getElementById(
         "dailyEnergy"
-    ).textContent=
+    ).textContent =
         `${(
-            dailyWh/1000
+            dailyWh /
+            1000
         ).toFixed(2)} kWh`;
 
 
     document.getElementById(
         "systemVoltage"
-    ).textContent=
+    ).textContent =
         `${voltage}V`;
 
 
     document.getElementById(
         "inverter"
-    ).textContent=
+    ).textContent =
         inverter.text;
 
 
     document.getElementById(
         "battery"
-    ).textContent=
+    ).textContent =
         battery
         ? `${battery.name} — ${battery.kwh.toFixed(2)} kWh`
         : "لا توجد بطارية مناسبة";
@@ -3475,26 +3538,26 @@ function calculateSolar(){
 
     document.getElementById(
         "runtime"
-    ).textContent=
+    ).textContent =
         `${runtime.toFixed(2)} ساعة`;
 
 
     document.getElementById(
         "panels"
-    ).textContent=
+    ).textContent =
         `${panelCount} × ${panelPower}W`;
 
 
     document.getElementById(
         "pvPower"
-    ).textContent=
+    ).textContent =
         `${(
-            totalPvPower/
+            totalPvPower /
             1000
         ).toFixed(2)} kW`;
 
 
-    let recommendation=`
+    let recommendation = `
 
         <b>
             🤖 التوصية الهندسية:
@@ -3564,7 +3627,7 @@ function calculateSolar(){
         totalPower>1500
     ){
 
-        recommendation+=`
+        recommendation += `
 
             <br><br>
 
@@ -3584,7 +3647,7 @@ function calculateSolar(){
         batteryCurrent>200
     ){
 
-        recommendation+=`
+        recommendation += `
 
             <br><br>
 
@@ -3602,7 +3665,7 @@ function calculateSolar(){
         totalPower>8000
     ){
 
-        recommendation+=`
+        recommendation += `
 
             <br><br>
 
@@ -3620,13 +3683,13 @@ function calculateSolar(){
 
     document.getElementById(
         "recommendation"
-    ).innerHTML=
+    ).innerHTML =
         recommendation;
 
 
     document.getElementById(
         "results"
-    ).style.display=
+    ).style.display =
         "block";
 
 
@@ -3644,18 +3707,18 @@ function calculateSolar(){
 
 
 /* =========================================================
-   وكيل YAWAHAB SOLAR AI
+   AI AGENT
 ========================================================= */
 
 function askSolarAgent(){
 
-    const input=
+    const input =
         document.getElementById(
             "aiInput"
         );
 
 
-    const message=
+    const message =
         input.value.trim();
 
 
@@ -3666,13 +3729,13 @@ function askSolarAgent(){
     }
 
 
-    const chat=
+    const chat =
         document.getElementById(
             "chatBox"
         );
 
 
-    chat.innerHTML+=`
+    chat.innerHTML += `
 
         <div class="user-message">
 
@@ -3690,13 +3753,13 @@ function askSolarAgent(){
     input.value="";
 
 
-    const detected=
+    const detected =
         parseSolarMessage(
             message
         );
 
 
-    const hours=
+    const hours =
         getHoursFromMessage(
             message
         );
@@ -3709,7 +3772,7 @@ function askSolarAgent(){
         !detected.length
     ){
 
-        response=`
+        response = `
 
             لم أتمكن من تحديد الأجهزة بشكل واضح.
 
@@ -3720,7 +3783,7 @@ function askSolarAgent(){
             <br>
 
             <b>
-            ثلاجتين ومكيف موية و10 لمبات لمدة 8 ساعات
+                ثلاجتين ومكيف موية و10 لمبات لمدة 8 ساعات
             </b>
 
             <br><br>
@@ -3730,13 +3793,12 @@ function askSolarAgent(){
             <br>
 
             <b>
-            تلاتة تلاجات واتنين اسبلت وخمسة مراوح
+                تلاتة تلاجات واتنين اسبلت وخمسة مراوح
             </b>
 
         `;
 
     }else{
-
 
         applyDetectedDevices(
             detected,
@@ -3744,7 +3806,7 @@ function askSolarAgent(){
         );
 
 
-        response=`
+        response = `
 
             تم تحليل كلامك بنجاح ✅
 
@@ -3755,9 +3817,11 @@ function askSolarAgent(){
         `;
 
 
-        if(hours){
+        if(
+            hours!==null
+        ){
 
-            response+=`
+            response += `
 
                 <br>
 
@@ -3767,11 +3831,16 @@ function askSolarAgent(){
                     ${hours} ساعات
                 </b>
 
+                <br>
+
+                🔋 تم استخدام نفس المدة
+                لحساب البطارية.
+
             `;
 
         }else{
 
-            response+=`
+            response += `
 
                 <br>
 
@@ -3784,7 +3853,7 @@ function askSolarAgent(){
         }
 
 
-        response+=`
+        response += `
 
             <br><br>
 
@@ -3793,11 +3862,12 @@ function askSolarAgent(){
         `;
 
 
-        chat.innerHTML+=`
+        chat.innerHTML += `
 
             <div class="bot-message">
 
                 🤖
+
                 ${response}
 
             </div>
@@ -3805,17 +3875,15 @@ function askSolarAgent(){
         `;
 
 
-        chat.scrollTop=
+        chat.scrollTop =
             chat.scrollHeight;
 
 
         setTimeout(
             ()=>{
-
                 calculateSolar();
-
             },
-            500
+            300
         );
 
 
@@ -3824,11 +3892,12 @@ function askSolarAgent(){
     }
 
 
-    chat.innerHTML+=`
+    chat.innerHTML += `
 
         <div class="bot-message">
 
             🤖
+
             ${response}
 
         </div>
@@ -3836,14 +3905,14 @@ function askSolarAgent(){
     `;
 
 
-    chat.scrollTop=
+    chat.scrollTop =
         chat.scrollHeight;
 
 }
 
 
 /* =========================================================
-   زر الإرسال
+   SEND BUTTON
 ========================================================= */
 
 document
@@ -3857,7 +3926,7 @@ document
 
 
 /* =========================================================
-   Enter
+   ENTER KEY
 ========================================================= */
 
 document
@@ -3884,7 +3953,7 @@ document
 
 
 /* =========================================================
-   إعادة الضبط
+   RESET
 ========================================================= */
 
 function resetSystem(){
@@ -3896,7 +3965,7 @@ function resetSystem(){
     .forEach(
         input=>{
 
-            input.checked=
+            input.checked =
                 input.value==="auto";
 
         }
@@ -3918,7 +3987,7 @@ function resetSystem(){
     );
 
 
-    const autoOption=
+    const autoOption =
         document.querySelector(
             '.option input[value="auto"]'
         );
@@ -3938,13 +4007,13 @@ function resetSystem(){
     devices.forEach(
         (device,index)=>{
 
-            const qty=
+            const qty =
                 document.getElementById(
                     `qty${index}`
                 );
 
 
-            const hours=
+            const hours =
                 document.getElementById(
                     `hours${index}`
                 );
@@ -3959,7 +4028,7 @@ function resetSystem(){
 
             if(hours){
 
-                hours.value=
+                hours.value =
                     device.hours;
 
             }
@@ -3985,13 +4054,18 @@ function resetSystem(){
 
     document.getElementById(
         "results"
-    ).style.display=
+    ).style.display =
         "none";
 
 
     document.getElementById(
+        "aiInput"
+    ).value="";
+
+
+    document.getElementById(
         "chatBox"
-    ).innerHTML=`
+    ).innerHTML = `
 
         <div class="bot-message">
 
@@ -4015,22 +4089,32 @@ function resetSystem(){
 
 
 /* =========================================================
-   اختبار محلل اللهجة السودانية
+   ADVANCED PARSER TEST
 ========================================================= */
 
 function testSudaneseParser(){
 
-    const tests=[
+    const tests = [
 
         "ثلاجتين",
 
         "تلاجتين",
 
+        "ثلاجتان",
+
+        "تلاجتان",
+
         "تلاتة تلاجات",
 
         "تلات تلاجات",
 
+        "ثلاثة تلاجات",
+
         "اتنين اسبلت",
+
+        "اتنين تلاجة",
+
+        "تنين تلاجة",
 
         "مروحتين",
 
@@ -4038,11 +4122,25 @@ function testSudaneseParser(){
 
         "10 لمبات",
 
+        "١٠ لمبات",
+
         "٢ ثلاجات",
+
+        "ثلاجة 2",
+
+        "ثلاجة واحدة",
 
         "مكيفين موية",
 
         "ثلاثة مكيف موية",
+
+        "مكيف موية 3",
+
+        "اتنين مكيفين موية",
+
+        "اسبلتين",
+
+        "ثلاثة اسبلت",
 
         "كاميرتين",
 
@@ -4052,7 +4150,19 @@ function testSudaneseParser(){
 
         "طلمبتين",
 
-        "اتنين تلاجة واربعة مراوح"
+        "اتنين تلاجة واربعة مراوح",
+
+        "ثلاجة واحدة وفريزرين",
+
+        "ثلاجتين ومكيف موية و10 لمبات لمدة 8 ساعات",
+
+        "عندي تلاتة تلاجات واتنين اسبلت وخمسة مراوح",
+
+        "عندي ٢ ثلاجات و٣ مراوح و٤ لمبات",
+
+        "عندي مكيفين موية وتلاتة اسبلت",
+
+        "عندي اتنين تلاجة واربعة مراوح وتمانية لمبات"
 
     ];
 
@@ -4060,7 +4170,7 @@ function testSudaneseParser(){
     return tests.map(
         text=>{
 
-            const result=
+            const result =
                 parseSolarMessage(
                     text
                 );
@@ -4069,6 +4179,11 @@ function testSudaneseParser(){
             return {
 
                 input:text,
+
+                hours:
+                    getHoursFromMessage(
+                        text
+                    ),
 
                 result:
                     result.map(
@@ -4091,7 +4206,63 @@ function testSudaneseParser(){
 }
 
 
+/* =========================================================
+   MAIN TEST
+========================================================= */
+
+const TEST_MESSAGE =
+    "ثلاجتين ومكيف موية و10 لمبات لمدة 8 ساعات";
+
+
+console.log(
+    "======================================"
+);
+
+console.log(
+    "YAWAHAB SOLAR AI"
+);
+
+console.log(
+    "Sudanese Parser Ready"
+);
+
+console.log(
+    "======================================"
+);
+
+
+console.log(
+    "النص:",
+    TEST_MESSAGE
+);
+
+
+console.log(
+    "النتيجة:",
+    parseSolarMessage(
+        TEST_MESSAGE
+    )
+);
+
+
+console.log(
+    "الساعات:",
+    getHoursFromMessage(
+        TEST_MESSAGE
+    )
+);
+
+
+console.log(
+    "اختبار جميع الحالات:"
+);
+
+
+console.table(
+    testSudaneseParser()
+);
+
 </script>
 
 </body>
-    </html> 
+</html>

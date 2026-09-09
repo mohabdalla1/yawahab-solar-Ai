@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>YAWAHAB SOLAR AI</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial, Tahoma, sans-serif;
+    background:#0b1220;
+    color:white;
+    min-height:100vh;
+}
+
+header{
+    background:linear-gradient(135deg,#071a12,#0f3d2e);
+    padding:30px 20px;
+    text-align:center;
+    border-bottom:2px solid #d4af37;
+}
+
+.logo{
+    font-size:32px;
+    font-weight:bold;
+    color:#f5c542;
+}
+
+.subtitle{
+    color:#cbd5e1;
+    margin-top:10px;
+    font-size:16px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+}
+
+.card{
+    background:#111c2e;
+    border:1px solid #24344d;
+    border-radius:18px;
+    padding:20px;
+    margin-bottom:20px;
+}
+
+.card h2{
+    color:#f5c542;
+    margin-bottom:20px;
+}
+
+.system-options{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+}
+
+.option{
+    background:#18263d;
+    border:1px solid #2c4261;
+    padding:15px;
+    border-radius:12px;
+    text-align:center;
+    cursor:pointer;
+}
+
+.option input{
+    display:none;
+}
+
+.option.active{
+    background:#1f513f;
+    border-color:#f5c542;
+}
+
+.devices{
+    display:grid;
+    gap:12px;
+}
+
+.device{
+    background:#18263d;
+    border-radius:14px;
+    padding:15px;
+    display:grid;
+    grid-template-columns:1fr 90px 90px;
+    gap:10px;
+    align-items:center;
+}
+
+.device-name{
+    font-weight:bold;
+}
+
+.device small{
+    color:#94a3b8;
+    display:block;
+    margin-top:5px;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    border-radius:8px;
+    border:1px solid #334155;
+    background:#0b1220;
+    color:white;
+    text-align:center;
+    font-size:16px;
+}
+
+label{
+    color:#cbd5e1;
+    font-size:13px;
+}
+
+.input-group{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+}
+
+button{
+    width:100%;
+    padding:17px;
+    border:none;
+    border-radius:14px;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+.calculate{
+    background:#f5c542;
+    color:#111827;
+}
+
+.calculate:hover{
+    background:#ffd966;
+}
+
+.reset{
+    background:#334155;
+    color:white;
+}
+
+.results{
+    display:none;
+}
+
+.result-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.result-box{
+    background:#18263d;
+    border:1px solid #2c4261;
+    border-radius:14px;
+    padding:18px;
+}
+
+.result-title{
+    color:#94a3b8;
+    font-size:14px;
+}
+
+.result-value{
+    color:#f5c542;
+    font-size:24px;
+    font-weight:bold;
+    margin-top:8px;
+}
+
+.recommendation{
+    margin-top:20px;
+    background:#0d2a20;
+    border-right:4px solid #f5c542;
+    padding:20px;
+    border-radius:12px;
+    line-height:2;
+}
+
+.warning{
+    margin-top:15px;
+    background:#3b1d1d;
+    padding:15px;
+    border-radius:10px;
+    color:#fecaca;
+    line-height:1.8;
+}
+
+.print{
+    background:#2563eb;
+    color:white;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#64748b;
+}
+
+@media(max-width:600px){
+
+    .device{
+        grid-template-columns:1fr;
+    }
+
+    .result-grid{
+        grid-template-columns:1fr;
+    }
+
+    .system-options{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media print{
+
+    body{
+        background:white;
+        color:black;
+    }
+
+    header{
+        background:white;
+        color:black;
+    }
+
+    .card{
+        border:1px solid #ccc;
+        background:white;
+        color:black;
+    }
+
+    button,
+    .system-options,
+    .devices,
+    #inputCard{
+        display:none;
+    }
+
+    .results{
+        display:block !important;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        ☀️ YAWAHAB SOLAR AI
+    </div>
+
+    <div class="subtitle">
+        وكيل ذكي لتصميم وحساب أنظمة الطاقة الشمسية
+    </div>
+
+</header>
+
+
+<div class="container">
+
+
+<!-- اختيار النظام -->
+
+<div class="card" id="inputCard">
+
+<h2>⚡ إعدادات النظام</h2>
+
+<div class="system-options">
+
+<label class="option active" id="autoOption">
+<input type="radio" name="system" value="auto" checked>
+🤖 اختيار تلقائي
+</label>
+
+<label class="option">
+<input type="radio" name="system" value="24">
+🔋 نظام 24V
+</label>
+
+<label class="option">
+<input type="radio" name="system" value="48">
+🔋 نظام 48V
+</label>
+
+</div>
+
+</div>
+
+
+<!-- الأجهزة -->
+
+<div class="card" id="inputCard">
+
+<h2>🔌 الأجهزة والأحمال</h2>
+
+<div class="devices" id="devicesContainer"></div>
+
+</div>
+
+
+<!-- إعدادات إضافية -->
+
+<div class="card" id="inputCard">
+
+<h2>⚙️ إعدادات التصميم</h2>
+
+<div class="device">
+
+<div class="device-name">
+🔋 ساعات الاحتياط المطلوبة
+<small>عدد الساعات التي تريد تشغيل النظام فيها بالبطارية</small>
+</div>
+
+<div class="input-group">
+<label>الساعات</label>
+<input type="number" id="backupHours" value="8" min="1">
+</div>
+
+</div>
+
+
+<div class="device">
+
+<div class="device-name">
+☀️ ساعات الشمس الفعالة
+<small>القيمة الافتراضية المناسبة تقريبياً للسودان</small>
+</div>
+
+<div class="input-group">
+<label>ساعات</label>
+<input type="number" id="sunHours" value="5.5" step="0.1">
+</div>
+
+</div>
+
+
+<div class="device">
+
+<div class="device-name">
+☀️ قدرة اللوح الشمسي
+<small>يمكن تغييرها حسب الألواح المتوفرة</small>
+</div>
+
+<div class="input-group">
+<label>W</label>
+<input type="number" id="panelPower" value="585">
+</div>
+
+</div>
+
+
+<button class="calculate" onclick="calculateSolar()">
+
+🤖 تصميم النظام الآن
+
+</button>
+
+<button class="reset" onclick="resetSystem()">
+
+🔄 إعادة ضبط
+
+</button>
+
+</div>
+
+
+<!-- النتائج -->
+
+<div class="card results" id="results">
+
+<h2>📊 تقرير YAWAHAB SOLAR AI</h2>
+
+<div class="result-grid">
+
+<div class="result-box">
+
+<div class="result-title">
+إجمالي الحمل اللحظي
+</div>
+
+<div class="result-value" id="totalPower">
+0 W
+</div>
+
+</div>
+
+
+<div class="result-box">
+
+<div class="result-title">
+الاستهلاك اليومي
+</div>
+
+<div class="result-value" id="dailyEnergy">
+0 kWh
+</div>
+
+</div>
+
+
+<div class="result-box">
+
+<div class="result-title">
+جهد النظام المقترح
+</div>
+
+<div class="result-value" id="systemVoltage">
+0 V
+</div>
+
+</div>
+
+
+<div class="result-box">
+
+<div class="result-title">
+الانفيرتر المقترح
+</div>
+
+<div class="result-value" id="inverter">
+0 kW
+</div>
+
+</div>
+
+
+<div class="result-box">
+
+<div class="result-title">
+سعة البطارية المقترحة
+</div>
+
+<div class="result-value" id="battery">
+0 Ah
+</div>
+
+</div>
+
+
+<div class="result-box">
+
+<div class="result-title">
+عدد الألواح
+</div>
+
+<div class="result-value" id="panels">
+0
+</div>
+
+</div>
+
+</div>
+
+
+<div class="recommendation" id="recommendation">
+
+</div>
+
+
+<div class="warning">
+
+⚠️ <b>تنبيه هندسي:</b><br>
+
+هذه النتائج تقديرية وتعتمد على البيانات المدخلة.
+قبل التركيب النهائي يجب مراجعة:
+
+• مواصفات الانفيرتر الفعلية<br>
+• مدى جهد MPPT<br>
+• جهد Voc للألواح<br>
+• تيار الشحن والتفريغ للبطارية<br>
+• تيارات الإقلاع للمضخات والمكيفات والثلاجات<br>
+• ظروف الموقع ودرجة الحرارة
+
+</div>
+
+
+<button class="print" onclick="window.print()">
+
+📄 حفظ التقرير / طباعة PDF
+
+</button>
+
+</div>
+
+</div>
+
+
+<footer>
+
+© 2026 YAWAHAB SOLAR AI<br>
+Smart Solar Engineering System ☀️🤖
+
+</footer>
+
+
+
+<script>
+
+
+/* قاعدة بيانات الأجهزة */
+
+const devices = [
+
+{
+name:"💡 لمبة",
+power:30,
+hours:8
+},
+
+{
+name:"🌀 مروحة",
+power:120,
+hours:8
+},
+
+{
+name:"📺 تلفزيون",
+power:120,
+hours:5
+},
+
+{
+name:"🧊 ثلاجة",
+power:500,
+hours:12
+},
+
+{
+name:"❄️ فريزر",
+power:600,
+hours:12
+},
+
+{
+name:"🧺 غسالة",
+power:600,
+hours:2
+},
+
+{
+name:"❄️ مكيف",
+power:1200,
+hours:8
+},
+
+{
+name:"💧 مضخة 1HP",
+power:750,
+hours:2
+},
+
+{
+name:"💧 مضخة 2HP",
+power:3000,
+hours:2
+}
+
+];
+
+
+/* إنشاء قائمة الأجهزة */
+
+function renderDevices(){
+
+const container =
+document.getElementById("devicesContainer");
+
+container.innerHTML="";
+
+devices.forEach((device,index)=>{
+
+container.innerHTML += `
+
+<div class="device">
+
+<div class="device-name">
+
+${device.name}
+
+<small>
+القدرة الافتراضية: ${device.power}W
+</small>
+
+</div>
+
+
+<div class="input-group">
+
+<label>
+العدد
+</label>
+
+<input
+type="number"
+id="qty${index}"
+value="0"
+min="0">
+
+</div>
+
+
+<div class="input-group">
+
+<label>
+ساعات/يوم
+</label>
+
+<input
+type="number"
+id="hours${index}"
+value="${device.hours}"
+min="0"
+step="0.5">
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+
+renderDevices();
+
+
+
+/* اختيار شكل النظام */
+
+document.querySelectorAll(".option").forEach(option=>{
+
+option.addEventListener("click",function(){
+
+document.querySelectorAll(".option").forEach(o=>{
+
+o.classList.remove("active");
+
+});
+
+this.classList.add("active");
+
+});
+
+});
+
+
+
+/* الحساب الرئيسي */
+
+function calculateSolar(){
+
+
+let totalPower = 0;
+
+let dailyWh = 0;
+
+let activeDevices = [];
+
+
+/* حساب الأحمال */
+
+devices.forEach((device,index)=>{
+
+let qty =
+parseFloat(document.getElementById(`qty${index}`).value) || 0;
+
+let hours =
+parseFloat(document.getElementById(`hours${index}`).value) || 0;
+
+
+if(qty > 0){
+
+let devicePower =
+device.power * qty;
+
+let deviceEnergy =
+devicePower * hours;
+
+
+totalPower += devicePower;
+
+dailyWh += deviceEnergy;
+
+
+activeDevices.push({
+
+name:device.name,
+qty:qty,
+power:devicePower,
+energy:deviceEnergy
+
+});
+
+}
+
+});
+
+
+if(totalPower <= 0){
+
+alert("⚠️ الرجاء إدخال جهاز واحد على الأقل.");
+
+return;
+
+}
+
+
+/* الطاقة اليومية */
+
+let dailyKwh =
+dailyWh / 1000;
+
+
+/* اختيار الجهد */
+
+let selectedSystem =
+document.querySelector('input[name="system"]:checked').value;
+
+
+let voltage;
+
+
+if(selectedSystem === "24"){
+
+voltage = 24;
+
+}
+
+else if(selectedSystem === "48"){
+
+voltage = 48;
+
+}
+
+else{
+
+if(totalPower <= 1500){
+
+voltage = 24;
+
+}
+
+else if(totalPower <= 4000){
+
+voltage = 24;
+
+}
+
+else{
+
+voltage = 48;
+
+}
+
+}
+
+
+/* اختيار الانفيرتر */
+
+
+/* هامش أمان 30% */
+
+let requiredInverter =
+totalPower * 1.30;
+
+
+/* أحجام انفيرتر شائعة */
+
+let inverterSizes =
+[1,1.5,2,3,3.5,4,5,6,8,10,12,15,20];
+
+
+let inverterSize =
+inverterSizes.find(size =>
+
+size * 1000 >= requiredInverter
+
+);
+
+
+if(!inverterSize){
+
+inverterSize =
+Math.ceil(requiredInverter / 1000);
+
+}
+
+
+
+/* البطارية */
+
+
+let backupHours =
+parseFloat(
+document.getElementById("backupHours").value
+) || 8;
+
+
+/* متوسط القدرة المطلوبة */
+
+let averagePower =
+dailyWh / 24;
+
+
+/* الطاقة المطلوبة للاحتياط */
+
+let backupWh =
+averagePower * backupHours;
+
+
+/* إضافة خسائر 10% */
+
+backupWh =
+backupWh / 0.90;
+
+
+/* LiFePO4 DoD 90% */
+
+let batteryAh =
+backupWh /
+(voltage * 0.90);
+
+
+/* تقريب السعة */
+
+batteryAh =
+Math.ceil(batteryAh / 50) * 50;
+
+
+
+/* حساب الألواح */
+
+
+let sunHours =
+parseFloat(
+document.getElementById("sunHours").value
+) || 5.5;
+
+
+let panelPower =
+parseFloat(
+document.getElementById("panelPower").value
+) || 585;
+
+
+/* كفاءة النظام 80% */
+
+let requiredPvPower =
+
+dailyWh /
+(sunHours * 0.80);
+
+
+let panelCount =
+
+Math.ceil(
+requiredPvPower /
+panelPower
+);
+
+
+
+/* تيار البطارية التقريبي */
+
+
+let batteryCurrent =
+
+totalPower /
+voltage;
+
+
+
+/* عرض النتائج */
+
+
+document.getElementById("totalPower").innerText =
+
+totalPower.toLocaleString() + " W";
+
+
+document.getElementById("dailyEnergy").innerText =
+
+dailyKwh.toFixed(2) + " kWh";
+
+
+document.getElementById("systemVoltage").innerText =
+
+voltage + " V";
+
+
+document.getElementById("inverter").innerText =
+
+inverterSize + " kW";
+
+
+document.getElementById("battery").innerText =
+
+batteryAh.toLocaleString() +
+
+" Ah / " +
+
+voltage + "V";
+
+
+document.getElementById("panels").innerText =
+
+panelCount +
+
+" × " +
+
+panelPower + "W";
+
+
+
+/* التوصية النهائية */
+
+
+let recommendation = `
+
+🤖 <b>توصية YAWAHAB SOLAR AI</b><br><br>
+
+☀️ إجمالي الحمل التشغيلي:
+<b>${totalPower.toLocaleString()}W</b><br>
+
+⚡ الانفيرتر المقترح:
+<b>${inverterSize}kW / ${voltage}V</b><br>
+
+🔋 البطارية المقترحة:
+<b>${voltage}V ${batteryAh.toLocaleString()}Ah LiFePO4</b><br>
+
+☀️ الألواح المقترحة:
+<b>${panelCount} ألواح × ${panelPower}W</b><br>
+
+📈 إجمالي قدرة الألواح:
+<b>${(panelCount * panelPower / 1000).toFixed(2)}kW</b><br>
+
+🔌 تيار البطارية التقريبي عند الحمل الكامل:
+<b>${batteryCurrent.toFixed(1)}A</b><br>
+
+`;
+
+
+
+if(totalPower > 3000){
+
+recommendation += `
+
+<br>⚠️ يوصى باستخدام نظام <b>48V</b>
+لتقليل تيار البطارية والخسائر.
+
+`;
+
+}
+
+
+if(activeDevices.some(d =>
+d.name.includes("مضخة") ||
+d.name.includes("مكيف") ||
+d.name.includes("ثلاجة")
+)){
+
+recommendation += `
+
+<br>⚠️ توجد أحمال ذات تيار إقلاع مرتفع.
+يجب التأكد من قدرة Surge للانفيرتر.
+
+`;
+
+}
+
+
+document.getElementById("recommendation").innerHTML =
+
+recommendation;
+
+
+
+document.getElementById("results").style.display =
+
+"block";
+
+
+document.getElementById("results").scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+
+}
+
+
+
+/* إعادة الضبط */
+
+
+function resetSystem(){
+
+devices.forEach((device,index)=>{
+
+document.getElementById(`qty${index}`).value = 0;
+
+document.getElementById(`hours${index}`).value =
+device.hours;
+
+});
+
+
+document.getElementById("results").style.display =
+"none";
+
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+}
+
+
+</script>
+
+</body>
+  </html>

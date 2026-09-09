@@ -1,7 +1,11 @@
-<!DOCTYPE html><html lang="ar" dir="rtl">
-<head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>YAWAHAB SOLAR AI</title><style>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>YAWAHAB SOLAR AI</title>
 
+<style>
 :root{
     --bg:#07111f;
     --bg2:#0b1728;
@@ -26,15 +30,14 @@
 body{
     font-family:Arial,Tahoma,sans-serif;
     background:
-    radial-gradient(circle at top,#123252 0%,transparent 35%),
-    linear-gradient(180deg,var(--bg),var(--bg2));
+        radial-gradient(circle at top,#123252 0%,transparent 35%),
+        linear-gradient(180deg,var(--bg),var(--bg2));
     color:white;
     min-height:100vh;
 }
 
 header{
-    background:
-    linear-gradient(135deg,#061b13,#103c2d);
+    background:linear-gradient(135deg,#061b13,#103c2d);
     padding:35px 20px;
     text-align:center;
     border-bottom:2px solid var(--gold);
@@ -115,7 +118,7 @@ header{
     border-radius:16px;
     padding:15px;
     min-height:170px;
-    max-height:380px;
+    max-height:420px;
     overflow-y:auto;
     margin-bottom:15px;
 }
@@ -293,6 +296,15 @@ label{
     line-height:1.9;
 }
 
+.detected{
+    background:#09291f;
+    border:1px solid #166534;
+    border-radius:12px;
+    padding:12px;
+    margin-top:12px;
+    line-height:1.9;
+}
+
 footer{
     text-align:center;
     padding:30px;
@@ -301,7 +313,6 @@ footer{
 }
 
 @media(max-width:700px){
-
     .system-options{
         grid-template-columns:repeat(2,1fr);
     }
@@ -321,11 +332,9 @@ footer{
     .logo{
         font-size:27px;
     }
-
 }
 
 @media print{
-
     body{
         background:white;
         color:black;
@@ -347,2154 +356,2631 @@ footer{
     #settingsCard,
     button,
     .system-options{
-        display:none !important;
+        display:none!important;
     }
 
     .results{
-        display:block !important;
+        display:block!important;
     }
-
 }
+</style>
+</head>
 
-</style></head><body><header><div class="logo">
-☀️ YAWAHAB SOLAR AI
-</div><div class="subtitle">
-وكيل ذكي لتصميم وحساب أنظمة الطاقة الشمسية
-</div></header><div class="container"><!-- اختيار النظام --><div class="card"><h2>⚡ اختيار جهد النظام</h2><div class="system-options"><label class="option active"><input type="radio"
-name="system"
-value="auto"
-checked>
+<body>
 
-🤖 تلقائي
+<header>
+    <div class="logo">☀️ YAWAHAB SOLAR AI</div>
+    <div class="subtitle">
+        وكيل ذكي لتصميم وحساب أنظمة الطاقة الشمسية
+    </div>
+</header>
 
-</label><label class="option"><input type="radio"
-name="system"
-value="12">
+<div class="container">
 
-🔋 12V
+<!-- =========================
+     اختيار جهد النظام
+========================= -->
+<div class="card">
+    <h2>⚡ اختيار جهد النظام</h2>
 
-</label><label class="option"><input type="radio"
-name="system"
-value="24">
+    <div class="system-options">
 
-🔋 24V
+        <label class="option active">
+            <input type="radio" name="system" value="auto" checked>
+            🤖 تلقائي
+        </label>
 
-</label><label class="option"><input type="radio"
-name="system"
-value="48">
+        <label class="option">
+            <input type="radio" name="system" value="12">
+            🔋 12V
+        </label>
 
-🔋 48V
+        <label class="option">
+            <input type="radio" name="system" value="24">
+            🔋 24V
+        </label>
 
-</label></div></div><!-- AI --><div class="card" id="agentCard"><h2>🤖 تحدث مع YAWAHAB SOLAR AI</h2><p class="agent-info">اكتب الأجهزة بطريقة طبيعية.
+        <label class="option">
+            <input type="radio" name="system" value="48">
+            🔋 48V
+        </label>
 
-<br><br>
+    </div>
+</div>
 
-مثال:
 
-<br><b>
-2 ثلاجة + 2 مكيف موية + 10 لمبات لمدة 8 ساعات
-</b><br><br>
+<!-- =========================
+     AI
+========================= -->
+<div class="card" id="agentCard">
 
-أو:
+    <h2>🤖 تحدث مع YAWAHAB SOLAR AI</h2>
 
-<br><b>
-2 اسبلت + ثلاجتين + 3 مراوح
-</b></p><div class="chat-box" id="chatBox"><div class="bot-message">🤖 <b>YAWAHAB SOLAR AI</b>
+    <p class="agent-info">
+        اكتب الأجهزة بطريقة طبيعية، وسيحاول النظام فهم العدد والجهاز وساعات التشغيل.
 
-<br><br>
+        <br><br>
 
-مرحباً 👋
+        <b>أمثلة سودانية:</b>
 
-أنا جاهز لتحليل الأحمال وتصميم منظومة متوازنة.
+        <br>
+        ثلاجتين ومكيف موية و10 لمبات لمدة 8 ساعات
 
-</div></div><textarea
-id="aiInput"
-placeholder="مثال: عندي ثلاجتين ومكيف موية و10 لمبات وأريد التشغيل 8 ساعات"></textarea><button
-class="calculate"
-id="sendButton">
+        <br>
+        تلاتة تلاجات واتنين اسبلت وخمسة مراوح
 
-🤖 إرسال وتحليل
+        <br>
+        عندي ٢ ثلاجات و٣ مراوح و٤ لمبات
 
-</button></div><!-- الأجهزة --><div class="card" id="devicesCard"><h2>🔌 الأجهزة والأحمال</h2><div class="devices"
-id="devicesContainer"></div><div class="custom-device"><h3 style="color:#f5c542;margin-bottom:15px;">
-➕ إضافة جهاز يدوي
-</h3><div class="custom-grid"><input
-id="customName"
-placeholder="اسم الجهاز">
+        <br>
+        عندي مكيفين موية وتلاتة اسبلت
 
-<input
-type="number"
-id="customPower"
-placeholder="القدرة W">
+        <br>
+        عندي ثلاجة واحدة وفريزرين
+    </p>
 
-<input
-type="number"
-id="customQty"
-placeholder="العدد"
-value="1">
+    <div class="chat-box" id="chatBox">
 
-<input
-type="number"
-id="customHours"
-placeholder="ساعات"
-value="8">
+        <div class="bot-message">
+            🤖 <b>YAWAHAB SOLAR AI</b>
 
-</div><button
-class="add-device"
-onclick="addCustomDevice()">
+            <br><br>
 
-➕ إضافة الجهاز
+            مرحباً 👋
 
-</button></div></div><!-- الإعدادات --><div class="card" id="settingsCard"><h2>⚙️ إعدادات التصميم</h2><div class="device"><div class="device-name">🔋 ساعات التشغيل المطلوبة بالبطارية
+            <br>
 
-<small>
-سيتم حساب ساعات التشغيل الفعلية حسب البطارية المتوازنة المتاحة.
-</small></div><div class="input-group"><label>ساعات</label>
+            أنا جاهز لتحليل الأحمال وتصميم منظومة شمسية.
 
-<input
-type="number"
-id="backupHours"
-value="8"
-min="1"
-step="0.5">
+            <br><br>
 
-</div></div><div class="device"><div class="device-name">☀️ ساعات الشمس الفعالة
+            اكتب الأجهزة بطريقتك الطبيعية، حتى لو استخدمت اللهجة السودانية.
+        </div>
 
-<small>
-القيمة الافتراضية 5.5 ساعات ويمكن تعديلها.
-</small></div><div class="input-group"><label>ساعات</label>
+    </div>
 
-<input
-type="number"
-id="sunHours"
-value="5.5"
-step="0.1">
+    <textarea
+        id="aiInput"
+        placeholder="مثال: عندي ثلاجتين ومكيف موية و10 لمبات وأريد التشغيل 8 ساعات"></textarea>
 
-</div></div><div class="device"><div class="device-name">☀️ قدرة اللوح الشمسي
+    <button class="calculate" id="sendButton">
+        🤖 إرسال وتحليل
+    </button>
 
-</div><div class="input-group"><label>W</label>
+</div>
 
-<input
-type="number"
-id="panelPower"
-value="585">
 
-</div></div><button
-class="calculate"
-onclick="calculateSolar()">
+<!-- =========================
+     الأجهزة
+========================= -->
+<div class="card" id="devicesCard">
 
-☀️ تصميم النظام الآن
+    <h2>🔌 الأجهزة والأحمال</h2>
 
-</button><button
-class="reset"
-onclick="resetSystem()">
+    <div class="devices" id="devicesContainer"></div>
 
-🔄 إعادة ضبط
+    <div class="custom-device">
 
-</button></div><!-- النتائج --><div class="card results" id="results"><h2>📊 تقرير YAWAHAB SOLAR AI</h2><div class="result-grid"><div class="result-box"><div class="result-title">
-⚡ الحمل الكلي
-</div><div class="result-value"
-id="totalPower">
-0 W
-</div></div><div class="result-box"><div class="result-title">
-📊 الاستهلاك اليومي
-</div><div class="result-value"
-id="dailyEnergy">
-0 kWh
-</div></div><div class="result-box"><div class="result-title">
-🔋 الجهد المختار
-</div><div class="result-value"
-id="systemVoltage">
-0V
-</div></div><div class="result-box"><div class="result-title">
-🔌 الانفيرتر
-</div><div class="result-value"
-id="inverter">
--
-</div></div><div class="result-box"><div class="result-title">
-🔋 البطارية المتوازنة
-</div><div class="result-value"
-id="battery">
--
-</div></div><div class="result-box"><div class="result-title">
-🌙 التشغيل المتوقع
-</div><div class="result-value"
-id="runtime">
--
-</div></div><div class="result-box"><div class="result-title">
-☀️ الألواح الشمسية
-</div><div class="result-value"
-id="panels">
--
-</div></div><div class="result-box"><div class="result-title">
-📈 إجمالي قدرة الألواح
-</div><div class="result-value"
-id="pvPower">
--
-</div></div></div><div class="recommendation"
-id="recommendation"></div><div class="warning">⚠️ <b>تنبيه هندسي مهم:</b>
+        <h3 style="color:#f5c542;margin-bottom:15px;">
+            ➕ إضافة جهاز يدوي
+        </h3>
 
-<br><br>
+        <div class="custom-grid">
 
-هذه النتائج للتصميم الأولي.
+            <input
+                id="customName"
+                placeholder="اسم الجهاز">
 
-<br>يجب مراجعة:
+            <input
+                type="number"
+                id="customPower"
+                placeholder="القدرة W">
 
-<br>• قدرة الانفيرتر الفعلية و Surge
+            <input
+                type="number"
+                id="customQty"
+                placeholder="العدد"
+                value="1">
 
-<br>• تيار BMS
+            <input
+                type="number"
+                id="customHours"
+                placeholder="ساعات"
+                value="8">
 
-<br>• مدى MPPT
+        </div>
 
-<br>• Voc للألواح
+        <button
+            class="add-device"
+            onclick="addCustomDevice()">
 
-<br>• تيارات الإقلاع
+            ➕ إضافة الجهاز
 
-<br>• مواصفات البطارية والانفيرتر الفعلية
+        </button>
 
-</div><button
-class="print"
-onclick="window.print()">
+    </div>
 
-📄 طباعة / حفظ PDF
+</div>
 
-</button></div></div><footer>© 2026 YAWAHAB SOLAR AI
 
-<br>Smart Solar Engineering System ☀️🤖
+<!-- =========================
+     إعدادات التصميم
+========================= -->
+<div class="card" id="settingsCard">
 
-</footer><script>
+    <h2>⚙️ إعدادات التصميم</h2>
 
-/* =========================================
+    <div class="device">
+
+        <div class="device-name">
+
+            🔋 ساعات التشغيل المطلوبة بالبطارية
+
+            <small>
+                سيتم حساب البطارية المطلوبة والتشغيل المتوقع.
+            </small>
+
+        </div>
+
+        <div class="input-group">
+
+            <label>ساعات</label>
+
+            <input
+                type="number"
+                id="backupHours"
+                value="8"
+                min="1"
+                step="0.5">
+
+        </div>
+
+    </div>
+
+
+    <div class="device">
+
+        <div class="device-name">
+
+            ☀️ ساعات الشمس الفعالة
+
+            <small>
+                القيمة الافتراضية 5.5 ساعات.
+            </small>
+
+        </div>
+
+        <div class="input-group">
+
+            <label>ساعات</label>
+
+            <input
+                type="number"
+                id="sunHours"
+                value="5.5"
+                step="0.1">
+
+        </div>
+
+    </div>
+
+
+    <div class="device">
+
+        <div class="device-name">
+            ☀️ قدرة اللوح الشمسي
+        </div>
+
+        <div class="input-group">
+
+            <label>W</label>
+
+            <input
+                type="number"
+                id="panelPower"
+                value="585">
+
+        </div>
+
+    </div>
+
+
+    <button
+        class="calculate"
+        onclick="calculateSolar()">
+
+        ☀️ تصميم النظام الآن
+
+    </button>
+
+
+    <button
+        class="reset"
+        onclick="resetSystem()">
+
+        🔄 إعادة ضبط
+
+    </button>
+
+</div>
+
+
+<!-- =========================
+     النتائج
+========================= -->
+<div class="card results" id="results">
+
+    <h2>📊 تقرير YAWAHAB SOLAR AI</h2>
+
+    <div class="result-grid">
+
+        <div class="result-box">
+            <div class="result-title">
+                ⚡ الحمل الكلي
+            </div>
+            <div class="result-value" id="totalPower">
+                0 W
+            </div>
+        </div>
+
+
+        <div class="result-box">
+            <div class="result-title">
+                📊 الاستهلاك اليومي
+            </div>
+            <div class="result-value" id="dailyEnergy">
+                0 kWh
+            </div>
+        </div>
+
+
+        <div class="result-box">
+            <div class="result-title">
+                🔋 الجهد المختار
+            </div>
+            <div class="result-value" id="systemVoltage">
+                0V
+            </div>
+        </div>
+
+
+        <div class="result-box">
+            <div class="result-title">
+                🔌 الانفيرتر
+            </div>
+            <div class="result-value" id="inverter">
+                -
+            </div>
+        </div>
+
+
+        <div class="result-box">
+            <div class="result-title">
+                🔋 البطارية المتوازنة
+            </div>
+            <div class="result-value" id="battery">
+                -
+            </div>
+        </div>
+
+
+        <div class="result-box">
+            <div class="result-title">
+                🌙 التشغيل المتوقع
+            </div>
+            <div class="result-value" id="runtime">
+                -
+            </div>
+        </div>
+
+
+        <div class="result-box">
+            <div class="result-title">
+                ☀️ الألواح الشمسية
+            </div>
+            <div class="result-value" id="panels">
+                -
+            </div>
+        </div>
+
+
+        <div class="result-box">
+            <div class="result-title">
+                📈 إجمالي قدرة الألواح
+            </div>
+            <div class="result-value" id="pvPower">
+                -
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="recommendation" id="recommendation"></div>
+
+
+    <div class="warning">
+
+        ⚠️ <b>تنبيه هندسي مهم:</b>
+
+        <br><br>
+
+        هذه النتائج للتصميم الأولي.
+
+        <br><br>
+
+        يجب مراجعة:
+
+        <br>• قدرة الانفيرتر الفعلية و Surge
+
+        <br>• تيار BMS
+
+        <br>• مدى MPPT
+
+        <br>• Voc للألواح
+
+        <br>• تيارات إقلاع المحركات
+
+        <br>• مواصفات البطارية والانفيرتر الفعلية
+
+        <br>• مقاطع الكابلات والقواطع والحماية
+
+    </div>
+
+
+    <button
+        class="print"
+        onclick="window.print()">
+
+        📄 طباعة / حفظ PDF
+
+    </button>
+
+</div>
+
+</div>
+
+
+<footer>
+© 2026 YAWAHAB SOLAR AI
+<br>
+Smart Solar Engineering System ☀️🤖
+</footer>
+
+
+<script>
+
+/* =========================================================
    قاعدة بيانات الأجهزة
-========================================= */
+========================================================= */
 
 const devices = [
 
 {
-name:"💡 لمبة",
-power:30,
-hours:8,
-keywords:[
-"لمبة","لمبات","نور","أنوار",
-"مصباح","مصابيح"
-]
+    name:"💡 لمبة",
+    power:30,
+    hours:8,
+    keywords:[
+        "لمبة","لمبات",
+        "لمبه","لمبات",
+        "نور","انوار","أنوار",
+        "مصباح","مصابيح"
+    ],
+    dual:[
+        "لمبتين",
+        "لمبتان",
+        "مصباحين",
+        "مصباحان"
+    ]
 },
 
 {
-name:"🌀 مروحة",
-power:120,
-hours:8,
-keywords:[
-"مروحة","مراوح"
-]
+    name:"🌀 مروحة",
+    power:120,
+    hours:8,
+    keywords:[
+        "مروحة",
+        "مراوح",
+        "مروحه"
+    ],
+    dual:[
+        "مروحتين",
+        "مروحتان"
+    ]
 },
 
 {
-name:"📺 تلفزيون",
-power:120,
-hours:5,
-keywords:[
-"تلفزيون","تلفزيونات",
-"tv","شاشة"
-]
+    name:"📺 تلفزيون",
+    power:120,
+    hours:5,
+    keywords:[
+        "تلفزيون",
+        "تلفزيونات",
+        "تلفزيونات",
+        "tv",
+        "شاشة",
+        "شاشات"
+    ],
+    dual:[
+        "تلفزيونين",
+        "تلفزيوناتين",
+        "شاشتين",
+        "شاشتان"
+    ]
 },
 
 {
-name:"🧊 ثلاجة",
-power:500,
-hours:12,
-keywords:[
-"ثلاجة","ثلاجات","ثلاجتين"
-]
+    name:"🧊 ثلاجة",
+    power:500,
+    hours:12,
+    keywords:[
+        "ثلاجة",
+        "ثلاجات",
+        "تلاجة",
+        "تلاجات"
+    ],
+    dual:[
+        "ثلاجتين",
+        "ثلاجتان",
+        "تلاجتين",
+        "تلاجتان"
+    ]
 },
 
 {
-name:"❄️ فريزر",
-power:600,
-hours:12,
-keywords:[
-"فريزر","ديب فريزر",
-"ديبفريزر"
-]
+    name:"❄️ فريزر",
+    power:600,
+    hours:12,
+    keywords:[
+        "فريزر",
+        "فريزرات",
+        "ديب فريزر",
+        "ديبفريزر"
+    ],
+    dual:[
+        "فريزرين",
+        "فريزران"
+    ]
 },
 
 {
-name:"💧 مكيف موية / صحراوي",
-power:300,
-hours:8,
-keywords:[
-"مكيف موية",
-"مكيف مياه",
-"مكيف صحراوي",
-"صحراوي",
-"مبرد موية",
-"مبرد ماء",
-"موية"
-]
+    name:"💧 مكيف موية / صحراوي",
+    power:300,
+    hours:8,
+    keywords:[
+        "مكيف موية",
+        "مكيف مياه",
+        "مكيف صحراوي",
+        "مكيف صحراوى",
+        "صحراوي",
+        "صحراوى",
+        "مبرد موية",
+        "مبرد ماء"
+    ],
+    dual:[
+        "مكيفين موية",
+        "مكيفين مياه",
+        "مكيفين صحراوي",
+        "مكيفين صحراوى",
+        "مبردين موية",
+        "مبردين ماء"
+    ]
 },
 
 {
-name:"❄️ مكيف اسبلت",
-power:1200,
-hours:8,
-keywords:[
-"اسبلت",
-"سبلت",
-"سبليت",
-"split",
-"مكيف اسبلت",
-"مكيف سبليت"
-]
+    name:"❄️ مكيف اسبلت",
+    power:1200,
+    hours:8,
+    keywords:[
+        "اسبلت",
+        "سبلت",
+        "سبليت",
+        "سبلت",
+        "split",
+        "مكيف اسبلت",
+        "مكيف سبليت"
+    ],
+    dual:[
+        "اسبلتين",
+        "اسبلتان",
+        "سبلتين",
+        "سبلتان",
+        "سبليتين",
+        "سبليتان",
+        "مكيفين اسبلت",
+        "مكيفين سبليت"
+    ]
 },
 
 {
-name:"🧺 غسالة",
-power:600,
-hours:2,
-keywords:[
-"غسالة","غسالات"
-]
+    name:"🧺 غسالة",
+    power:600,
+    hours:2,
+    keywords:[
+        "غسالة",
+        "غسالات",
+        "غساله"
+    ],
+    dual:[
+        "غسالتين",
+        "غسالتان"
+    ]
 },
 
 {
-name:"💧 مضخة 1HP",
-power:750,
-hours:2,
-keywords:[
-"مضخة",
-"طلمبة",
-"طرمبة",
-"موتور مياه"
-]
+    name:"💧 مضخة 1HP",
+    power:750,
+    hours:2,
+    keywords:[
+        "مضخة",
+        "مضخات",
+        "طلمبة",
+        "طلمبات",
+        "طرمبة",
+        "طرمبات",
+        "موتور مياه",
+        "موتور موية"
+    ],
+    dual:[
+        "مضختين",
+        "مضختان",
+        "طلمبتين",
+        "طلمبتان",
+        "طرمبتين",
+        "طرمبتان"
+    ]
 },
 
 {
-name:"💻 لابتوب",
-power:100,
-hours:8,
-keywords:[
-"لابتوب",
-"لاب توب",
-"laptop"
-]
+    name:"💻 لابتوب",
+    power:100,
+    hours:8,
+    keywords:[
+        "لابتوب",
+        "لاب توب",
+        "laptop"
+    ],
+    dual:[
+        "لابتوبين",
+        "لابتوبان"
+    ]
 },
 
 {
-name:"🖥️ كمبيوتر",
-power:300,
-hours:8,
-keywords:[
-"كمبيوتر",
-"حاسوب",
-"computer",
-"pc"
-]
+    name:"🖥️ كمبيوتر",
+    power:300,
+    hours:8,
+    keywords:[
+        "كمبيوتر",
+        "حاسوب",
+        "computer",
+        "pc"
+    ],
+    dual:[
+        "كمبيوترين",
+        "كمبيوتران",
+        "حاسوبين",
+        "حاسوبان"
+    ]
 },
 
 {
-name:"🖨️ طابعة",
-power:500,
-hours:2,
-keywords:[
-"طابعة",
-"طابعات",
-"printer"
-]
+    name:"🖨️ طابعة",
+    power:500,
+    hours:2,
+    keywords:[
+        "طابعة",
+        "طابعات",
+        "طابعه",
+        "printer"
+    ],
+    dual:[
+        "طابعتين",
+        "طابعتان"
+    ]
 },
 
 {
-name:"📠 ماسح ضوئي",
-power:50,
-hours:2,
-keywords:[
-"ماسح",
-"سكانر",
-"scanner"
-]
+    name:"📠 ماسح ضوئي",
+    power:50,
+    hours:2,
+    keywords:[
+        "ماسح",
+        "سكانر",
+        "scanner"
+    ],
+    dual:[
+        "ماسحين",
+        "ماسحان",
+        "سكانرين"
+    ]
 },
 
 {
-name:"📹 كاميرا مراقبة",
-power:15,
-hours:24,
-keywords:[
-"كاميرا",
-"كاميرات",
-"مراقبة",
-"cctv"
-]
+    name:"📹 كاميرا مراقبة",
+    power:15,
+    hours:24,
+    keywords:[
+        "كاميرا",
+        "كاميرات",
+        "مراقبة",
+        "cctv"
+    ],
+    dual:[
+        "كاميرتين",
+        "كاميرتان"
+    ]
 },
 
 {
-name:"📼 DVR / NVR",
-power:50,
-hours:24,
-keywords:[
-"dvr",
-"nvr"
-]
+    name:"📼 DVR / NVR",
+    power:50,
+    hours:24,
+    keywords:[
+        "dvr",
+        "nvr",
+        "مسجل",
+        "مسجل كاميرات"
+    ],
+    dual:[
+        "مسجلين",
+        "مسجلان"
+    ]
 },
 
 {
-name:"🏥 جهاز طبي",
-power:500,
-hours:8,
-keywords:[
-"جهاز طبي",
-"طبي",
-"medical"
-]
+    name:"🏥 جهاز طبي",
+    power:500,
+    hours:8,
+    keywords:[
+        "جهاز طبي",
+        "اجهزة طبية",
+        "أجهزة طبية",
+        "طبي",
+        "medical"
+    ],
+    dual:[
+        "جهازين طبيين",
+        "جهازان طبيان"
+    ]
 },
 
 {
-name:"🔬 جهاز مختبر",
-power:1000,
-hours:8,
-keywords:[
-"مختبر",
-"laboratory",
-"lab",
-"cbc"
+    name:"🔬 جهاز مختبر",
+    power:1000,
+    hours:8,
+    keywords:[
+        "مختبر",
+        "معمل",
+        "معامل",
+        "laboratory",
+        "lab",
+        "cbc"
+    ],
+    dual:[
+        "مختبرين",
+        "مختبران",
+        "معملين",
+        "معملان"
+    ]
 ]
-}
 
-];
-
+;
 
 
-/* =========================================
-   خيارات البطاريات المتوازنة
-========================================= */
+/* =========================================================
+   خيارات البطاريات
+========================================================= */
 
 const batteryOptions = {
 
 12:[
-
-{
-name:"1 × Lithium 12V 100Ah",
-kwh:1.28,
-priority:1
-},
-
-{
-name:"2 × Lithium 12V 100Ah Parallel",
-kwh:2.56,
-priority:2
-},
-
-{
-name:"1 × Lithium 12V 200Ah",
-kwh:2.56,
-priority:1
-}
-
+    {
+        name:"1 × Lithium 12V 100Ah",
+        kwh:1.28,
+        priority:1
+    },
+    {
+        name:"2 × Lithium 12V 100Ah Parallel",
+        kwh:2.56,
+        priority:2
+    },
+    {
+        name:"1 × Lithium 12V 200Ah",
+        kwh:2.56,
+        priority:1
+    }
 ],
 
 24:[
-
-{
-name:"1 × Lithium 24V 200Ah",
-kwh:5.12,
-priority:1
-},
-
-{
-name:"1 × Lithium 24V 5kWh",
-kwh:5,
-priority:1
-}
-
+    {
+        name:"1 × Lithium 24V 200Ah",
+        kwh:5.12,
+        priority:1
+    },
+    {
+        name:"1 × Lithium 24V 5kWh",
+        kwh:5,
+        priority:1
+    }
 ],
 
 48:[
-
-{
-name:"1 × Lithium 48V 5kWh",
-kwh:5,
-priority:1
-},
-
-{
-name:"1 × Lithium 48V 10kWh",
-kwh:10,
-priority:1
-},
-
-{
-name:"1 × Lithium 48V 15kWh",
-kwh:15,
-priority:1
-},
-
-{
-name:"1 × Lithium 48V 17.92kWh",
-kwh:17.92,
-priority:1
-}
-
+    {
+        name:"1 × Lithium 48V 5kWh",
+        kwh:5,
+        priority:1
+    },
+    {
+        name:"1 × Lithium 48V 10kWh",
+        kwh:10,
+        priority:1
+    },
+    {
+        name:"1 × Lithium 48V 15kWh",
+        kwh:15,
+        priority:1
+    },
+    {
+        name:"1 × Lithium 48V 17.92kWh",
+        kwh:17.92,
+        priority:1
+    }
 ]
 
 };
 
 
-
-/* =========================================
+/* =========================================================
    عرض الأجهزة
-========================================= */
+========================================================= */
 
 function renderDevices(){
 
-const container =
-document.getElementById("devicesContainer");
+    const container =
+        document.getElementById("devicesContainer");
 
-container.innerHTML="";
+    container.innerHTML="";
 
-devices.forEach((device,index)=>{
+    devices.forEach((device,index)=>{
 
-container.innerHTML += `
+        container.innerHTML += `
 
-<div class="device">
+        <div class="device">
 
-<div class="device-name">
+            <div class="device-name">
 
-${device.name}
+                ${escapeHTML(device.name)}
 
-<small>
-القدرة الافتراضية: ${device.power}W
-</small>
+                <small>
+                    القدرة الافتراضية:
+                    ${device.power}W
+                </small>
 
-</div>
+            </div>
 
-<div class="input-group">
+            <div class="input-group">
 
-<label>العدد</label>
+                <label>العدد</label>
 
-<input
-type="number"
-id="qty${index}"
-value="0"
-min="0">
+                <input
+                    type="number"
+                    id="qty${index}"
+                    value="0"
+                    min="0"
+                    step="1">
 
-</div>
+            </div>
 
-<div class="input-group">
+            <div class="input-group">
 
-<label>ساعات/يوم</label>
+                <label>ساعات/يوم</label>
 
-<input
-type="number"
-id="hours${index}"
-value="${device.hours}"
-min="0"
-step="0.5">
+                <input
+                    type="number"
+                    id="hours${index}"
+                    value="${device.hours}"
+                    min="0"
+                    step="0.5">
 
-</div>
+            </div>
 
-</div>
+        </div>
 
-`;
+        `;
 
-});
+    });
 
 }
 
 renderDevices();
 
 
-
-/* =========================================
+/* =========================================================
    إضافة جهاز يدوي
-========================================= */
+========================================================= */
 
 function addCustomDevice(){
 
-const name =
-document.getElementById("customName").value.trim();
+    const name =
+        document.getElementById("customName")
+        .value.trim();
 
-const power =
-parseFloat(
-document.getElementById("customPower").value
-);
+    const power =
+        parseFloat(
+            document.getElementById("customPower").value
+        );
 
-const qty =
-parseFloat(
-document.getElementById("customQty").value
-) || 1;
+    const qty =
+        parseFloat(
+            document.getElementById("customQty").value
+        ) || 1;
 
-const hours =
-parseFloat(
-document.getElementById("customHours").value
-) || 8;
+    const hours =
+        parseFloat(
+            document.getElementById("customHours").value
+        ) || 8;
 
+    if(!name || !power || power<=0){
 
-if(!name || !power || power<=0){
+        alert("أدخل اسم الجهاز وقدرته بالواط.");
 
-alert("أدخل اسم الجهاز وقدرته بالواط.");
+        return;
+    }
 
-return;
+    devices.push({
 
-}
+        name:"🔧 "+name,
 
+        power:power,
 
-devices.push({
+        hours:hours,
 
-name:"🔧 "+name,
-power:power,
-hours:hours,
-keywords:[]
+        keywords:[],
 
-});
+        dual:[]
 
+    });
 
-renderDevices();
+    renderDevices();
 
+    const index=devices.length-1;
 
-const index =
-devices.length-1;
+    document.getElementById(`qty${index}`).value=qty;
 
+    document.getElementById(`hours${index}`).value=hours;
 
-document.getElementById(
-`qty${index}`
-).value=qty;
+    document.getElementById("customName").value="";
+    document.getElementById("customPower").value="";
+    document.getElementById("customQty").value="1";
+    document.getElementById("customHours").value="8";
 
-
-document.getElementById(
-`hours${index}`
-).value=hours;
-
-
-document.getElementById("customName").value="";
-document.getElementById("customPower").value="";
-document.getElementById("customQty").value="1";
-document.getElementById("customHours").value="8";
-
-
-alert("تمت إضافة الجهاز بنجاح ✅");
+    alert("تمت إضافة الجهاز بنجاح ✅");
 
 }
 
 
-
-/* =========================================
-   اختيار شكل النظام
-========================================= */
+/* =========================================================
+   اختيار النظام
+========================================================= */
 
 document
 .querySelectorAll(".option")
 .forEach(option=>{
 
-option.addEventListener("click",function(){
+    option.addEventListener("click",function(){
 
-document
-.querySelectorAll(".option")
-.forEach(o=>{
+        document
+        .querySelectorAll(".option")
+        .forEach(o=>{
+            o.classList.remove("active");
+        });
 
-o.classList.remove("active");
+        this.classList.add("active");
 
-});
-
-this.classList.add("active");
-
-});
+    });
 
 });
 
 
-
-/* =========================================
-   تحويل الأرقام العربية
-========================================= */
+/* =========================================================
+   تطبيع الأرقام العربية
+========================================================= */
 
 function normalizeArabicNumbers(text){
 
-const arabicNumbers={
+    const map={
 
-"٠":"0",
-"١":"1",
-"٢":"2",
-"٣":"3",
-"٤":"4",
-"٥":"5",
-"٦":"6",
-"٧":"7",
-"٨":"8",
-"٩":"9"
+        "٠":"0",
+        "١":"1",
+        "٢":"2",
+        "٣":"3",
+        "٤":"4",
+        "٥":"5",
+        "٦":"6",
+        "٧":"7",
+        "٨":"8",
+        "٩":"9"
 
-};
+    };
 
-return text.replace(
-/[٠-٩]/g,
-char=>arabicNumbers[char]
-);
+    return String(text).replace(
+        /[٠-٩]/g,
+        c=>map[c]
+    );
 
 }
 
 
+/* =========================================================
+   تطبيع النص العربي
+========================================================= */
 
-/* =========================================
+function normalizeArabicText(text){
+
+    let s=String(text||"");
+
+    s=normalizeArabicNumbers(s);
+
+    s=s.toLowerCase();
+
+    /* إزالة التشكيل */
+
+    s=s.replace(
+        /[\u064B-\u065F\u0670]/g,
+        ""
+    );
+
+    /* إزالة التطويل */
+
+    s=s.replace(/ـ/g,"");
+
+    /* توحيد الهمزات */
+
+    s=s.replace(/[أإآ]/g,"ا");
+
+    /* توحيد بعض الحروف */
+
+    s=s.replace(/ى/g,"ي");
+
+    s=s.replace(/ؤ/g,"و");
+
+    s=s.replace(/ئ/g,"ي");
+
+    /* علامات الترقيم */
+
+    s=s.replace(/[،,؛;:!?؟()\[\]{}]/g," ");
+
+    /* مسافات زائدة */
+
+    s=s.replace(/\s+/g," ").trim();
+
+    return s;
+}
+
+
+/* =========================================================
    حماية HTML
-========================================= */
+========================================================= */
 
 function escapeHTML(text){
 
-return text
-.replace(/&/g,"&amp;")
-.replace(/</g,"&lt;")
-.replace(/>/g,"&gt;")
-.replace(/"/g,"&quot;")
-.replace(/'/g,"&#039;");
+    return String(text)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
 
 }
 
 
+/* =========================================================
+   أرقام الكلمات العربية والسودانية
+========================================================= */
 
-/* =========================================
+const arabicWordNumbers={
+
+    "صفر":0,
+
+    "واحد":1,
+    "واحدة":1,
+    "واحده":1,
+
+    "اثنين":2,
+    "اثنان":2,
+    "اثنتين":2,
+    "اثنتان":2,
+    "اتنين":2,
+    "اتنين":2,
+    "اتنين":2,
+
+    "ثنتين":2,
+    "ثنتان":2,
+
+    "اثنين":2,
+
+    "ثلاث":3,
+    "ثلاثة":3,
+    "تلات":3,
+    "تلاتة":3,
+
+    "اربع":4,
+    "اربعة":4,
+    "أربع":4,
+    "أربعة":4,
+
+    "خمسة":5,
+    "خمس":5,
+    "خمسه":5,
+
+    "ست":6,
+    "ستة":6,
+    "سته":6,
+
+    "سبع":7,
+    "سبعة":7,
+    "سبعه":7,
+
+    "ثمان":8,
+    "ثمانية":8,
+    "تمانية":8,
+    "تماني":8,
+
+    "تسع":9,
+    "تسعة":9,
+    "تسعه":9,
+
+    "عشر":10,
+    "عشرة":10,
+    "عشره":10
+
+};
+
+
+/* =========================================================
+   إيجاد رقم مكتوب بالكلمات
+========================================================= */
+
+function getWordNumber(text){
+
+    const words=normalizeArabicText(text)
+        .split(/\s+/)
+        .filter(Boolean);
+
+    let best=0;
+
+    words.forEach(word=>{
+
+        if(
+            Object.prototype.hasOwnProperty
+            .call(arabicWordNumbers,word)
+        ){
+
+            best=arabicWordNumbers[word];
+
+        }
+
+    });
+
+    return best;
+
+}
+
+
+/* =========================================================
+   تنظيف الكلمة للمقارنة
+========================================================= */
+
+function cleanToken(token){
+
+    return normalizeArabicText(token)
+        .replace(/^[^\w\u0600-\u06FF]+/g,"")
+        .replace(/[^\w\u0600-\u06FF]+$/g,"")
+        .trim();
+
+}
+
+
+/* =========================================================
+   محلل اللهجة السودانية
+========================================================= */
+
+/*
+    هذا هو الجزء الأهم في النسخة الجديدة.
+
+    يفهم:
+
+    2 ثلاجة
+    ٢ ثلاجة
+    ثلاجتين
+    ثلاجتان
+    تلاتة تلاجات
+    تلات تلاجات
+    اتنين اسبلت
+    مروحتين
+    خمسة مراوح
+    مكيفين موية
+*/
+
+function getQuantity(message,device){
+
+    const text=normalizeArabicText(message);
+
+    const keywords=(device.keywords||[])
+        .map(k=>normalizeArabicText(k))
+        .filter(Boolean)
+        .sort((a,b)=>b.length-a.length);
+
+    const dual=(device.dual||[])
+        .map(k=>normalizeArabicText(k))
+        .filter(Boolean)
+        .sort((a,b)=>b.length-a.length);
+
+
+    /* -----------------------------------------
+       1. الصيغ الثنائية الخاصة
+       ----------------------------------------- */
+
+    for(const form of dual){
+
+        if(text.includes(form)){
+            return 2;
+        }
+
+    }
+
+
+    /* -----------------------------------------
+       2. أرقام مباشرة قبل الجهاز
+       مثل:
+       2 ثلاجة
+       ٢ ثلاجات
+       10 لمبات
+       ----------------------------------------- */
+
+    for(const keyword of keywords){
+
+        const escaped=
+            keyword.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
+
+        const before=
+            new RegExp(
+                "(^|\\s)(\\d+(?:\\.\\d+)?)\\s*"+
+                escaped+
+                "(?=\\s|$)"
+            );
+
+        const m1=text.match(before);
+
+        if(m1){
+
+            const q=parseFloat(m1[2]);
+
+            if(q>0) return q;
+
+        }
+
+
+        /* -----------------------------------------
+           رقم بعد الجهاز
+           ثلاجة 2
+           مروحة 3
+           ----------------------------------------- */
+
+        const after=
+            new RegExp(
+                escaped+
+                "\\s*(\\d+(?:\\.\\d+)?)"+
+                "(?=\\s|$)"
+            );
+
+        const m2=text.match(after);
+
+        if(m2){
+
+            const q=parseFloat(m2[1]);
+
+            if(q>0) return q;
+
+        }
+
+    }
+
+
+    /* -----------------------------------------
+       3. رقم بالكلمات + اسم الجهاز
+       تلاتة تلاجات
+       ثلاثة ثلاجات
+       اتنين مراوح
+       ----------------------------------------- */
+
+    const tokens=text.split(/\s+/);
+
+    for(let i=0;i<tokens.length;i++){
+
+        const number=
+            arabicWordNumbers[tokens[i]];
+
+        if(!number || number<=0){
+            continue;
+        }
+
+        for(let j=1;j<=2;j++){
+
+            const candidate=
+                tokens[i+j];
+
+            if(!candidate){
+                continue;
+            }
+
+            const found=
+                keywords.some(keyword=>{
+
+                    return (
+                        candidate===keyword ||
+                        candidate.startsWith(keyword) ||
+                        keyword.startsWith(candidate)
+                    );
+
+                });
+
+            if(found){
+
+                return number;
+
+            }
+
+        }
+
+    }
+
+
+    /* -----------------------------------------
+       4. أرقام سودانية شائعة مع اسم الجهاز
+       ----------------------------------------- */
+
+    const sudaneseNumbers={
+
+        "اتنين":2,
+        "اتنين":2,
+        "تلاتة":3,
+        "تلات":3,
+        "اربعة":4,
+        "اربعه":4,
+        "خمسة":5,
+        "خمسه":5,
+        "ستة":6,
+        "سته":6,
+        "سبعة":7,
+        "سبعه":7,
+        "تمانية":8,
+        "تماني":8,
+        "تسعة":9,
+        "تسعه":9
+
+    };
+
+    for(let i=0;i<tokens.length;i++){
+
+        const n=sudaneseNumbers[tokens[i]];
+
+        if(!n) continue;
+
+        for(let j=1;j<=2;j++){
+
+            const candidate=tokens[i+j];
+
+            if(!candidate) continue;
+
+            if(
+                keywords.some(k=>
+                    candidate===k ||
+                    candidate.startsWith(k) ||
+                    k.startsWith(candidate)
+                )
+            ){
+
+                return n;
+
+            }
+
+        }
+
+    }
+
+
+    /* -----------------------------------------
+       5. صيغة الجمع:
+       تلاجات / ثلاجات / مراوح...
+       إذا ظهر اسم الجهاز فقط = 1
+       ----------------------------------------- */
+
+    for(const keyword of keywords){
+
+        if(text.includes(keyword)){
+
+            return 1;
+
+        }
+
+    }
+
+
+    return 0;
+
+}
+
+
+/* =========================================================
+   اكتشاف كل الأجهزة في الجملة
+========================================================= */
+
+function parseSolarMessage(message){
+
+    const text=normalizeArabicText(message);
+
+    const detected=[];
+
+    devices.forEach((device,index)=>{
+
+        if(!device.keywords ||
+           device.keywords.length===0){
+
+            return;
+
+        }
+
+        const qty=getQuantity(text,device);
+
+        if(qty>0){
+
+            detected.push({
+
+                index:index,
+
+                device:device,
+
+                qty:qty
+
+            });
+
+        }
+
+    });
+
+
+    /* =========================================
+       معالجة الأجهزة ذات العبارات المركبة
+    ========================================= */
+
+    const waterDevice=
+        devices.findIndex(d=>
+            d.name.includes("مكيف موية")
+        );
+
+    const splitDevice=
+        devices.findIndex(d=>
+            d.name.includes("مكيف اسبلت")
+        );
+
+
+    /* مكيف موية */
+
+    if(waterDevice>=0){
+
+        const waterRegex=
+            /(مكيفين موية|مكيفين مياه|مكيفين صحراوي|مكيفين صحراوى)/;
+
+        if(waterRegex.test(text)){
+
+            const old=
+                detected.find(x=>
+                    x.index===waterDevice
+                );
+
+            if(old){
+
+                old.qty=2;
+
+            }else{
+
+                detected.push({
+                    index:waterDevice,
+                    device:devices[waterDevice],
+                    qty:2
+                });
+
+            }
+
+        }
+
+    }
+
+
+    /* مكيف اسبلت */
+
+    if(splitDevice>=0){
+
+        const splitRegex=
+            /(اسبلتين|اسبلتان|سبلتين|سبلتان|سبليتين|سبليتان|مكيفين اسبلت|مكيفين سبليت)/;
+
+        if(splitRegex.test(text)){
+
+            const old=
+                detected.find(x=>
+                    x.index===splitDevice
+                );
+
+            if(old){
+
+                old.qty=2;
+
+            }else{
+
+                detected.push({
+                    index:splitDevice,
+                    device:devices[splitDevice],
+                    qty:2
+                });
+
+            }
+
+        }
+
+    }
+
+
+    /* إزالة التكرار */
+
+    const unique=[];
+
+    detected.forEach(item=>{
+
+        const existing=
+            unique.find(x=>
+                x.index===item.index
+            );
+
+        if(existing){
+
+            existing.qty=
+                Math.max(
+                    existing.qty,
+                    item.qty
+                );
+
+        }else{
+
+            unique.push(item);
+
+        }
+
+    });
+
+
+    return unique;
+
+}
+
+
+/* =========================================================
+   استخراج ساعات التشغيل
+========================================================= */
+
+function getHoursFromMessage(message){
+
+    const text=normalizeArabicNumbers(message);
+
+    const match=text.match(
+        /(\d+(?:\.\d+)?)\s*(ساعة|ساعات|ساعه|ساعه تشغيل|ساعة تشغيل)/
+    );
+
+    if(match){
+
+        const hours=parseFloat(match[1]);
+
+        if(hours>0){
+            return hours;
+        }
+
+    }
+
+    /* ساعات مكتوبة بالكلمات */
+
+    const wordPatterns=[
+
+        {
+            regex:/لمدة\s+(ثمانية|تمانية|ثمان|تمنية)\s+ساعات?/,
+            value:8
+        },
+
+        {
+            regex:/لمدة\s+(خمسة|خمس)\s+ساعات?/,
+            value:5
+        },
+
+        {
+            regex:/لمدة\s+(ستة|ست)\s+ساعات?/,
+            value:6
+        },
+
+        {
+            regex:/لمدة\s+(عشرة|عشر)\s+ساعات?/,
+            value:10
+        }
+
+    ];
+
+    for(const p of wordPatterns){
+
+        if(p.regex.test(text)){
+
+            return p.value;
+
+        }
+
+    }
+
+    return null;
+
+}
+
+
+/* =========================================================
+   حساب الحمل من الرسالة
+========================================================= */
+
+function applyDetectedDevices(detected,hours){
+
+    devices.forEach((device,index)=>{
+
+        const qtyInput=
+            document.getElementById(`qty${index}`);
+
+        const hoursInput=
+            document.getElementById(`hours${index}`);
+
+        if(qtyInput){
+
+            qtyInput.value=0;
+
+        }
+
+        if(hoursInput){
+
+            hoursInput.value=device.hours;
+
+        }
+
+    });
+
+
+    detected.forEach(item=>{
+
+        const qtyInput=
+            document.getElementById(`qty${item.index}`);
+
+        const hoursInput=
+            document.getElementById(`hours${item.index}`);
+
+        if(qtyInput){
+
+            qtyInput.value=item.qty;
+
+        }
+
+        if(hoursInput && hours){
+
+            hoursInput.value=hours;
+
+        }
+
+    });
+
+}
+
+
+/* =========================================================
+   تنسيق الأجهزة المكتشفة
+========================================================= */
+
+function detectedHTML(detected){
+
+    if(!detected.length){
+
+        return `
+        <div class="detected">
+            ⚠️ لم أتعرف على جهاز واضح في النص.
+            <br>
+            جرّب مثلاً:
+            <b>ثلاجتين ومروحتين و10 لمبات</b>
+        </div>
+        `;
+
+    }
+
+    let html=`
+    <div class="detected">
+        <b>🔎 الأجهزة التي فهمها النظام:</b>
+        <br><br>
+    `;
+
+    detected.forEach(item=>{
+
+        html += `
+        • ${escapeHTML(item.device.name)}
+        × ${item.qty}
+        <br>
+        `;
+
+    });
+
+    html += `</div>`;
+
+    return html;
+
+}
+
+
+/* =========================================================
    حساب الطاقة المطلوبة للبطارية
-========================================= */
+========================================================= */
 
 function calculateRequiredBatteryKwh(
-totalPower,
-backupHours
+    totalPower,
+    backupHours
 ){
 
-const loadKwh =
-(totalPower * backupHours)/1000;
+    const inverterEfficiency=0.92;
 
+    const batteryDoD=0.90;
 
-/*
-كفاءة الانفيرتر 92%
-عمق تفريغ LiFePO4 = 90%
-*/
-
-return loadKwh / (0.92 * 0.90);
+    return (
+        (totalPower*backupHours/1000) /
+        (inverterEfficiency*batteryDoD)
+    );
 
 }
 
 
+/* =========================================================
+   اختيار النظام تلقائياً
+========================================================= */
 
-/* =========================================
-   إيجاد أفضل بطارية للجهد
-========================================= */
-
-function findBalancedBattery(
-voltage,
-requiredKwh
+function selectSystemVoltage(
+    totalPower,
+    requiredBatteryKwh
 ){
 
-const options =
-batteryOptions[voltage];
+    const requested=
+        document.querySelector(
+            'input[name="system"]:checked'
+        ).value;
 
-if(!options){
-return null;
-}
+    if(requested!=="auto"){
 
+        return parseInt(requested);
 
-/*
-البطاريات التي تحقق الطاقة المطلوبة
-*/
-
-let valid =
-options.filter(
-battery =>
-battery.kwh >= requiredKwh
-);
+    }
 
 
-/*
-لا يوجد حل يحقق الساعات
-*/
+    /* -----------------------------------------
+       12V
+       مناسب للأحمال الصغيرة فقط
+       ----------------------------------------- */
 
-if(valid.length===0){
+    if(
+        totalPower<=2000 &&
+        batteryOptions[12]
+        .some(b=>b.kwh>=requiredBatteryKwh)
+    ){
 
-return null;
+        return 12;
 
-}
-
-
-/*
-ترتيب حسب أقل زيادة في الطاقة
-*/
-
-valid.sort((a,b)=>{
-
-const diffA =
-a.kwh-requiredKwh;
-
-const diffB =
-b.kwh-requiredKwh;
+    }
 
 
-/*
-إذا كان الفرق متساوياً
-نفضل الأقل تعقيداً
-*/
+    /* -----------------------------------------
+       24V
+       ----------------------------------------- */
 
-if(Math.abs(diffA-diffB)<0.05){
+    if(
+        totalPower<=4200 &&
+        batteryOptions[24]
+        .some(b=>b.kwh>=requiredBatteryKwh)
+    ){
 
-return a.priority-b.priority;
+        return 24;
 
-}
-
-return diffA-diffB;
-
-});
+    }
 
 
-return valid[0];
+    /* -----------------------------------------
+       48V
+       ----------------------------------------- */
+
+    return 48;
 
 }
 
 
+/* =========================================================
+   اختيار البطارية
+========================================================= */
 
-/* =========================================
-   اختيار الجهد الذكي
-========================================= */
-
-function selectSmartSystem(
-totalPower,
-backupHours
+function selectBattery(
+    voltage,
+    requiredKwh
 ){
 
-const requiredKwh =
-calculateRequiredBatteryKwh(
-totalPower,
-backupHours
-);
+    const options=
+        batteryOptions[voltage] || [];
 
+    if(!options.length){
 
-/*
-الأنظمة حسب قواعد YAWAHAB
-*/
+        return null;
 
-const systems=[
+    }
 
-{
-voltage:12,
-maxPower:2000
-},
+    const sorted=
+        [...options].sort((a,b)=>{
 
-{
-voltage:24,
-maxPower:4200
-},
+            if(a.kwh!==b.kwh){
 
-{
-voltage:48,
-maxPower:11000
-}
+                return a.kwh-b.kwh;
 
-];
+            }
 
+            return a.priority-b.priority;
 
-/*
-نبدأ بأقل جهد مناسب
-لكن بشرط وجود بطارية متوازنة
-*/
+        });
 
-for(const system of systems){
+    const exact=
+        sorted.find(b=>
+            b.kwh>=requiredKwh
+        );
 
-if(totalPower > system.maxPower){
+    if(exact){
 
-continue;
+        return exact;
 
-}
+    }
 
+    /* إذا لم توجد بطارية واحدة كافية،
+       نحسب عدد الوحدات */
 
-const battery =
-findBalancedBattery(
-system.voltage,
-requiredKwh
-);
+    const largest=
+        sorted[sorted.length-1];
 
+    const count=
+        Math.ceil(
+            requiredKwh/largest.kwh
+        );
 
-if(battery){
+    return {
 
-return {
+        name:
+            `${count} × ${largest.name.replace(/^1 × /,"")}`,
 
-voltage:system.voltage,
-battery:battery,
-requiredKwh:requiredKwh,
-meetsRequirement:true
+        kwh:
+            largest.kwh*count,
 
-};
+        priority:largest.priority
 
-}
+    };
 
 }
 
 
-/*
-إذا لم نجد بطارية تحقق ساعات العميل:
-
-نختار الجهد الطبيعي للحمل
-وأفضل/أكبر بطارية متاحة لذلك الجهد
-*/
-
-let voltage;
-
-
-if(totalPower<=2000){
-
-voltage=12;
-
-}
-
-else if(totalPower<=4200){
-
-voltage=24;
-
-}
-
-else{
-
-voltage=48;
-
-}
-
-
-const options =
-batteryOptions[voltage];
-
-
-const largestBattery =
-[...options]
-.sort((a,b)=>b.kwh-a.kwh)[0];
-
-
-return {
-
-voltage:voltage,
-battery:largestBattery,
-requiredKwh:requiredKwh,
-meetsRequirement:false
-
-};
-
-}
-
-
-
-/* =========================================
+/* =========================================================
    اختيار الانفيرتر
-========================================= */
+========================================================= */
 
 function selectInverter(
-totalPower,
-voltage
+    voltage,
+    totalPower
 ){
 
-const requiredPower =
-totalPower * 1.30;
+    if(totalPower>11000){
+
+        return {
+            text:
+                `${Math.ceil(totalPower/11000)} × 11kW أو Deye High Voltage`,
+            capacity:
+                Math.ceil(totalPower/11000)*11000
+        };
+
+    }
 
 
-/*
-أكثر من 11kW
-*/
+    if(voltage===12){
 
-if(totalPower>11000){
+        const sizes=[1000,1500,2000];
 
-const count =
-Math.ceil(
-requiredPower/11000
-);
+        const selected=
+            sizes.find(x=>x>=totalPower);
+
+        if(selected){
+
+            return {
+                text:`${selected/1000}kW / 12V`,
+                capacity:selected
+            };
+
+        }
+
+        return {
+            text:"أكثر من 2kW — يفضل الانتقال إلى 24V أو 48V",
+            capacity:2000
+        };
+
+    }
 
 
-return
-`${count} × 11kW Parallel أو Deye High Voltage`;
+    if(voltage===24){
+
+        const sizes=[
+            3000,
+            3500,
+            4000,
+            4200
+        ];
+
+        const selected=
+            sizes.find(x=>x>=totalPower);
+
+        if(selected){
+
+            return {
+                text:`${selected/1000}kW / 24V`,
+                capacity:selected
+            };
+
+        }
+
+        return {
+            text:"أكثر من 4.2kW — يفضل 48V",
+            capacity:4200
+        };
+
+    }
+
+
+    const sizes=[
+        5000,
+        6000,
+        8000,
+        10000,
+        11000
+    ];
+
+    const selected=
+        sizes.find(x=>x>=totalPower);
+
+    if(selected){
+
+        return {
+            text:`${selected/1000}kW / 48V`,
+            capacity:selected
+        };
+
+    }
+
+    return {
+
+        text:
+            "أكثر من 11kW — استخدم Parallel أو High Voltage",
+
+        capacity:11000
+
+    };
 
 }
 
 
-let sizes=[];
-
-
-if(voltage===12){
-
-sizes=[1,1.5,2];
-
-}
-
-else if(voltage===24){
-
-sizes=[3,3.5,4,4.2];
-
-}
-
-else{
-
-sizes=[5,6,8,10,11];
-
-}
-
-
-const size =
-sizes.find(
-s => s*1000>=requiredPower
-);
-
-
-return `${size}kW / ${voltage}V`;
-
-}
-
-
-
-/* =========================================
-   الحساب الرئيسي
-========================================= */
+/* =========================================================
+   حساب النظام
+========================================================= */
 
 function calculateSolar(){
 
-let totalPower=0;
+    let totalPower=0;
 
-let dailyWh=0;
+    let dailyWh=0;
 
-let activeDevices=[];
 
+    devices.forEach((device,index)=>{
 
-devices.forEach((device,index)=>{
+        const qtyInput=
+            document.getElementById(`qty${index}`);
 
-const qty =
-parseFloat(
-document
-.getElementById(`qty${index}`)
-.value
-) || 0;
+        const hoursInput=
+            document.getElementById(`hours${index}`);
 
+        if(!qtyInput || !hoursInput){
 
-const hours =
-parseFloat(
-document
-.getElementById(`hours${index}`)
-.value
-) || 0;
+            return;
 
+        }
 
-if(qty>0){
+        const qty=
+            parseFloat(qtyInput.value)||0;
 
-const devicePower =
-device.power*qty;
+        const hours=
+            parseFloat(hoursInput.value)||0;
 
-const deviceEnergy =
-devicePower*hours;
+        if(qty<=0 || hours<=0){
 
+            return;
 
-totalPower += devicePower;
+        }
 
-dailyWh += deviceEnergy;
+        totalPower +=
+            device.power*qty;
 
+        dailyWh +=
+            device.power*
+            qty*
+            hours;
 
-activeDevices.push({
+    });
 
-name:device.name,
-qty:qty,
-power:devicePower
 
-});
+    if(totalPower<=0){
 
-}
+        alert(
+            "أدخل جهازاً واحداً على الأقل."
+        );
 
-});
+        return;
 
+    }
 
-if(totalPower<=0){
 
-alert("⚠️ الرجاء إدخال جهاز واحد على الأقل.");
+    const backupHours=
+        parseFloat(
+            document.getElementById("backupHours").value
+        ) || 8;
 
-return;
+    const sunHours=
+        parseFloat(
+            document.getElementById("sunHours").value
+        ) || 5.5;
 
-}
+    const panelPower=
+        parseFloat(
+            document.getElementById("panelPower").value
+        ) || 585;
 
 
-/* ساعات الاحتياط */
+    /* البطارية المطلوبة */
 
-const backupHours =
-parseFloat(
-document
-.getElementById("backupHours")
-.value
-) || 8;
+    const requiredBatteryKwh=
+        calculateRequiredBatteryKwh(
+            totalPower,
+            backupHours
+        );
 
 
-/* اختيار النظام */
+    /* جهد النظام */
 
-const selectedSystem =
-document.querySelector(
-'input[name="system"]:checked'
-).value;
+    const voltage=
+        selectSystemVoltage(
+            totalPower,
+            requiredBatteryKwh
+        );
 
 
-let system;
+    /* البطارية */
 
+    const battery=
+        selectBattery(
+            voltage,
+            requiredBatteryKwh
+        );
 
-/*
-اختيار يدوي
-*/
 
-if(selectedSystem!=="auto"){
+    /* الانفيرتر */
 
-const voltage =
-Number(selectedSystem);
+    const inverter=
+        selectInverter(
+            voltage,
+            totalPower
+        );
 
-const requiredKwh =
-calculateRequiredBatteryKwh(
-totalPower,
-backupHours
-);
 
+    /* التشغيل الفعلي */
 
-/*
-نبحث عن بطارية مناسبة
-*/
+    let runtime=0;
 
-let battery =
-findBalancedBattery(
-voltage,
-requiredKwh
-);
+    if(battery){
 
+        runtime=
+            (
+                battery.kwh*
+                0.90*
+                0.92
+            )/
+            (totalPower/1000);
 
-/*
-إذا غير متوفرة نأخذ الأكبر
-*/
+    }
 
-if(!battery){
 
-battery =
-[...batteryOptions[voltage]]
-.sort((a,b)=>b.kwh-a.kwh)[0];
+    /* الطاقة الشمسية */
 
-}
+    const requiredPvPower=
+        dailyWh/
+        (sunHours*0.80);
 
+    const panelCount=
+        Math.ceil(
+            requiredPvPower/panelPower
+        );
 
-system={
+    const totalPvPower=
+        panelCount*panelPower;
 
-voltage:voltage,
-battery:battery,
-requiredKwh:requiredKwh,
 
-meetsRequirement:
-battery.kwh>=requiredKwh
+    /* تيار البطارية */
 
-};
+    const batteryCurrent=
+        totalPower/
+        voltage/
+        0.92;
 
-}
 
-else{
+    /* عرض النتائج */
 
-system =
-selectSmartSystem(
-totalPower,
-backupHours
-);
+    document.getElementById(
+        "totalPower"
+    ).textContent=
+        `${totalPower.toLocaleString()} W`;
 
-}
 
+    document.getElementById(
+        "dailyEnergy"
+    ).textContent=
+        `${(dailyWh/1000).toFixed(2)} kWh`;
 
-const voltage =
-system.voltage;
 
-const battery =
-system.battery;
+    document.getElementById(
+        "systemVoltage"
+    ).textContent=
+        `${voltage}V`;
 
-const requiredBatteryKwh =
-system.requiredKwh;
 
+    document.getElementById(
+        "inverter"
+    ).textContent=
+        inverter.text;
 
-/* الانفيرتر */
 
-const inverter =
-selectInverter(
-totalPower,
-voltage
-);
+    document.getElementById(
+        "battery"
+    ).textContent=
+        battery
+        ? `${battery.name} — ${battery.kwh.toFixed(2)} kWh`
+        : "لا توجد بطارية مناسبة";
 
 
-/* الاستهلاك اليومي */
+    document.getElementById(
+        "runtime"
+    ).textContent=
+        `${runtime.toFixed(2)} ساعة`;
 
-const dailyKwh =
-dailyWh/1000;
 
+    document.getElementById(
+        "panels"
+    ).textContent=
+        `${panelCount} × ${panelPower}W`;
 
-/* الطاقة المتاحة فعلياً */
 
-const usableBatteryKwh =
-battery.kwh *
-0.90 *
-0.92;
+    document.getElementById(
+        "pvPower"
+    ).textContent=
+        `${(totalPvPower/1000).toFixed(2)} kW`;
 
 
-/* التشغيل الفعلي */
+    /* =========================================
+       التوصية الهندسية
+    ========================================= */
 
-const expectedHours =
-usableBatteryKwh /
-(totalPower/1000);
+    let recommendation=`
 
+    <b>🤖 التوصية الهندسية:</b>
 
-/* الشمس */
+    <br><br>
 
-const sunHours =
-parseFloat(
-document
-.getElementById("sunHours")
-.value
-) || 5.5;
+    الحمل الكلي:
+    <b>${totalPower.toLocaleString()}W</b>
 
+    <br>
 
-const panelPower =
-parseFloat(
-document
-.getElementById("panelPower")
-.value
-) || 585;
+    الطاقة اليومية:
+    <b>${(dailyWh/1000).toFixed(2)} kWh</b>
 
+    <br>
 
-/* قدرة PV */
+    جهد النظام المقترح:
+    <b>${voltage}V</b>
 
-const requiredPvPower =
-dailyWh /
-(sunHours*0.80);
+    <br>
 
+    الانفيرتر:
+    <b>${inverter.text}</b>
 
-const panelCount =
-Math.ceil(
-requiredPvPower/
-panelPower
-);
+    <br>
 
+    البطارية المطلوبة تقريباً:
+    <b>${requiredBatteryKwh.toFixed(2)} kWh</b>
 
-const totalPvPower =
-panelCount*panelPower;
+    <br>
 
+    تيار البطارية التقريبي عند الحمل الكامل:
+    <b>${batteryCurrent.toFixed(1)}A</b>
 
-/* تيار البطارية */
+    <br>
 
-const batteryCurrent =
-totalPower /
-voltage /
-0.92;
+    الألواح:
+    <b>${panelCount} × ${panelPower}W</b>
 
+    <br><br>
 
-/* عرض النتائج */
+    التشغيل المتوقع:
+    <b>${runtime.toFixed(2)} ساعة</b>
 
-document
-.getElementById("totalPower")
-.innerText =
-totalPower.toLocaleString()+" W";
+    `;
 
 
-document
-.getElementById("dailyEnergy")
-.innerText =
-dailyKwh.toFixed(2)+" kWh";
+    /* تحذيرات */
 
+    if(voltage===12 && totalPower>1500){
 
-document
-.getElementById("systemVoltage")
-.innerText =
-voltage+"V";
+        recommendation +=`
 
+        <br><br>
 
-document
-.getElementById("inverter")
-.innerText =
-inverter;
+        ⚠️ <b>ملاحظة:</b>
+        الحمل مرتفع نسبياً لنظام 12V.
+        يفضل دراسة 24V أو 48V لتقليل تيار البطارية والكابلات.
+        `;
 
+    }
 
-document
-.getElementById("battery")
-.innerText =
-battery.name;
 
+    if(batteryCurrent>200){
 
-document
-.getElementById("runtime")
-.innerText =
-expectedHours.toFixed(1)+" ساعة";
+        recommendation +=`
 
+        <br><br>
 
-document
-.getElementById("panels")
-.innerText =
-panelCount+" × "+panelPower+"W";
+        ⚠️ تيار البطارية يتجاوز تقريباً 200A.
+        يجب مراجعة BMS والكابلات والقواطع ونقاط التوصيل.
+        `;
 
+    }
 
-document
-.getElementById("pvPower")
-.innerText =
-(totalPvPower/1000)
-.toFixed(2)+"kW";
 
+    if(totalPower>8000){
 
+        recommendation +=`
 
-/* =========================================
-   التقرير
-========================================= */
+        <br><br>
 
-let recommendation = `
+        ⚠️ الحمل مرتفع.
+        يجب دراسة Surge وبدء تشغيل المحركات
+        وتوزيع الأحمال ومواصفات الانفيرتر الفعلية.
+        `;
 
-🤖 <b>توصية YAWAHAB SOLAR AI</b>
+    }
 
-<br><br>
 
-⚡ <b>الحمل الكلي:</b>
+    document.getElementById(
+        "recommendation"
+    ).innerHTML=
+        recommendation;
 
-${totalPower.toLocaleString()}W
 
-<br>
+    document.getElementById(
+        "results"
+    ).style.display="block";
 
-📊 <b>الاستهلاك اليومي:</b>
 
-${dailyKwh.toFixed(2)} kWh
-
-<br>
-
-🔋 <b>الجهد المختار:</b>
-
-${voltage}V
-
-<br>
-
-🔌 <b>الانفيرتر المقترح:</b>
-
-${inverter}
-
-<br>
-
-🔋 <b>الطاقة المطلوبة للبطارية:</b>
-
-${requiredBatteryKwh.toFixed(2)} kWh
-
-<br>
-
-🔋 <b>البطارية المختارة:</b>
-
-${battery.name}
-
-<br>
-
-📦 <b>السعة الاسمية:</b>
-
-${battery.kwh.toFixed(2)} kWh
-
-<br>
-
-🌙 <b>ساعات التشغيل المتوقعة:</b>
-
-${expectedHours.toFixed(1)} ساعة
-
-<br>
-
-☀️ <b>الألواح:</b>
-
-${panelCount} × ${panelPower}W
-
-<br>
-
-📈 <b>إجمالي قدرة الألواح:</b>
-
-${(totalPvPower/1000).toFixed(2)} kW
-
-<br>
-
-🔌 <b>تيار البطارية التقريبي:</b>
-
-${batteryCurrent.toFixed(1)}A
-
-`;
-
-
-/* =========================================
-   مقارنة ساعات العميل
-========================================= */
-
-if(expectedHours < backupHours){
-
-const difference =
-backupHours-expectedHours;
-
-
-recommendation += `
-
-<br><br>
-
-⚠️ <b>تنبيه التوازن:</b>
-
-<br>
-
-العميل طلب تشغيل لمدة:
-
-<b>${backupHours} ساعات</b>
-
-<br>
-
-لكن أفضل بطارية متوازنة من الخيارات المتاحة توفر تقريباً:
-
-<b>${expectedHours.toFixed(1)} ساعة</b>
-
-<br><br>
-
-💡 <b>الفرق:</b>
-
-${difference.toFixed(1)} ساعة
-
-<br><br>
-
-✅ لم يتم إضافة بطاريات عشوائية أو غير متوازنة فقط لتحقيق ساعات التشغيل المطلوبة.
-
-<br>
-
-💡 يمكن تقليل ساعات التشغيل الليلية أو تقليل الأحمال.
-
-`;
-
-}
-
-else{
-
-recommendation += `
-
-<br><br>
-
-✅ <b>المنظومة المختارة متوازنة وتحقق ساعات التشغيل المطلوبة.</b>
-
-`;
+    document.getElementById(
+        "results"
+    ).scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+    });
 
 }
 
 
-/* =========================================
-   سبب اختيار الجهد
-========================================= */
-
-if(selectedSystem==="auto"){
-
-if(voltage===12){
-
-recommendation += `
-
-<br><br>
-
-⚡ <b>سبب اختيار 12V:</b>
-
-الحمل صغير ويمكن تصميم منظومة منخفضة الجهد ضمن حدود 2000W.
-
-`;
-
-}
-
-else if(voltage===24){
-
-recommendation += `
-
-<br><br>
-
-⚡ <b>سبب اختيار 24V:</b>
-
-الحمل أو الطاقة المطلوبة أكبر من الحدود العملية لنظام 12V، لذلك تم الانتقال إلى نظام 24V.
-
-`;
-
-}
-
-else{
-
-recommendation += `
-
-<br><br>
-
-⚡ <b>سبب اختيار 48V:</b>
-
-الحمل أو احتياج الطاقة يتطلب نظاماً بتيار أقل وكفاءة أعلى مقارنة بـ12V و24V.
-
-`;
-
-}
-
-}
-
-
-/* =========================================
-   تنبيه الضواغط
-========================================= */
-
-const hasCompressor =
-activeDevices.some(device=>
-
-device.name.includes("ثلاجة") ||
-device.name.includes("فريزر") ||
-device.name.includes("اسبلت")
-
-);
-
-
-if(hasCompressor){
-
-recommendation += `
-
-<br><br>
-
-⚠️ <b>تنبيه تيار الإقلاع:</b>
-
-توجد أجهزة تحتوي على ضواغط مثل الثلاجات أو الفريزر أو مكيف الاسبلت.
-
-يجب التأكد من قدرة Surge للانفيرتر.
-
-`;
-
-}
-
-
-/* =========================================
-   حمل كبير
-========================================= */
-
-if(totalPower>11000){
-
-recommendation += `
-
-<br><br>
-
-⚡ <b>منظومة كبيرة:</b>
-
-الحمل أكبر من 11kW.
-
-يوصى بدراسة:
-
-<br>
-
-• ربط انفيرترات 11kW على التوازي
-
-<br>
-
-أو
-
-<br>
-
-• نظام Deye High Voltage مع بطاريات جهد عالي.
-
-`;
-
-}
-
-
-document
-.getElementById("recommendation")
-.innerHTML =
-recommendation;
-
-
-document
-.getElementById("results")
-.style.display =
-"block";
-
-
-document
-.getElementById("results")
-.scrollIntoView({
-
-behavior:"smooth"
-
-});
-
-}
-
-
-
-/* =========================================
-   المحادثة
-========================================= */
-
-function addUserMessage(message){
-
-const chatBox =
-document.getElementById("chatBox");
-
-
-chatBox.innerHTML += `
-
-<div class="user-message">
-
-👤 <b>أنت:</b>
-
-<br>
-
-${escapeHTML(message)}
-
-</div>
-
-`;
-
-
-chatBox.scrollTop =
-chatBox.scrollHeight;
-
-}
-
-
-
-function addBotMessage(message){
-
-const chatBox =
-document.getElementById("chatBox");
-
-
-chatBox.innerHTML += `
-
-<div class="bot-message">
-
-${message}
-
-</div>
-
-`;
-
-
-chatBox.scrollTop =
-chatBox.scrollHeight;
-
-}
-
-
-
-/* =========================================
-   البحث عن كمية الجهاز
-========================================= */
-
-function getQuantity(message,keyword){
-
-const escaped =
-keyword.replace(
-/[.*+?^${}()|[\]\\]/g,
-"\\$&"
-);
-
-
-/*
-رقم قبل الكلمة
-*/
-
-const regexBefore =
-new RegExp(
-"(\\d+)\\s*"+escaped,
-"i"
-);
-
-
-const matchBefore =
-message.match(regexBefore);
-
-
-if(matchBefore){
-
-return Number(matchBefore[1]);
-
-}
-
-
-/*
-رقم بعد الكلمة
-*/
-
-const regexAfter =
-new RegExp(
-escaped+"\\s*(\\d+)",
-"i"
-);
-
-
-const matchAfter =
-message.match(regexAfter);
-
-
-if(matchAfter){
-
-return Number(matchAfter[1]);
-
-}
-
-
-/*
-الكلمة فقط
-*/
-
-if(message.includes(keyword)){
-
-return 1;
-
-}
-
-
-return 0;
-
-}
-
-
-
-/* =========================================
-   AI Agent
-========================================= */
+/* =========================================================
+   وكيل YAWAHAB SOLAR AI
+========================================================= */
 
 function askSolarAgent(){
 
-const input =
-document.getElementById("aiInput");
+    const input=
+        document.getElementById("aiInput");
+
+    const message=
+        input.value.trim();
+
+    if(!message){
+
+        return;
+
+    }
 
 
-const originalMessage =
-input.value.trim();
+    const chat=
+        document.getElementById("chatBox");
 
 
-if(!originalMessage){
+    chat.innerHTML += `
 
-alert("اكتب طلبك أولاً.");
+    <div class="user-message">
 
-return;
+        👤
+        ${escapeHTML(message)}
+
+    </div>
+
+    `;
+
+
+    input.value="";
+
+
+    const detected=
+        parseSolarMessage(message);
+
+
+    const hours=
+        getHoursFromMessage(message);
+
+
+    let response="";
+
+
+    if(!detected.length){
+
+        response=`
+
+        لم أتمكن من تحديد الأجهزة بشكل واضح.
+
+        <br><br>
+
+        جرّب مثلاً:
+
+        <br>
+
+        <b>
+        ثلاجتين ومكيف موية و10 لمبات لمدة 8 ساعات
+        </b>
+
+        <br><br>
+
+        أو:
+
+        <br>
+
+        <b>
+        تلاتة تلاجات واتنين اسبلت وخمسة مراوح
+        </b>
+
+        `;
+
+    }else{
+
+        applyDetectedDevices(
+            detected,
+            hours
+        );
+
+
+        response=`
+
+        تم تحليل كلامك بنجاح ✅
+
+        ${detectedHTML(detected)}
+
+        `;
+
+
+        if(hours){
+
+            response +=`
+
+            <br>
+
+            ⏱️ ساعات التشغيل المكتشفة:
+            <b>${hours} ساعات</b>
+
+            `;
+
+        }else{
+
+            response +=`
+
+            <br>
+
+            ⏱️ لم تحدد ساعات التشغيل.
+            سأستخدم الإعداد الموجود في النظام.
+
+            `;
+
+        }
+
+
+        response +=`
+
+        <br><br>
+
+        جاري حساب النظام...
+
+        `;
+
+
+        chat.innerHTML +=`
+
+        <div class="bot-message">
+
+            🤖 ${response}
+
+        </div>
+
+        `;
+
+
+        chat.scrollTop=chat.scrollHeight;
+
+
+        setTimeout(()=>{
+
+            calculateSolar();
+
+        },500);
+
+
+        return;
+
+    }
+
+
+    chat.innerHTML +=`
+
+    <div class="bot-message">
+
+        🤖 ${response}
+
+    </div>
+
+    `;
+
+
+    chat.scrollTop=chat.scrollHeight;
 
 }
 
 
-const message =
-normalizeArabicNumbers(
-originalMessage.toLowerCase()
-);
-
-
-/* رسالة المستخدم */
-
-addUserMessage(originalMessage);
-
-
-let detected=[];
-
-
-/*
-=========================================
-أولوية خاصة للمكيفات
-=========================================
-*/
-
-
-/* مكيف موية */
-
-const waterACIndex =
-devices.findIndex(
-d=>d.name.includes("موية")
-);
-
-
-const splitACIndex =
-devices.findIndex(
-d=>d.name.includes("اسبلت")
-);
-
-
-/*
-نبحث عن مكيف موية
-*/
-
-let waterACQty=0;
-
-
-devices[waterACIndex]
-.keywords
-.forEach(keyword=>{
-
-if(waterACQty===0){
-
-waterACQty =
-getQuantity(
-message,
-keyword
-);
-
-}
-
-});
-
-
-if(waterACQty>0){
-
-document
-.getElementById(
-`qty${waterACIndex}`
-)
-.value =
-waterACQty;
-
-
-detected.push(
-`${devices[waterACIndex].name} × ${waterACQty}`
-);
-
-}
-
-
-/*
-نبحث عن الاسبلت
-*/
-
-let splitACQty=0;
-
-
-devices[splitACIndex]
-.keywords
-.forEach(keyword=>{
-
-if(splitACQty===0){
-
-splitACQty =
-getQuantity(
-message,
-keyword
-);
-
-}
-
-});
-
-
-if(splitACQty>0){
-
-document
-.getElementById(
-`qty${splitACIndex}`
-)
-.value =
-splitACQty;
-
-
-detected.push(
-`${devices[splitACIndex].name} × ${splitACQty}`
-);
-
-}
-
-
-
-/*
-=========================================
-بقية الأجهزة
-=========================================
-*/
-
-devices.forEach((device,index)=>{
-
-if(
-index===waterACIndex ||
-index===splitACIndex
-){
-
-return;
-
-}
-
-
-if(!device.keywords.length){
-
-return;
-
-}
-
-
-let qty=0;
-
-
-device.keywords.forEach(keyword=>{
-
-if(qty===0){
-
-qty =
-getQuantity(
-message,
-keyword
-);
-
-}
-
-});
-
-
-if(qty>0){
-
-document
-.getElementById(
-`qty${index}`
-)
-.value =
-qty;
-
-
-detected.push(
-`${device.name} × ${qty}`
-);
-
-}
-
-});
-
-
-/* =========================================
-   استخراج ساعات التشغيل
-========================================= */
-
-const hoursMatch =
-message.match(
-/(\d+(?:\.\d+)?)\s*(ساعة|ساعات|ساعه)/
-);
-
-
-if(hoursMatch){
-
-document
-.getElementById("backupHours")
-.value =
-hoursMatch[1];
-
-}
-
-
-/* =========================================
-   الرد
-========================================= */
-
-if(detected.length>0){
-
-let response=`
-
-🤖 <b>تم تحليل طلبك بنجاح ✅</b>
-
-<br><br>
-
-تم التعرف على:
-
-<br><br>
-
-${detected.join("<br>")}
-
-`;
-
-
-if(hoursMatch){
-
-response += `
-
-<br><br>
-
-🌙 ساعات التشغيل المطلوبة:
-
-<b>${hoursMatch[1]} ساعات</b>
-
-`;
-
-}
-
-
-response += `
-
-<br><br>
-
-🧮 جاري اختيار:
-
-<br>
-
-⚡ الجهد المناسب
-
-<br>
-
-🔋 البطارية المتوازنة
-
-<br>
-
-🔌 الانفيرتر
-
-<br>
-
-☀️ الألواح الشمسية
-
-`;
-
-
-addBotMessage(response);
-
-
-input.value="";
-
-
-setTimeout(()=>{
-
-calculateSolar();
-
-},300);
-
-}
-
-else{
-
-addBotMessage(`
-
-🤖 <b>لم أتمكن من التعرف على الأجهزة بدقة.</b>
-
-<br><br>
-
-مثال:
-
-<br><br>
-
-<b>
-2 ثلاجة + 2 مكيف موية + 10 لمبات
-</b>
-
-<br><br>
-
-أو:
-
-<br><br>
-
-<b>
-2 اسبلت + ثلاجتين لمدة 8 ساعات
-</b>
-
-`);
-
-input.value="";
-
-}
-
-}
-
-
-
-/* =========================================
+/* =========================================================
    زر الإرسال
-========================================= */
+========================================================= */
 
 document
 .getElementById("sendButton")
 .addEventListener(
-"click",
-askSolarAgent
+    "click",
+    askSolarAgent
 );
 
 
-
-/* Enter */
+/* =========================================================
+   Enter للإرسال
+========================================================= */
 
 document
 .getElementById("aiInput")
 .addEventListener(
-"keydown",
-function(event){
+    "keydown",
+    function(event){
 
-if(
-event.key==="Enter" &&
-!event.shiftKey
-){
+        if(
+            event.key==="Enter" &&
+            !event.shiftKey
+        ){
 
-event.preventDefault();
+            event.preventDefault();
 
-askSolarAgent();
+            askSolarAgent();
 
-}
+        }
 
-}
+    }
 );
 
 
-
-/* =========================================
+/* =========================================================
    إعادة الضبط
-========================================= */
+========================================================= */
 
 function resetSystem(){
 
-devices.forEach((device,index)=>{
+    document
+    .querySelectorAll(
+        'input[name="system"]'
+    )
+    .forEach(input=>{
 
-document
-.getElementById(`qty${index}`)
-.value=0;
+        input.checked=
+            input.value==="auto";
 
-
-document
-.getElementById(`hours${index}`)
-.value=device.hours;
-
-});
+    });
 
 
-document
-.getElementById("backupHours")
-.value=8;
+    document
+    .querySelectorAll(".option")
+    .forEach(option=>{
+
+        option.classList.remove("active");
+
+    });
 
 
-document
-.getElementById("sunHours")
-.value=5.5;
+    document
+    .querySelector(
+        '.option input[value="auto"]'
+    )
+    .parentElement
+    .classList.add("active");
 
 
-document
-.getElementById("panelPower")
-.value=585;
+    devices.forEach((device,index)=>{
+
+        const qty=
+            document.getElementById(
+                `qty${index}`
+            );
+
+        const hours=
+            document.getElementById(
+                `hours${index}`
+            );
+
+        if(qty){
+
+            qty.value=0;
+
+        }
+
+        if(hours){
+
+            hours.value=device.hours;
+
+        }
+
+    });
 
 
-document
-.getElementById("aiInput")
-.value="";
+    document.getElementById(
+        "backupHours"
+    ).value=8;
 
 
-document
-.getElementById("results")
-.style.display="none";
+    document.getElementById(
+        "sunHours"
+    ).value=5.5;
 
 
-document
-.querySelector(
-'input[value="auto"]'
-)
-.checked=true;
+    document.getElementById(
+        "panelPower"
+    ).value=585;
 
 
-document
-.querySelectorAll(".option")
-.forEach(o=>{
-
-o.classList.remove("active");
-
-});
+    document.getElementById(
+        "results"
+    ).style.display="none";
 
 
-document
-.querySelector(".option")
-.classList.add("active");
+    document.getElementById(
+        "chatBox"
+    ).innerHTML=`
 
+    <div class="bot-message">
 
-document
-.getElementById("chatBox")
-.innerHTML=`
+        🤖 <b>YAWAHAB SOLAR AI</b>
 
-<div class="bot-message">
+        <br><br>
 
-🤖 <b>YAWAHAB SOLAR AI</b>
+        تم إعادة ضبط النظام ✅
 
-<br><br>
+        <br><br>
 
-تمت إعادة ضبط النظام بنجاح 🔄
+        أنا جاهز لتحليل الأحمال من جديد.
 
-</div>
+    </div>
 
-`;
-
-
-window.scrollTo({
-
-top:0,
-
-behavior:"smooth"
-
-});
+    `;
 
 }
 
-</script></body>
-    </html>
+
+/* =========================================================
+   اختبار داخلي لمحلل اللغة
+   لا يؤثر على النظام
+========================================================= */
+
+function testSudaneseParser(){
+
+    const tests=[
+
+        "ثلاجتين",
+
+        "تلاتة تلاجات",
+
+        "تلات تلاجات",
+
+        "اتنين اسبلت",
+
+        "مروحتين",
+
+        "خمسة مراوح",
+
+        "10 لمبات",
+
+        "٢ ثلاجات",
+
+        "مكيفين موية"
+
+    ];
+
+
+    return tests.map(text=>{
+
+        const result=
+            parseSolarMessage(text);
+
+        return {
+
+            input:text,
+
+            result:result.map(x=>({
+                device:x.device.name,
+                quantity:x.qty
+            }))
+
+        };
+
+    });
+
+}
+
+</script>
+
+</body>
+    </html> 

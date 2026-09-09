@@ -307,7 +307,76 @@ footer{
 </div>
 
 </div>
+<!-- AI AGENT -->
 
+<div class="card">
+
+<h2>🤖 تحدث مع YAWAHAB SOLAR AI</h2>
+
+<p style="color:#94a3b8; line-height:1.8; margin-bottom:15px;">
+اكتب الأجهزة بطريقة طبيعية، وسيقوم الوكيل بمساعدتك في تجهيز النظام.
+</p>
+
+<div id="chatBox" style="
+background:#0b1220;
+border:1px solid #334155;
+border-radius:15px;
+padding:15px;
+min-height:150px;
+max-height:350px;
+overflow-y:auto;
+margin-bottom:15px;
+">
+
+<div style="
+background:#18263d;
+padding:12px;
+border-radius:12px;
+margin-bottom:10px;
+line-height:1.8;
+">
+
+🤖 <b>YAWAHAB SOLAR AI:</b><br>
+
+مرحباً 👋 أنا مهندس الطاقة الشمسية الذكي.
+
+اكتب الأجهزة التي لديك مثلاً:
+
+<br><br>
+
+2 ثلاجة + مكيف + 10 لمبات + 3 مراوح
+
+</div>
+
+</div>
+
+
+<textarea
+id="aiInput"
+placeholder="اكتب طلبك هنا... مثال: لدي ثلاجة ومكيف و10 لمبات وأريد النظام يعمل 8 ساعات"
+style="
+width:100%;
+min-height:100px;
+padding:15px;
+border-radius:12px;
+border:1px solid #334155;
+background:#0b1220;
+color:white;
+font-size:16px;
+font-family:Arial;
+resize:none;
+"></textarea>
+
+
+<button
+class="calculate"
+onclick="askSolarAgent()">
+
+🤖 إرسال إلى YAWAHAB SOLAR AI
+
+</button>
+
+</div>
 
 <!-- الأجهزة -->
 
@@ -1044,7 +1113,243 @@ behavior:"smooth"
 
 }
 
+/* ==============================
+   YAWAHAB SOLAR AI AGENT
+================================ */
 
+function askSolarAgent(){
+
+    const input = document
+    .getElementById("aiInput");
+
+    const message = input.value.trim();
+
+    if(message === ""){
+
+        alert("اكتب طلبك أولاً.");
+
+        return;
+
+    }
+
+
+    const chatBox = document
+    .getElementById("chatBox");
+
+
+    /* رسالة المستخدم */
+
+    chatBox.innerHTML += `
+
+    <div style="
+    background:#1f513f;
+    padding:12px;
+    border-radius:12px;
+    margin-bottom:10px;
+    line-height:1.8;
+    ">
+
+    👤 <b>أنت:</b><br>
+
+    ${message}
+
+    </div>
+
+    `;
+
+
+    let detected = [];
+
+
+    /* البحث عن الأجهزة */
+
+    const deviceKeywords = {
+
+        "لمبة":0,
+        "لمبات":0,
+        "مروحة":1,
+        "مراوح":1,
+        "تلفزيون":2,
+        "تلفزيونات":2,
+        "ثلاجة":3,
+        "ثلاجات":3,
+        "فريزر":4,
+        "ديب فريزر":4,
+        "غسالة":5,
+        "غسالات":5,
+        "مكيف":6,
+        "مكيفات":6,
+        "مضخة 1":7,
+        "مضخة":7,
+        "طلمبة":7
+
+    };
+
+
+    /* استخراج الأرقام قبل اسم الجهاز */
+
+    Object.keys(deviceKeywords).forEach(keyword => {
+
+        const regex = new RegExp(
+            `(\\d+)\\s*${keyword}`,
+            "i"
+        );
+
+        const match = message.match(regex);
+
+
+        if(match){
+
+            const index =
+            deviceKeywords[keyword];
+
+            const quantity =
+            parseInt(match[1]);
+
+
+            document
+            .getElementById(`qty${index}`)
+            .value = quantity;
+
+
+            detected.push(
+                `${devices[index].name} (${quantity})`
+            );
+
+        }
+
+        else if(
+            message.includes(keyword)
+        ){
+
+            const index =
+            deviceKeywords[keyword];
+
+
+            if(
+                document
+                .getElementById(`qty${index}`)
+                .value == 0
+            ){
+
+                document
+                .getElementById(`qty${index}`)
+                .value = 1;
+
+            }
+
+
+            detected.push(
+                `${devices[index].name} (1)`
+            );
+
+        }
+
+    });
+
+
+    /* استخراج ساعات التشغيل */
+
+    const hoursMatch = message.match(
+        /(\d+)\s*(ساعة|ساعات)/
+    );
+
+
+    if(hoursMatch){
+
+        const hours =
+        parseInt(hoursMatch[1]);
+
+
+        document
+        .getElementById("backupHours")
+        .value = hours;
+
+    }
+
+
+    /* رد الوكيل */
+
+    let response = `
+
+    🤖 <b>YAWAHAB SOLAR AI:</b><br><br>
+
+    فهمت طلبك.
+
+    `;
+
+
+    if(detected.length > 0){
+
+        response += `
+
+        🔌 الأجهزة التي تم التعرف عليها:<br>
+
+        ${detected.join("<br>")}
+
+        <br><br>
+
+        🧮 سأقوم الآن بتجهيز الحسابات.
+
+        `;
+
+    }
+
+    else{
+
+        response += `
+
+        ⚠️ لم أتمكن من التعرف على الأجهزة بدقة.
+
+        يرجى كتابة الأجهزة بهذا الشكل:
+
+        <br><br>
+
+        2 ثلاجة، 1 مكيف، 10 لمبات، 3 مراوح
+
+        `;
+
+    }
+
+
+    chatBox.innerHTML += `
+
+    <div style="
+    background:#18263d;
+    border-right:4px solid #f5c542;
+    padding:12px;
+    border-radius:12px;
+    margin-bottom:10px;
+    line-height:1.8;
+    ">
+
+    ${response}
+
+    </div>
+
+    `;
+
+
+    chatBox.scrollTop =
+    chatBox.scrollHeight;
+
+
+    input.value = "";
+
+
+    /* تنفيذ الحساب تلقائياً */
+
+    if(detected.length > 0){
+
+        setTimeout(function(){
+
+            calculateSolar();
+
+        },500);
+
+    }
+
+}
 </script>
 
 </body>

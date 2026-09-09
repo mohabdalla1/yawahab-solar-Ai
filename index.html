@@ -3,426 +3,189 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>حاسبة تصميم المنظومات الشمسية المتوازنة والخطط الذكية</title>
-  <!-- مكتبة html2pdf لتوليد ملفات PDF -->
+  <title>YAWAHAB SOLAR AI - الوكيل الهندسي</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <style>
     :root {
-      --primary-color: #0d6efd;
-      --secondary-color: #198754;
-      --warning-color: #ffc107;
-      --info-color: #0dcaf0;
-      --bg-color: #f8f9fa;
-      --card-bg: #ffffff;
-      --text-color: #212529;
-      --border-color: #dee2e6;
+      --primary: #0d6efd;
+      --success: #198754;
+      --bg: #f8f9fa;
+      --card: #ffffff;
+      --text: #212529;
+      --border: #dee2e6;
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
+      font-family: system-ui, -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
       margin: 0;
       padding: 20px;
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 800px;
       margin: 0 auto;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     }
 
     h1 {
       text-align: center;
       color: #0f5132;
-      margin-bottom: 25px;
-    }
-
-    .card {
-      background-color: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    }
-
-    .form-group {
-      margin-bottom: 15px;
+      margin-top: 0;
     }
 
     label {
+      font-weight: 600;
       display: block;
-      font-weight: bold;
-      margin-bottom: 5px;
+      margin-bottom: 8px;
     }
 
-    input, select {
+    textarea {
       width: 100%;
-      padding: 10px;
-      border: 1px solid var(--border-color);
-      border-radius: 5px;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
       box-sizing: border-box;
-      font-size: 16px;
-    }
-
-    .btn-group {
-      display: flex;
-      gap: 10px;
-      margin-top: 15px;
+      font-size: 15px;
+      resize: vertical;
     }
 
     button {
-      flex: 1;
-      background-color: var(--primary-color);
+      width: 100%;
+      background: var(--primary);
       color: white;
       border: none;
-      padding: 12px;
-      font-size: 18px;
+      padding: 14px;
+      font-size: 16px;
       font-weight: bold;
-      border-radius: 5px;
+      border-radius: 8px;
       cursor: pointer;
+      margin-top: 10px;
       transition: background 0.2s;
     }
 
     button:hover {
-      background-color: #0b5ed7;
+      background: #0b5ed7;
     }
 
-    .btn-pdf {
-      background-color: var(--secondary-color);
-    }
-
-    .btn-pdf:hover {
-      background-color: #157347;
-    }
-
-    /* كروت الخطط المقترحة */
-    .plans-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .plan-card {
-      border: 2px solid var(--border-color);
-      border-radius: 10px;
-      padding: 15px;
-      background-color: #fff;
-      transition: transform 0.2s, border-color 0.2s;
-      position: relative;
-    }
-
-    .plan-card.eco { border-color: var(--info-color); }
-    .plan-card.balanced { border-color: var(--secondary-color); background-color: #f0fff4; }
-    .plan-card.extended { border-color: var(--primary-color); }
-
-    .plan-badge {
-      position: absolute;
-      top: -12px;
-      left: 15px;
-      padding: 3px 10px;
-      border-radius: 12px;
-      font-size: 12px;
+    .loading {
+      display: none;
+      text-align: center;
       font-weight: bold;
-      color: #fff;
+      color: var(--primary);
+      margin-top: 15px;
     }
 
-    .plan-card.eco .plan-badge { background-color: var(--info-color); color: #000; }
-    .plan-card.balanced .plan-badge { background-color: var(--secondary-color); }
-    .plan-card.extended .plan-badge { background-color: var(--primary-color); }
-
-    .plan-title {
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 10px;
-      margin-top: 5px;
-    }
-
-    .plan-feature {
-      margin-bottom: 8px;
-      font-size: 14px;
-    }
-
-    .results-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .result-item {
-      background-color: #e9ecef;
-      padding: 15px;
+    .response-area {
+      background: #f1f3f5;
+      padding: 20px;
       border-radius: 8px;
-      border-right: 5px solid var(--primary-color);
-    }
-
-    .result-item.highlight {
-      border-right-color: var(--secondary-color);
-      background-color: #d1e7dd;
-    }
-
-    .result-title {
-      font-size: 13px;
-      color: #6c757d;
-      margin-bottom: 5px;
-    }
-
-    .result-value {
-      font-size: 18px;
-      font-weight: bold;
+      border-right: 4px solid var(--primary);
+      white-space: pre-line;
+      line-height: 1.7;
     }
 
     .hidden {
       display: none;
-    }
-
-    #pdfPrintArea {
-      padding: 10px;
     }
   </style>
 </head>
 <body>
 
 <div class="container">
-  <h1>حاسبة المنظومات الشمسية والخطط المرنة</h1>
-
   <div class="card">
-    <div class="form-group">
-      <label for="runningLoad">الحمل التشغيلي المباشر (واط - W):</label>
-      <input type="number" id="runningLoad" value="720" placeholder="مثال: 720">
+    <h1>YAWAHAB SOLAR AI ☀️🤖</h1>
+    <p style="text-align: center; color: #6c757d;">الوكيل الهندسي الذكي لتصميم وحساب منظومات الطاقة الشمسية</p>
+    
+    <div>
+      <label for="userPrompt">أدخل الأحمال أو طلب العميل:</label>
+      <textarea id="userPrompt" rows="5" placeholder="مثال: محتاج تشغيل مكيف 1.5 حصان لمدة 4 ساعات نهاراً، مع ثلاجة و6 لمبات ليلاً. ما هي المنظومة المناسبة والبطاريات والألواح؟"></textarea>
+      <button onclick="runSolarAgent()">استشارة الوكيل الهندسي</button>
+      <div id="loading" class="loading">⏳ جاري تحليل المنظومة وإعداد التقرير...</div>
     </div>
-
-    <div class="form-group">
-      <label for="targetHours">ساعات التشغيل الليلية المطلوبة (ساعة):</label>
-      <input type="number" id="targetHours" value="6" placeholder="مثال: 6">
-    </div>
-
-    <div class="form-group">
-      <label for="sunHours">ساعات ذروة الشمس اليومية (ساعة):</label>
-      <input type="number" id="sunHours" value="5" step="0.5" placeholder="مثال: 5">
-    </div>
-
-    <div class="form-group">
-      <label for="batteryType">نوع البطارية المستخدمة:</label>
-      <select id="batteryType">
-        <option value="0.85" selected>ليثيوم LiFePO4 (تفريغ آمن 85%)</option>
-        <option value="0.50">جل / رصاص Gel (تفريغ آمن 50%)</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label for="panelWattage">قدرة اللوح الشمسي (واط):</label>
-      <select id="panelWattage">
-        <option value="585" selected>585W</option>
-        <option value="550">550W</option>
-        <option value="600">600W</option>
-      </select>
-    </div>
-
-    <button onclick="processCalculation()">حساب وتحليل الخطط</button>
   </div>
 
   <div id="outputCard" class="card hidden">
     <div id="pdfPrintArea">
-      <h2>التقرير الهندسي والخطط المقترحة للمنظومة</h2>
-      <hr style="border: 0; border-top: 1px solid var(--border-color); margin-bottom: 15px;">
-      
-      <!-- المواصفات الأساسية -->
-      <h3>1. المواصفات التشغيلية والكهربائية</h3>
-      <div class="results-grid">
-        <div class="result-item highlight">
-          <div class="result-title">جهد النظام الموصى به</div>
-          <div class="result-value" id="resVoltage">-</div>
-        </div>
-        <div class="result-item highlight">
-          <div class="result-title">سعة الإنفرتر المناسب</div>
-          <div class="result-value" id="resInverter">-</div>
-        </div>
-        <div class="result-item">
-          <div class="result-title">تيار الحمل عند البطارية</div>
-          <div class="result-value" id="resBatteryCurrent">-</div>
-        </div>
-        <div class="result-item">
-          <div class="result-title">قدرة الألواح المقترحة</div>
-          <div class="result-value" id="resPvPower">-</div>
-        </div>
-      </div>
-
-      <!-- مقترح الخطط الثلاث -->
-      <h3 style="margin-top: 25px;">2. خيارات خطط البطاريات وزمن التشغيل</h3>
-      <div class="plans-grid">
-        
-        <!-- الخطة الاقتصادية -->
-        <div class="plan-card eco">
-          <span class="plan-badge">اقتصادية</span>
-          <div class="plan-title">خطة الطوارئ السريعة</div>
-          <div class="plan-feature"><b>سعة البطارية:</b> <span id="ecoBat"></span></div>
-          <div class="plan-feature"><b>زمن التشغيل المتوقع:</b> <span id="ecoTime" style="color: #055160; font-weight:bold;"></span></div>
-          <div class="plan-feature"><b>تيار التفريغ:</b> <span id="ecoCrate"></span></div>
-          <div class="plan-feature" style="font-size: 12px; color: #6c757d; margin-top: 8px;">مناسبة لتغطية انقطاعات الكهرباء القصيرة وبأقل تكلفة تأسيس.</div>
-        </div>
-
-        <!-- الخطة المتوازنة -->
-        <div class="plan-card balanced">
-          <span class="plan-badge">الموصى بها</span>
-          <div class="plan-title">الخطة المتوازنة (المعيارية)</div>
-          <div class="plan-feature"><b>سعة البطارية:</b> <span id="balBat"></span></div>
-          <div class="plan-feature"><b>زمن التشغيل المتوقع:</b> <span id="balTime" style="color: #0f5132; font-weight:bold;"></span></div>
-          <div class="plan-feature"><b>تيار التفريغ:</b> <span id="balCrate"></span></div>
-          <div class="plan-feature" style="font-size: 12px; color: #157347; margin-top: 8px;">أفضل توافق واقتصادي يغطي معظم ساعات الليل بدون إجهاد.</div>
-        </div>
-
-        <!-- الخطة الممتدة -->
-        <div class="plan-card extended">
-          <span class="plan-badge">رفاهية / ممتدة</span>
-          <div class="plan-title">خطة التشغيل الممتد</div>
-          <div class="plan-feature"><b>سعة البطارية:</b> <span id="extBat"></span></div>
-          <div class="plan-feature"><b>زمن التشغيل المتوقع:</b> <span id="extTime" style="color: #0c63e4; font-weight:bold;"></span></div>
-          <div class="plan-feature"><b>تيار التفريغ:</b> <span id="extCrate"></span></div>
-          <div class="plan-feature" style="font-size: 12px; color: #6c757d; margin-top: 8px;">تغطي الليل بالكامل حتى الصباح بدون الحاجة لتعديل نمط الاستهلاك.</div>
-        </div>
-
-      </div>
+      <h2 style="color: #0f5132;">التقرير الهندسي الموصى به</h2>
+      <hr style="border: 0; border-top: 1px solid var(--border); margin-bottom: 15px;">
+      <div id="agentOutput" class="response-area"></div>
     </div>
-
-    <div class="btn-group">
-      <button class="btn-pdf" onclick="generatePDF()">تصدير التقرير PDF</button>
-    </div>
+    <button style="background: var(--success); margin-top: 15px;" onclick="generatePDF()">تصدير التقرير PDF</button>
   </div>
 </div>
 
 <script>
-/**
- * المحرك الهندسي لحساب المكونات والخطط الذكية
- */
-function calculateSolarSystemWithPlans(runningLoadW, targetHours, sunHours, batteryDoD, panelWattage) {
-  const inverterEfficiency = 0.90;
-  const safetyFactor = 1.25;
+// ضع مفتاح Gemini API المجاني هنا مباشرة
+const GEMINI_API_KEY = "ضع_مفتاح_API_المجاني_هنا";
 
-  // 1. تحديد الجهد والإنفرتر
-  let systemVoltage = 24;
-  let recommendedInverterKw = 2.0;
+async function runSolarAgent() {
+  const userInput = document.getElementById('userPrompt').value.trim();
+  const loadingDiv = document.getElementById('loading');
+  const outputCard = document.getElementById('outputCard');
+  const agentOutput = document.getElementById('agentOutput');
 
-  if (runningLoadW > 2500) {
-    systemVoltage = 48;
-    recommendedInverterKw = Math.max(5, Math.ceil((runningLoadW * safetyFactor) / 1000));
-  } else if (runningLoadW > 1500) {
-    systemVoltage = 24;
-    recommendedInverterKw = 3.5;
-  } else {
-    systemVoltage = 24; // معيار آمن وفعال
-    recommendedInverterKw = 2.0;
-  }
-
-  // تيار الحمل عند جهة البطارية
-  const batteryCurrentA = Math.round(runningLoadW / (systemVoltage * inverterEfficiency));
-
-  // 2. حساب الطاقة الليلية المطلوبة للخطة المعيارية
-  const requiredNightEnergyKWh = (runningLoadW * targetHours) / inverterEfficiency / 1000;
-  const targetBatteryKWh = requiredNightEnergyKWh / batteryDoD;
-
-  // 3. بناء الخطط الثلاث (اقتصادية / متوازنة / ممتدة)
-  // أ) الخطة المتوازنة (أقرب سعة معيارية لـ targetBatteryKWh)
-  const balancedAh = Math.round((targetBatteryKWh * 1000) / systemVoltage);
-  const balancedKWh = (balancedAh * systemVoltage) / 1000;
-  const balancedHours = ((balancedKWh * batteryDoD * inverterEfficiency * 1000) / runningLoadW).toFixed(1);
-
-  // ب) الخطة الاقتصادية (~50% من السعة المتوازنة)
-  const ecoAh = Math.max(50, Math.round(balancedAh * 0.5));
-  const ecoKWh = (ecoAh * systemVoltage) / 1000;
-  const ecoHours = ((ecoKWh * batteryDoD * inverterEfficiency * 1000) / runningLoadW).toFixed(1);
-
-  // ج) الخطة الممتدة (~150% إلى 200% من السعة المتوازنة)
-  const extAh = Math.round(balancedAh * 1.6);
-  const extKWh = (extAh * systemVoltage) / 1000;
-  const extHours = ((extKWh * batteryDoD * inverterEfficiency * 1000) / runningLoadW).toFixed(1);
-
-  // 4. قدرة الألواح المطلوبة لشحن الخطة المتوازنة
-  const energyToRechargeWh = (requiredNightEnergyKWh * 1000) * 1.15;
-  const requiredPvPowerW = (energyToRechargeWh / sunHours) * 1.15;
-  const panelCount = Math.max(2, Math.ceil(requiredPvPowerW / panelWattage));
-  const actualPvPowerKW = ((panelCount * panelWattage) / 1000).toFixed(2);
-
-  return {
-    systemVoltage: systemVoltage + "V",
-    inverterSize: recommendedInverterKw + " kW",
-    batteryCurrent: batteryCurrentA + " A",
-    pvPower: actualPvPowerKW + ` kW (${panelCount} × ${panelWattage}W)`,
-    
-    // بيانات الخطط
-    eco: {
-      bat: `${ecoAh}Ah @ ${systemVoltage} (${ecoKWh.toFixed(2)} kWh)`,
-      time: `${ecoHours} ساعة`,
-      cRate: (batteryCurrentA / ecoAh).toFixed(2) + " C"
-    },
-    balanced: {
-      bat: `${balancedAh}Ah @ ${systemVoltage} (${balancedKWh.toFixed(2)} kWh)`,
-      time: `${balancedHours} ساعة`,
-      cRate: (batteryCurrentA / balancedAh).toFixed(2) + " C"
-    },
-    extended: {
-      bat: `${extAh}Ah @ ${systemVoltage} (${extKWh.toFixed(2)} kWh)`,
-      time: `${extHours} ساعة`,
-      cRate: (batteryCurrentA / extAh).toFixed(2) + " C"
-    }
-  };
-}
-
-/**
- * معالجة العرض
- */
-function processCalculation() {
-  const runningLoad = parseFloat(document.getElementById('runningLoad').value) || 0;
-  const targetHours = parseFloat(document.getElementById('targetHours').value) || 0;
-  const sunHours = parseFloat(document.getElementById('sunHours').value) || 5;
-  const batteryDoD = parseFloat(document.getElementById('batteryType').value) || 0.85;
-  const panelWattage = parseFloat(document.getElementById('panelWattage').value) || 585;
-
-  if (runningLoad <= 0 || targetHours <= 0) {
-    alert("يرجى إدخال قيم صحيحة للحمل وساعات التشغيل.");
+  if (!userInput) {
+    alert("يرجى إدخال الأحمال أولاً.");
     return;
   }
 
-  const res = calculateSolarSystemWithPlans(runningLoad, targetHours, sunHours, batteryDoD, panelWattage);
+  loadingDiv.style.display = "block";
+  outputCard.classList.add('hidden');
 
-  // تحديث القيم العامة
-  document.getElementById('resVoltage').innerText = res.systemVoltage;
-  document.getElementById('resInverter').innerText = res.inverterSize;
-  document.getElementById('resBatteryCurrent').innerText = res.batteryCurrent;
-  document.getElementById('resPvPower').innerText = res.pvPower;
+  const systemInstruction = `
+    أنت "YAWAHAB SOLAR AI"، وكيل ذكاء اصطناعي هندسي متخصص في حساب وتصميم منظومات الطاقة الشمسية.
+    قم بتحليل طلب العميل وتقديم تقرير هندسي متكامل يحتوي على:
+    1. مجموع الأحمال التشغيلية المباشرة (Running Load).
+    2. اختيار جهد النظام المناسب (12V / 24V / 48V) وسعة الإنفرتر.
+    3. حساب سعة البطاريات المطلوبة (مع الأخذ بالاعتبار عمق التفريغ DoD للثليوم أو الجيل).
+    4. حساب عدد وقدرة الألواح الشمسية المطلوبة.
+    5. نصائح وتنبيهات هندسية للتركيب والتأريض والحماية.
+    اكتب الإجابة بأسلوب هندسي منظم وبنقاط واضحة.
+  `;
 
-  // تحديث الخطط الثلاث
-  document.getElementById('ecoBat').innerText = res.eco.bat;
-  document.getElementById('ecoTime').innerText = res.eco.time;
-  document.getElementById('ecoCrate').innerText = res.eco.cRate;
+  try {
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [
+          {
+            role: 'user',
+            parts: [{ text: `${systemInstruction}\n\nطلب العميل:\n${userInput}` }]
+          }
+        ]
+      })
+    });
 
-  document.getElementById('balBat').innerText = res.balanced.bat;
-  document.getElementById('balTime').innerText = res.balanced.time;
-  document.getElementById('balCrate').innerText = res.balanced.cRate;
+    const data = await response.json();
+    loadingDiv.style.display = "none";
 
-  document.getElementById('extBat').innerText = res.extended.bat;
-  document.getElementById('extTime').innerText = res.extended.time;
-  document.getElementById('extCrate').innerText = res.extended.cRate;
+    if (data.candidates && data.candidates[0].content.parts[0].text) {
+      agentOutput.innerText = data.candidates[0].content.parts[0].text;
+      outputCard.classList.remove('hidden');
+    } else {
+      alert("حدث خطأ في معالجة الطلب، تأكد من صحة API Key.");
+    }
 
-  document.getElementById('outputCard').classList.remove('hidden');
+  } catch (err) {
+    loadingDiv.style.display = "none";
+    alert("تعذر الاتصال بالخدمة، تحقق من الاتصال بالإنترنت.");
+  }
 }
 
-/**
- * تصدير PDF
- */
 function generatePDF() {
   const element = document.getElementById('pdfPrintArea');
-  const options = {
-    margin:       10,
-    filename:     'تقرير_خطة_المنظومة_الشمسية.pdf',
-    image:        { type: 'jpeg', quality: 0.98 },
-    html2canvas:  { scale: 2 },
-    jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
-  };
-
-  html2pdf().set(options).from(element).save();
+  html2pdf().from(element).save('تقرير_YAWAHAB_SOLAR_AI.pdf');
 }
 </script>
 

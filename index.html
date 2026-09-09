@@ -544,7 +544,6 @@ button{
   font-size:12px;
   color:#b7c7d9;
   line-height:1.8;
-  overflow-wrap:anywhere;
 }
 
 .test-ok{
@@ -651,6 +650,7 @@ button{
   .results{
     position:static;
     color:#111;
+    width:100%;
   }
 
   .card,
@@ -753,9 +753,9 @@ button{
 
     <div
       class="example"
-      onclick="useExample('مكيف موية + ثلاجة + 5 لمبات على نظام 24V')">
+      onclick="useExample('مكيف + ثلاجة + 5 لمبات على نظام 24V')">
 
-      مكيف موية + ثلاجة + 5 لمبات على نظام 24V
+      مكيف + ثلاجة + 5 لمبات على نظام 24V
 
     </div>
 
@@ -1266,7 +1266,7 @@ button{
     <div class="metric">
 
       <div class="metric-label">
-        اختيار البطارية
+        عدد البطاريات
       </div>
 
       <div
@@ -1371,7 +1371,7 @@ button{
 
 /* =========================================================
    YAWAHAB SOLAR AI
-   DEVICE DATABASE
+   DATABASE
 ========================================================= */
 
 const devices = [
@@ -1460,14 +1460,14 @@ const devices = [
     keywords:[
       "مكيف موية",
       "مكيف مياه",
-      "مكيف مويه",
       "مكيف صحراوي",
       "مكيف صحراوى",
       "مبرد موية",
       "مبرد ماء",
-      "مبرد مويه",
       "مبرد صحراوي",
       "مبرد صحراوى",
+      "مكيف مويه",
+      "مبرد مويه",
       "المكيف الموية",
       "المكيف موية",
       "المكيف مياه",
@@ -1478,14 +1478,14 @@ const devices = [
     dual:[
       "مكيفين موية",
       "مكيفين مياه",
-      "مكيفين مويه",
       "مكيفين صحراوي",
       "مكيفين صحراوى",
       "مبردين موية",
       "مبردين ماء",
-      "مبردين مويه",
       "مبردين صحراوي",
-      "مبردين صحراوى"
+      "مبردين صحراوى",
+      "مكيفين مويه",
+      "مبردين مويه"
     ]
   },
 
@@ -1494,10 +1494,7 @@ const devices = [
     power:1200,
     hours:8,
     keywords:[
-      "اسبلت",
-      "سبلت",
-      "سبليت",
-      "split",
+      "اسبلت","سبلت","سبليت","split",
       "مكيف اسبلت",
       "مكيف سبليت",
       "مكيف سبلت",
@@ -1506,12 +1503,9 @@ const devices = [
       "المكيف سبلت"
     ],
     dual:[
-      "اسبلتين",
-      "اسبلتان",
-      "سبلتين",
-      "سبلتان",
-      "سبليتين",
-      "سبليتان",
+      "اسبلتين","اسبلتان",
+      "سبلتين","سبلتان",
+      "سبليتين","سبليتان",
       "مكيفين اسبلت",
       "مكيفين سبليت",
       "مكيفين سبلت"
@@ -1561,14 +1555,11 @@ const devices = [
     power:100,
     hours:8,
     keywords:[
-      "لابتوب",
-      "لاب توب",
-      "laptop",
+      "لابتوب","لاب توب","laptop",
       "اللابتوب"
     ],
     dual:[
-      "لابتوبين",
-      "لابتوبان"
+      "لابتوبين","لابتوبان"
     ]
   },
 
@@ -1577,18 +1568,12 @@ const devices = [
     power:300,
     hours:8,
     keywords:[
-      "كمبيوتر",
-      "حاسوب",
-      "computer",
-      "pc",
-      "الكمبيوتر",
-      "الحاسوب"
+      "كمبيوتر","حاسوب","computer","pc",
+      "الكمبيوتر","الحاسوب"
     ],
     dual:[
-      "كمبيوترين",
-      "كمبيوتران",
-      "حاسوبين",
-      "حاسوبان"
+      "كمبيوترين","كمبيوتران",
+      "حاسوبين","حاسوبان"
     ]
   },
 
@@ -1597,17 +1582,11 @@ const devices = [
     power:500,
     hours:2,
     keywords:[
-      "طابعة",
-      "طابعات",
-      "طابعه",
-      "printer",
-      "الطابعة",
-      "الطابعات",
-      "الطابعه"
+      "طابعة","طابعات","طابعه","printer",
+      "الطابعة","الطابعات","الطابعه"
     ],
     dual:[
-      "طابعتين",
-      "طابعتان"
+      "طابعتين","طابعتان"
     ]
   },
 
@@ -1616,16 +1595,11 @@ const devices = [
     power:50,
     hours:2,
     keywords:[
-      "ماسح",
-      "سكانر",
-      "scanner",
-      "الماسح",
-      "السكانر"
+      "ماسح","سكانر","scanner",
+      "الماسح","السكانر"
     ],
     dual:[
-      "ماسحين",
-      "ماسحان",
-      "سكانرين"
+      "ماسحين","ماسحان","سكانرين"
     ]
   },
 
@@ -1634,19 +1608,12 @@ const devices = [
     power:15,
     hours:24,
     keywords:[
-      "كاميرا",
-      "كاميرات",
-      "كامره",
-      "مراقبة",
-      "مراقبه",
-      "cctv",
-      "الكاميرا",
-      "الكاميرات",
-      "الكامره"
+      "كاميرا","كاميرات","كامره",
+      "مراقبة","مراقبه","cctv",
+      "الكاميرا","الكاميرات","الكامره"
     ],
     dual:[
-      "كاميرتين",
-      "كاميرتان"
+      "كاميرتين","كاميرتان"
     ]
   },
 
@@ -1715,7 +1682,7 @@ const devices = [
 
 
 /* =========================================================
-   BATTERY DATABASE
+   BATTERIES
 ========================================================= */
 
 const batteryOptions = {
@@ -1786,6 +1753,11 @@ const settings = {
   sunHours:5.5,
   panelPower:585
 };
+
+
+/* =========================================================
+   CUSTOM DEVICES
+========================================================= */
 
 let customDevices = [];
 
@@ -1882,132 +1854,47 @@ function normalizeArabicNumbers(text){
   };
 
   return String(text || "")
-    .replace(/[٠-٩]/g,ch=>map[ch]);
-
+    .replace(/[٠-٩]/g,ch => map[ch]);
 }
 
 
 /* =========================================================
    TEXT NORMALIZATION
-   IMPORTANT:
-   This is the main fix for:
-   ومكيف
-   و10
-   واتنين
-   ولمدة
+   CRITICAL ARABIC CONJUNCTION FIX
 ========================================================= */
 
 function normalizeArabicText(text){
 
-  let s =
-    normalizeArabicNumbers(text);
+  let s = normalizeArabicNumbers(text);
 
-
-  s =
-    s.toLowerCase();
-
-
-  /*
-    Normalize Arabic hamza variants.
-    This allows:
-    أجهزة / اجهزة
-    أحد / احد
-    etc.
-  */
-
-  s =
-    s.replace(/[أإآ]/g,"ا");
-
+  s = s
+    .toLowerCase()
+    .replace(/[،,؛;:!?؟.()[\]{}"'“”]/g," ")
+    .replace(/\+/g," + ")
+    .replace(/\//g," / ")
+    .replace(/-/g," ")
+    .replace(/\s+/g," ")
+    .trim();
 
   /*
-    Normalize punctuation.
+    Funnels "و" conjunctions
   */
+  s = s.replace(
+    /(^|\s)و(?=\S)/g,
+    "$1و "
+  );
 
-  s =
-    s.replace(
-      /[،,؛;:!?؟.()[\]{}"'“”]/g,
-      " "
-    );
+  s = s.replace(
+    /(^|\s)and(?=\s|$)/gi,
+    "$1و"
+  );
 
-
-  /*
-    Normalize separators.
-  */
-
-  s =
-    s.replace(/\+/g," + ");
-
-  s =
-    s.replace(/\//g," / ");
-
-  s =
-    s.replace(/-/g," ");
-
-
-  /*
-    =====================================================
-    CRITICAL SUDANESE / ARABIC "و" FIX
-    =====================================================
-
-    Before:
-      ثلاجتين ومكيف
-      و10 لمبات
-      واتنين مراوح
-      ولمدة 8 ساعات
-
-    After:
-      ثلاجتين و مكيف
-      و 10 لمبات
-      و اتنين مراوح
-      و لمدة 8 ساعات
-
-    This allows the parser to see:
-      10 -> quantity
-      لمبات -> device
-      مكيف موية -> device phrase
-  */
-
-  s =
-    s.replace(
-      /(^|\s)و(?=\S)/g,
-      "$1و "
-    );
-
-
-  /*
-    English "and"
-  */
-
-  s =
-    s.replace(
-      /(^|\s)and(?=\s|$)/gi,
-      "$1و"
-    );
-
-
-  /*
-    Remove conjunction "و" from
-    the beginning of a phrase only
-    when necessary for matching.
-
-    Example:
-      و مكيف موية
-
-    remains tokenized as:
-      و / مكيف / موية
-  */
-
-
-  /*
-    Normalize repeated spaces.
-  */
-
-  s =
-    s.replace(/\s+/g," ").trim();
-
+  s = s.replace(
+    /\s+/g,
+    " "
+  ).trim();
 
   return s;
-
 }
 
 
@@ -2025,7 +1912,7 @@ function tokenize(text){
 
 
 /* =========================================================
-   WORD NUMBER
+   ARABIC NUMBER HELPERS
 ========================================================= */
 
 function getWordNumber(text){
@@ -2033,26 +1920,21 @@ function getWordNumber(text){
   const key =
     normalizeArabicText(text).trim();
 
-
   if(
     Object.prototype.hasOwnProperty.call(
       arabicWordNumbers,
       key
     )
   ){
-
     return arabicWordNumbers[key];
-
   }
 
-
   return null;
-
 }
 
 
 /* =========================================================
-   REGEX ESCAPE
+   REGEX HELPERS
 ========================================================= */
 
 function escapeRegExp(str){
@@ -2066,10 +1948,6 @@ function escapeRegExp(str){
 }
 
 
-/* =========================================================
-   EXACT PHRASE CHECK
-========================================================= */
-
 function containsPhrase(text,phrase){
 
   const s =
@@ -2078,11 +1956,9 @@ function containsPhrase(text,phrase){
   const p =
     normalizeArabicText(phrase);
 
-
   if(!p){
     return false;
   }
-
 
   const re =
     new RegExp(
@@ -2092,9 +1968,7 @@ function containsPhrase(text,phrase){
       "i"
     );
 
-
   return re.test(s);
-
 }
 
 
@@ -2126,36 +2000,24 @@ function findDualQuantity(text,device){
   const s =
     normalizeArabicText(text);
 
-
   const duals =
     (device.dual || [])
       .map(normalizeArabicText)
-      .filter(Boolean)
       .sort(
         (a,b)=>b.length-a.length
       );
 
-
-  for(
-    const phrase of duals
-  ){
+  for(const phrase of duals){
 
     if(
-      containsPhrase(
-        s,
-        phrase
-      )
+      containsPhrase(s,phrase)
     ){
-
       return 2;
-
     }
 
   }
 
-
   return null;
-
 }
 
 
@@ -2168,19 +2030,14 @@ function findNumericQuantityBefore(text,device){
   const s =
     normalizeArabicText(text);
 
-
   const aliases =
     (device.keywords || [])
       .map(normalizeArabicText)
-      .filter(Boolean)
       .sort(
         (a,b)=>b.length-a.length
       );
 
-
-  for(
-    const alias of aliases
-  ){
+  for(const alias of aliases){
 
     const re =
       new RegExp(
@@ -2193,10 +2050,8 @@ function findNumericQuantityBefore(text,device){
         "i"
       );
 
-
     const m =
       s.match(re);
-
 
     if(m){
 
@@ -2206,9 +2061,7 @@ function findNumericQuantityBefore(text,device){
 
   }
 
-
   return null;
-
 }
 
 
@@ -2221,19 +2074,14 @@ function findNumericQuantityAfter(text,device){
   const s =
     normalizeArabicText(text);
 
-
   const aliases =
     (device.keywords || [])
       .map(normalizeArabicText)
-      .filter(Boolean)
       .sort(
         (a,b)=>b.length-a.length
       );
 
-
-  for(
-    const alias of aliases
-  ){
+  for(const alias of aliases){
 
     const re =
       new RegExp(
@@ -2245,10 +2093,8 @@ function findNumericQuantityAfter(text,device){
         "i"
       );
 
-
     const m =
       s.match(re);
-
 
     if(m){
 
@@ -2258,9 +2104,7 @@ function findNumericQuantityAfter(text,device){
 
   }
 
-
   return null;
-
 }
 
 
@@ -2273,34 +2117,25 @@ function findWordQuantityBefore(text,device){
   const s =
     normalizeArabicText(text);
 
-
   const words =
     Object.keys(arabicWordNumbers)
       .sort(
         (a,b)=>b.length-a.length
       );
 
-
   const aliases =
     (device.keywords || [])
       .map(normalizeArabicText)
-      .filter(Boolean)
       .sort(
         (a,b)=>b.length-a.length
       );
 
-
-  for(
-    const word of words
-  ){
+  for(const word of words){
 
     const number =
       arabicWordNumbers[word];
 
-
-    for(
-      const alias of aliases
-    ){
+    for(const alias of aliases){
 
       const re =
         new RegExp(
@@ -2313,22 +2148,17 @@ function findWordQuantityBefore(text,device){
           "i"
         );
 
-
       if(
         re.test(s)
       ){
-
         return number;
-
       }
 
     }
 
   }
 
-
   return null;
-
 }
 
 
@@ -2341,30 +2171,22 @@ function findWordQuantityAfter(text,device){
   const s =
     normalizeArabicText(text);
 
-
   const words =
     Object.keys(arabicWordNumbers)
       .sort(
         (a,b)=>b.length-a.length
       );
 
-
   const aliases =
     (device.keywords || [])
       .map(normalizeArabicText)
-      .filter(Boolean)
       .sort(
         (a,b)=>b.length-a.length
       );
 
+  for(const alias of aliases){
 
-  for(
-    const alias of aliases
-  ){
-
-    for(
-      const word of words
-    ){
+    for(const word of words){
 
       const re =
         new RegExp(
@@ -2376,42 +2198,25 @@ function findWordQuantityAfter(text,device){
           "i"
         );
 
-
       if(
         re.test(s)
       ){
-
         return arabicWordNumbers[word];
-
       }
 
     }
 
   }
 
-
   return null;
-
 }
 
 
 /* =========================================================
-   GET DEVICE QUANTITY
+   GET QUANTITY
 ========================================================= */
 
 function getQuantity(text,device){
-
-  /*
-    Order is important:
-
-    1. Explicit dual form
-    2. Numeric before
-    3. Numeric after
-    4. Arabic word before
-    5. Arabic word after
-    6. Plain device
-  */
-
 
   let q =
     findDualQuantity(
@@ -2419,11 +2224,9 @@ function getQuantity(text,device){
       device
     );
 
-
   if(q !== null){
     return q;
   }
-
 
   q =
     findNumericQuantityBefore(
@@ -2431,11 +2234,9 @@ function getQuantity(text,device){
       device
     );
 
-
   if(q !== null){
     return q;
   }
-
 
   q =
     findNumericQuantityAfter(
@@ -2443,11 +2244,9 @@ function getQuantity(text,device){
       device
     );
 
-
   if(q !== null){
     return q;
   }
-
 
   q =
     findWordQuantityBefore(
@@ -2455,11 +2254,9 @@ function getQuantity(text,device){
       device
     );
 
-
   if(q !== null){
     return q;
   }
-
 
   q =
     findWordQuantityAfter(
@@ -2467,34 +2264,24 @@ function getQuantity(text,device){
       device
     );
 
-
   if(q !== null){
     return q;
   }
 
-
-  /*
-    Plain device = 1
-  */
-
   if(
     (device.keywords || [])
       .some(
-        keyword =>
+        k =>
           containsPhrase(
             text,
-            keyword
+            k
           )
       )
   ){
-
     return 1;
-
   }
 
-
   return 0;
-
 }
 
 
@@ -2507,81 +2294,45 @@ function getHoursFromMessage(text){
   const s =
     normalizeArabicText(text);
 
-
-  /*
-    Numeric:
-      لمدة 8 ساعات
-      مدة 8 ساعات
-      تشغيل 8 ساعات
-      يعمل 8 ساعات
-      8 ساعات
-  */
-
   const numericPatterns = [
-
     /(?:لمدة|مدة|تشغيل|يعمل|تعمل)\s*(\d+(?:\.\d+)?)\s*(?:ساعة|ساعات)?/i,
-
     /(\d+(?:\.\d+)?)\s*(?:ساعة|ساعات)\b/i
-
   ];
-
 
   for(
     const re of numericPatterns
   ){
-
     const m =
       s.match(re);
 
-
     if(m){
-
       const value =
         Number(m[1]);
-
 
       if(
         !Number.isNaN(value)
       ){
-
         return value;
-
       }
-
     }
-
   }
 
-
-  /*
-    Word hours
-  */
-
   const wordPattern =
-    /(?:لمدة|مدة|تشغيل|يعمل|تعمل)\s+(واحد|واحدة|واحده|اثنين|اثنان|اتنين|اتنان|ثنين|ثلاثة|ثلاثه|تلاتة|تلاته|أربعة|اربعة|أربعه|اربعه|خمسة|خمسه|ستة|سته|ست|سبعة|سبعه|ثمانية|ثمانيه|تمانية|تمانيه|تسعة|تسعه|عشرة|عشره)\s*(?:ساعة|ساعات)/i;
-
+    /(?:لمدة|مدة|تشغيل|يعمل|تعمل)\s+(واحد|واحدة|اثنين|اثنان|اتنين|ثلاثة|ثلاثه|تلاتة|تلاته|أربعة|اربعة|أربعه|اربعه|خمسة|خمسه|ستة|سته|سبعة|سبعه|ثمانية|ثمانيه|تمانية|تمانيه|تسعة|تسعه|عشرة|عشره)\s*(?:ساعة|ساعات)/i;
 
   const wm =
     s.match(wordPattern);
 
-
   if(wm){
-
     const value =
-      getWordNumber(
-        wm[1]
-      );
-
+      getWordNumber(wm[1]);
 
     if(value !== null){
       return value;
     }
-
   }
 
-
   return settings.backupHours;
-
 }
 
 
@@ -2594,56 +2345,32 @@ function parseSolarMessage(message){
   const normalized =
     normalizeArabicText(message);
 
-
   const parsedDevices = [];
-
-
-  /*
-    Detect every predefined device.
-  */
 
   for(
     const device of devices
   ){
-
     const quantity =
       getQuantity(
         normalized,
         device
       );
 
-
     if(
       quantity > 0
     ){
-
       parsedDevices.push({
-
         name:device.name,
-
         power:device.power,
-
         hours:device.hours,
-
         quantity:quantity
-
       });
-
     }
-
   }
-
-
-  /*
-    Custom devices:
-    if their name appears in the AI text,
-    use their saved quantity and hours.
-  */
 
   for(
     const device of customDevices
   ){
-
     if(
       device.name &&
       containsPhrase(
@@ -2651,155 +2378,28 @@ function parseSolarMessage(message){
         device.name
       )
     ){
-
       parsedDevices.push({
-
         name:device.name,
-
         power:device.power,
-
         hours:device.hours,
-
         quantity:device.quantity || 1
-
       });
-
     }
-
   }
 
-
   return {
-
     text:message,
-
     normalized:normalized,
-
-    hours:
-      getHoursFromMessage(
-        normalized
-      ),
-
+    hours:getHoursFromMessage(
+      normalized
+    ),
     devices:parsedDevices
-
   };
-
 }
 
 
 /* =========================================================
-   PARSER SELF TESTS
-========================================================= */
-
-function parserSelfTests(){
-
-  const tests = [
-
-    {
-      input:
-        "ثلاجتين ومكيف موية و10 لمبات لمدة 8 ساعات",
-
-      expectedPower:1600,
-
-      expectedHours:8
-    },
-
-    {
-      input:
-        "3 مراوح و2 تلفزيون و4 لمبات",
-
-      expectedPower:840,
-
-      expectedHours:settings.backupHours
-    },
-
-    {
-      input:
-        "اتنين تلاجة واربعة مراوح",
-
-      expectedPower:1480,
-
-      expectedHours:settings.backupHours
-    },
-
-    {
-      input:
-        "مكيفين موية وتلاتة اسبلت",
-
-      expectedPower:4200,
-
-      expectedHours:settings.backupHours
-    },
-
-    {
-      input:
-        "ثلاجتين و 10 لمبات لمدة 8 ساعات",
-
-      expectedPower:1300,
-
-      expectedHours:8
-    },
-
-    {
-      input:
-        "و10 لمبات",
-
-      expectedPower:300,
-
-      expectedHours:settings.backupHours
-    }
-
-  ];
-
-
-  return tests.map(
-    test=>{
-
-      const parsed =
-        parseSolarMessage(
-          test.input
-        );
-
-
-      const totalPower =
-        parsed.devices.reduce(
-          (sum,d)=>
-            sum +
-            d.power *
-            d.quantity,
-          0
-        );
-
-
-      return {
-
-        ...test,
-
-        normalized:
-          parsed.normalized,
-
-        devices:
-          parsed.devices,
-
-        totalPower,
-
-        hours:
-          parsed.hours,
-
-        passed:
-          totalPower === test.expectedPower &&
-          parsed.hours === test.expectedHours
-
-      };
-
-    }
-  );
-
-}
-
-
-/* =========================================================
-   MAIN PARSER TEST
+   PARSER TEST
 ========================================================= */
 
 function testSudaneseParser(){
@@ -2807,66 +2407,39 @@ function testSudaneseParser(){
   const input =
     "ثلاجتين ومكيف موية و10 لمبات لمدة 8 ساعات";
 
-
   const parsed =
-    parseSolarMessage(
-      input
-    );
-
+    parseSolarMessage(input);
 
   let totalPower = 0;
 
-
   parsed.devices.forEach(
     d=>{
-
       totalPower +=
         d.power *
         d.quantity;
-
     }
   );
 
-
-  const expected =
-    1600;
-
+  const expected = 1600;
 
   return {
-
     input,
-
     normalized:
       parsed.normalized,
-
     hours:
       parsed.hours,
-
     devices:
       parsed.devices,
-
     totalPower,
-
-    expected,
-
-    dailyKwh:
-      (
-        totalPower *
-        parsed.hours /
-        1000
-      ),
-
     passed:
       totalPower === expected &&
       parsed.hours === 8
-
   };
-
 }
 
 
 /* =========================================================
-   SHOW PARSER TEST
+   SHOW TEST
 ========================================================= */
 
 function runParserTest(){
@@ -2874,105 +2447,51 @@ function runParserTest(){
   const result =
     testSudaneseParser();
 
-
-  const allTests =
-    parserSelfTests();
-
-
   const box =
     document.getElementById(
       "parserTest"
     );
 
-
   const deviceText =
     result.devices.length
-
     ?
-
     result.devices
       .map(
         d =>
           `${d.name} × ${d.quantity} = ${d.power*d.quantity}W`
       )
       .join("<br>")
-
     :
-
     "لم يتم اكتشاف أجهزة";
 
-
-  const passedCount =
-    allTests.filter(
-      t=>t.passed
-    ).length;
-
-
   box.innerHTML = `
-
-    <b>🧪 اختبار المحلل:</b>
-
-    <br><br>
-
-    <b>النص:</b><br>
+    <b>🧪 اختبار المحلل:</b><br>
     ${result.input}
-
     <br><br>
-
     <b>النص بعد التطبيع:</b><br>
     ${result.normalized}
-
     <br><br>
-
-    <b>الأجهزة المكتشفة:</b><br>
-
+    <b>الأجهزة:</b><br>
     ${deviceText}
-
     <br><br>
-
     <b>النتيجة:</b>
     ${result.totalPower}W
-
     <br>
-
-    <b>المتوقع:</b>
-    ${result.expected}W
-
-    <br>
-
     <b>الساعات:</b>
     ${result.hours} ساعة
-
-    <br>
-
-    <b>الاستهلاك:</b>
-    ${result.dailyKwh.toFixed(2)} kWh
-
     <br><br>
-
     ${
       result.passed
-
       ?
-
       `<span class="test-ok">
-        ✅ الاختبار الرئيسي ناجح — 1600W
+        ✅ المحلل يعمل بشكل صحيح — 1600W
       </span>`
-
       :
-
       `<span class="test-bad">
-        ❌ الاختبار الرئيسي فشل — المتوقع 1600W
+        ❌ يوجد خطأ في المحلل — المتوقع 1600W
       </span>`
     }
-
-    <br><br>
-
-    <b>اختبارات إضافية:</b>
-    ${passedCount}/${allTests.length} ناجحة
-
   `;
-
 }
 
 
@@ -2987,9 +2506,7 @@ function renderDevices(){
       "deviceGrid"
     );
 
-
   grid.innerHTML = "";
-
 
   devices.forEach(
     (device,index)=>{
@@ -2999,14 +2516,11 @@ function renderDevices(){
           "div"
         );
 
-
       div.className =
         "device";
 
-
       const icon =
         device.name.split(" ")[0];
-
 
       const displayName =
         device.name.replace(
@@ -3014,55 +2528,39 @@ function renderDevices(){
           ""
         );
 
-
       div.innerHTML = `
-
         <div class="device-head">
-
           <div style="font-size:27px">
             ${icon}
           </div>
-
           <div>
-
             <div class="device-name">
               ${displayName}
             </div>
-
             <div class="device-power">
               القدرة الافتراضية:
               ${device.power}W
             </div>
-
           </div>
-
         </div>
 
-
         <div class="device-controls">
-
           <div class="field">
-
             <label>
               العدد
             </label>
-
             <input
               id="qty_${index}"
               type="number"
               min="0"
               value="0"
               onchange="updateDeviceState()">
-
           </div>
 
-
           <div class="field">
-
             <label>
               ساعات/يوم
             </label>
-
             <input
               id="hours_${index}"
               type="number"
@@ -3070,21 +2568,15 @@ function renderDevices(){
               step="0.5"
               value="${device.hours}"
               onchange="updateDeviceState()">
-
           </div>
-
         </div>
-
       `;
-
 
       grid.appendChild(
         div
       );
-
     }
   );
-
 }
 
 
@@ -3106,15 +2598,12 @@ function updateDeviceState(){
             ).value
           ) || 0;
 
-
         el.classList.toggle(
           "active",
           qty > 0
         );
-
       }
     );
-
 }
 
 
@@ -3129,14 +2618,12 @@ function addCustomDevice(){
       "customName"
     ).value.trim();
 
-
   const power =
     Number(
       document.getElementById(
         "customPower"
       ).value
     );
-
 
   const qty =
     Number(
@@ -3145,7 +2632,6 @@ function addCustomDevice(){
       ).value
     );
 
-
   const hours =
     Number(
       document.getElementById(
@@ -3153,45 +2639,31 @@ function addCustomDevice(){
       ).value
     );
 
-
   if(
     !name ||
     power <= 0 ||
-    qty <= 0 ||
-    hours < 0
+    qty <= 0
   ){
-
     alert(
-      "أدخل اسم الجهاز والقدرة والعدد والساعات بشكل صحيح."
+      "أدخل اسم الجهاز والقدرة والعدد بشكل صحيح."
     );
-
     return;
-
   }
 
-
   customDevices.push({
-
     name,
-
     power,
-
     quantity:qty,
-
     hours
-
   });
-
 
   document.getElementById(
     "customName"
   ).value = "";
 
-
   alert(
     "تمت إضافة الجهاز بنجاح."
   );
-
 }
 
 
@@ -3204,62 +2676,25 @@ function changeSetting(id,amount){
   const input =
     document.getElementById(id);
 
-
   let value =
-    Number(
-      input.value
-    ) || 0;
-
+    Number(input.value) || 0;
 
   value += amount;
 
-
-  if(
-    id === "backupHours"
-  ){
-
-    value =
-      Math.max(
-        0.5,
-        value
-      );
-
+  if(id === "backupHours"){
+    value = Math.max(0.5, value);
   }
 
-
-  if(
-    id === "sunHours"
-  ){
-
-    value =
-      Math.max(
-        0.5,
-        value
-      );
-
+  if(id === "sunHours"){
+    value = Math.max(0.5, value);
   }
 
-
-  if(
-    id === "panelPower"
-  ){
-
-    value =
-      Math.max(
-        50,
-        value
-      );
-
+  if(id === "panelPower"){
+    value = Math.max(50, value);
   }
 
-
-  input.value =
-    value;
-
-
-  settings[id] =
-    value;
-
+  input.value = value;
+  settings[id] = value;
 }
 
 
@@ -3276,7 +2711,6 @@ function readSettings(){
       ).value
     ) || 8;
 
-
   settings.sunHours =
     Number(
       document.getElementById(
@@ -3284,39 +2718,12 @@ function readSettings(){
       ).value
     ) || 5.5;
 
-
   settings.panelPower =
     Number(
       document.getElementById(
         "panelPower"
       ).value
     ) || 585;
-
-
-  /*
-    Safety limits
-  */
-
-  settings.backupHours =
-    Math.max(
-      0.5,
-      settings.backupHours
-    );
-
-
-  settings.sunHours =
-    Math.max(
-      0.5,
-      settings.sunHours
-    );
-
-
-  settings.panelPower =
-    Math.max(
-      50,
-      settings.panelPower
-    );
-
 }
 
 
@@ -3328,7 +2735,6 @@ function getManualDevices(){
 
   const list = [];
 
-
   devices.forEach(
     (device,index)=>{
 
@@ -3339,66 +2745,41 @@ function getManualDevices(){
           ).value
         ) || 0;
 
-
       const hours =
         Number(
           document.getElementById(
             `hours_${index}`
           ).value
-        );
+        ) || device.hours;
 
-
-      if(
-        qty > 0
-      ){
-
+      if(qty > 0){
         list.push({
-
           name:device.name,
-
           power:device.power,
-
           quantity:qty,
-
-          hours:
-            Number.isFinite(hours)
-              ? Math.max(0,hours)
-              : device.hours
-
+          hours:hours
         });
-
       }
-
     }
   );
-
 
   customDevices.forEach(
     device=>{
-
       list.push({
-
         name:device.name,
-
         power:device.power,
-
         quantity:device.quantity,
-
         hours:device.hours
-
       });
-
     }
   );
 
-
   return list;
-
 }
 
 
 /* =========================================================
-   SYSTEM VOLTAGE
+   VOLTAGE SELECTION
 ========================================================= */
 
 function selectSystemVoltage(
@@ -3411,29 +2792,9 @@ function selectSystemVoltage(
       "systemVoltage"
     ).value;
 
-
-  /*
-    Manual selection
-  */
-
-  if(
-    requested !== "auto"
-  ){
-
-    return Number(
-      requested
-    );
-
+  if(requested !== "auto"){
+    return Number(requested);
   }
-
-
-  /*
-    Automatic 12V
-
-    Only when:
-      - power is relatively low
-      - battery requirement fits
-  */
 
   const twelve =
     batteryOptions[12]
@@ -3442,20 +2803,12 @@ function selectSystemVoltage(
           b.kwh >= requiredBattery
       );
 
-
   if(
     totalPower <= 2000 &&
     twelve
   ){
-
     return 12;
-
   }
-
-
-  /*
-    Automatic 24V
-  */
 
   const twentyFour =
     batteryOptions[24]
@@ -3464,23 +2817,14 @@ function selectSystemVoltage(
           b.kwh >= requiredBattery
       );
 
-
   if(
     totalPower <= 4200 &&
     twentyFour
   ){
-
     return 24;
-
   }
 
-
-  /*
-    Otherwise 48V
-  */
-
   return 48;
-
 }
 
 
@@ -3494,78 +2838,28 @@ function selectInverter(
 ){
 
   const sizes = {
-
-    12:[
-      1000,
-      1500,
-      2000
-    ],
-
-    24:[
-      3000,
-      3500,
-      4000,
-      4200
-    ],
-
-    48:[
-      5000,
-      6000,
-      8000,
-      10000,
-      11000
-    ]
-
+    12:[1000, 1500, 2000],
+    24:[3000, 3500, 4000, 4200],
+    48:[5000, 6000, 8000, 10000, 11000]
   };
 
+  const list = sizes[voltage];
 
-  const list =
-    sizes[voltage] || [];
-
-
-  for(
-    const size of list
-  ){
-
-    if(
-      size >= totalPower
-    ){
-
+  for(const size of list){
+    if(size >= totalPower){
       return {
-
-        kw:
-          size/1000,
-
-        text:
-          `${size/1000}kW / ${voltage}V`
-
+        kw: size/1000,
+        text: `${size/1000}kW / ${voltage}V`
       };
-
     }
-
   }
 
-
-  /*
-    More than 11kW
-  */
-
-  const count =
-    Math.ceil(
-      totalPower / 11000
-    );
-
+  const count = Math.ceil(totalPower/11000);
 
   return {
-
-    kw:
-      count * 11,
-
-    text:
-      `${count} × 11kW / ${voltage}V أو Deye High Voltage`
-
+    kw: count*11,
+    text: `${count} × 11kW / ${voltage}V أو High Voltage`
   };
-
 }
 
 
@@ -3578,105 +2872,42 @@ function selectBattery(
   requiredKwh
 ){
 
-  const list =
-    batteryOptions[voltage] || [];
+  const list = batteryOptions[voltage] || [];
 
-
-  const sorted =
-    [...list].sort(
-      (a,b)=>{
-
-        if(
-          a.kwh !== b.kwh
-        ){
-
-          return a.kwh-b.kwh;
-
-        }
-
-
-        return a.priority-b.priority;
-
+  const sorted = [...list].sort(
+    (a,b)=>{
+      if(a.kwh !== b.kwh){
+        return a.kwh-b.kwh;
       }
-    );
-
-
-  /*
-    Find smallest battery
-    that satisfies requirement.
-  */
-
-  for(
-    const battery of sorted
-  ){
-
-    if(
-      battery.kwh >= requiredKwh
-    ){
-
-      return {
-
-        ...battery,
-
-        count:1
-
-      };
-
+      return a.priority-b.priority;
     }
+  );
 
+  for(const battery of sorted){
+    if(battery.kwh >= requiredKwh){
+      return {
+        ...battery,
+        count:1
+      };
+    }
   }
 
-
-  /*
-    If one battery is not enough,
-    multiply the largest battery.
-  */
-
-  if(
-    sorted.length
-  ){
-
-    const largest =
-      sorted[
-        sorted.length-1
-      ];
-
-
-    const count =
-      Math.ceil(
-        requiredKwh /
-        largest.kwh
-      );
-
+  if(sorted.length){
+    const largest = sorted[sorted.length-1];
+    const count = Math.ceil(requiredKwh/largest.kwh);
 
     return {
-
-      name:
-        `${count} × ${largest.name.replace(/^1 × /,"")}`,
-
-      kwh:
-        largest.kwh * count,
-
-      count
-
+      name: `${count} × ${largest.name.replace(/^1 × /,"")}`,
+      kwh: largest.kwh*count,
+      count: count
     };
-
   }
 
-
   return {
-
-    name:
-      "غير متوفر",
-
-    kwh:
-      0,
-
-    count:
-      0
-
+    name: "غير متوفر",
+    kwh: 0,
+    count: 0
   };
-
 }
 
 
@@ -3688,164 +2919,61 @@ function calculateSystem(loads){
 
   readSettings();
 
-
-  let totalPower =
-    0;
-
-
-  let dailyWh =
-    0;
-
+  let totalPower = 0;
+  let dailyWh = 0;
 
   loads.forEach(
     load=>{
-
-      totalPower +=
-        load.power *
-        load.quantity;
-
-
-      dailyWh +=
-        load.power *
-        load.quantity *
-        load.hours;
-
+      totalPower += load.power * load.quantity;
+      dailyWh += load.power * load.quantity * load.hours;
     }
   );
 
-
-  /*
-    Required battery capacity:
-
-    Load × backup hours
-    -------------------
-    inverter efficiency × usable battery %
-
-    92% inverter efficiency
-    90% usable battery capacity
-  */
-
   const requiredBattery =
-    (
-      totalPower *
-      settings.backupHours /
-      1000
-    ) /
-    (
-      0.92 *
-      0.90
-    );
-
+    (totalPower * settings.backupHours / 1000) / (0.92 * 0.90);
 
   const voltage =
-    selectSystemVoltage(
-      totalPower,
-      requiredBattery
-    );
-
+    selectSystemVoltage(totalPower, requiredBattery);
 
   const battery =
-    selectBattery(
-      voltage,
-      requiredBattery
-    );
-
+    selectBattery(voltage, requiredBattery);
 
   const inverter =
-    selectInverter(
-      totalPower,
-      voltage
-    );
-
-
-  /*
-    DC battery current
-  */
+    selectInverter(totalPower, voltage);
 
   const batteryCurrent =
-    totalPower /
-    voltage /
-    0.92;
-
-
-  /*
-    Runtime based on selected battery.
-  */
+    totalPower / voltage / 0.92;
 
   const runtime =
     totalPower > 0
-
     ?
-
-    (
-      battery.kwh *
-      0.90 *
-      0.92 /
-      (totalPower/1000)
-    )
-
+    (battery.kwh * 0.90 * 0.92 / (totalPower/1000))
     :
-
     0;
 
-
-  /*
-    PV sizing:
-
-    Daily energy
-    ÷ sun hours
-    ÷ 80% system derating
-  */
-
   const requiredPV =
-    dailyWh /
-    (
-      settings.sunHours *
-      0.80
-    );
-
+    dailyWh / (settings.sunHours * 0.80);
 
   const panelCount =
-    Math.ceil(
-      requiredPV /
-      settings.panelPower
-    );
-
+    Math.ceil(requiredPV / settings.panelPower);
 
   const actualPV =
-    panelCount *
-    settings.panelPower;
-
+    panelCount * settings.panelPower;
 
   return {
-
     totalPower,
-
     dailyWh,
-
-    dailyKwh:
-      dailyWh/1000,
-
+    dailyKwh: dailyWh/1000,
     requiredBattery,
-
     voltage,
-
     battery,
-
     inverter,
-
     batteryCurrent,
-
     runtime,
-
     requiredPV,
-
     panelCount,
-
     actualPV
-
   };
-
 }
 
 
@@ -3853,263 +2981,101 @@ function calculateSystem(loads){
    DISPLAY RESULTS
 ========================================================= */
 
-function displayResults(
-  result,
-  loads
-){
+function displayResults(result, loads){
 
-  document.getElementById(
-    "rPower"
-  ).textContent =
+  document.getElementById("rPower").textContent =
     `${Math.round(result.totalPower).toLocaleString()} W`;
 
-
-  document.getElementById(
-    "rEnergy"
-  ).textContent =
+  document.getElementById("rEnergy").textContent =
     `${result.dailyKwh.toFixed(2)} kWh`;
 
-
-  document.getElementById(
-    "rVoltage"
-  ).textContent =
+  document.getElementById("rVoltage").textContent =
     `${result.voltage} V`;
 
-
-  document.getElementById(
-    "rInverter"
-  ).textContent =
+  document.getElementById("rInverter").textContent =
     result.inverter.text;
 
-
-  document.getElementById(
-    "rBattery"
-  ).textContent =
+  document.getElementById("rBattery").textContent =
     `${result.requiredBattery.toFixed(2)} kWh`;
 
-
-  document.getElementById(
-    "rCurrent"
-  ).textContent =
+  document.getElementById("rCurrent").textContent =
     `${result.batteryCurrent.toFixed(1)} A`;
 
-
-  document.getElementById(
-    "rRuntime"
-  ).textContent =
+  document.getElementById("rRuntime").textContent =
     `${result.runtime.toFixed(2)} ساعة`;
 
-
-  document.getElementById(
-    "rBatteryCount"
-  ).textContent =
+  document.getElementById("rBatteryCount").textContent =
     result.battery.name;
 
-
-  document.getElementById(
-    "rPV"
-  ).textContent =
+  document.getElementById("rPV").textContent =
     `${(result.actualPV/1000).toFixed(2)} kW`;
 
-
-  document.getElementById(
-    "rPanels"
-  ).textContent =
+  document.getElementById("rPanels").textContent =
     `${result.panelCount} × ${settings.panelPower}W`;
 
-
-  /* ================= RECOMMENDATION ================= */
-
-  const rec =
-    document.getElementById(
-      "recommendationList"
-    );
-
-
-  rec.innerHTML =
-    "";
-
+  /* RECOMMENDATION */
+  const rec = document.getElementById("recommendationList");
+  rec.innerHTML = "";
 
   const recommendations = [
-
     `إجمالي الحمل التشغيلي: ${Math.round(result.totalPower)}W`,
-
     `الاستهلاك اليومي: ${result.dailyKwh.toFixed(2)} kWh`,
-
     `جهد النظام: ${result.voltage}V`,
-
     `الانفيرتر المقترح: ${result.inverter.text}`,
-
     `البطارية المطلوبة تقريباً: ${result.requiredBattery.toFixed(2)} kWh`,
-
     `اختيار البطارية: ${result.battery.name}`,
-
-    `السعة الفعلية المختارة: ${result.battery.kwh.toFixed(2)} kWh`,
-
     `الألواح: ${result.panelCount} × ${settings.panelPower}W`,
-
     `إجمالي قدرة الألواح: ${(result.actualPV/1000).toFixed(2)}kW`,
-
     `تيار البطارية التقريبي: ${result.batteryCurrent.toFixed(1)}A`,
-
     `التشغيل المتوقع: ${result.runtime.toFixed(2)} ساعة`
-
   ];
 
+  recommendations.forEach(text=>{
+    const li = document.createElement("li");
+    li.textContent = text;
+    rec.appendChild(li);
+  });
 
-  recommendations.forEach(
-    text=>{
-
-      const li =
-        document.createElement(
-          "li"
-        );
-
-
-      li.textContent =
-        text;
-
-
-      rec.appendChild(
-        li
-      );
-
-    }
-  );
-
-
-  /* ================= WARNINGS ================= */
-
+  /* WARNINGS */
   const warnings = [];
 
-
-  if(
-    result.voltage === 12 &&
-    result.totalPower > 1500
-  ){
-
-    warnings.push(
-      "نظام 12V غير مفضل لهذا الحمل بسبب ارتفاع تيار البطارية."
-    );
-
+  if(result.voltage === 12 && result.totalPower > 1500){
+    warnings.push("نظام 12V غير مفضل لهذا الحمل بسبب ارتفاع تيار البطارية.");
   }
 
-
-  if(
-    result.voltage === 24 &&
-    result.totalPower > 3000
-  ){
-
-    warnings.push(
-      "حمل 24V مرتفع نسبياً؛ راجع تيار البطارية ومقاس الكابلات وBMS."
-    );
-
+  if(result.batteryCurrent > 200){
+    warnings.push("تيار البطارية يتجاوز 200A؛ استخدم كابلات وفيوزات وBMS مناسبة.");
   }
 
-
-  if(
-    result.batteryCurrent > 200
-  ){
-
-    warnings.push(
-      "تيار البطارية يتجاوز 200A؛ استخدم كابلات وفيوزات وBMS مناسبة."
-    );
-
+  if(result.totalPower > 8000){
+    warnings.push("الحمل مرتفع؛ راجع قدرة الانفيرتر وSurge وقد تحتاج إلى نظام متعدد الانفيرترات.");
   }
 
-
-  if(
-    result.totalPower > 8000
-  ){
-
-    warnings.push(
-      "الحمل مرتفع؛ راجع قدرة الانفيرتر وSurge وقد تحتاج إلى نظام متعدد الانفيرترات أو High Voltage."
-    );
-
+  if(loads.some(l => l.name.includes("مكيف") || l.name.includes("ثلاجة") || l.name.includes("مضخة"))){
+    warnings.push("توجد أحمال ذات تيار إقلاع مرتفع؛ يجب التأكد من قدرة Surge للانفيرتر.");
   }
 
+  warnings.push("اختيار BMS والكابلات والقواطع والفيوزات يجب أن يكون حسب التيار الفعلي.");
 
-  if(
-    loads.some(
-      l =>
-        l.name.includes("مكيف") ||
-        l.name.includes("ثلاجة") ||
-        l.name.includes("فريزر") ||
-        l.name.includes("مضخة") ||
-        l.name.includes("موتور")
-    )
-  ){
-
-    warnings.push(
-      "توجد أحمال ذات تيار إقلاع مرتفع؛ يجب التأكد من قدرة Surge للانفيرتر."
-    );
-
-  }
-
-
-  if(
-    result.panelCount > 0 &&
-    result.actualPV < result.requiredPV
-  ){
-
-    warnings.push(
-      "قدرة الألواح المختارة أقل من القدرة المطلوبة؛ راجع عدد الألواح."
-    );
-
-  }
-
-
-  warnings.push(
-    "اختيار BMS والكابلات والقواطع والفيوزات يجب أن يكون حسب التيار الفعلي."
-  );
-
-
-  document.getElementById(
-    "warnings"
-  ).innerHTML =
-    warnings
-      .map(
-        w=>`• ${w}`
-      )
-      .join("<br>");
-
+  document.getElementById("warnings").innerHTML =
+    warnings.map(w => `• ${w}`).join("<br>");
 }
 
 
 /* =========================================================
-   DESIGN SYSTEM
+   DESIGN SYSTEM BUTTON
 ========================================================= */
 
 function designSystem(){
+  const loads = getManualDevices();
 
-  const loads =
-    getManualDevices();
-
-
-  if(
-    !loads.length
-  ){
-
-    alert(
-      "لم يتم اختيار أي حمل. أضف الأجهزة أولاً."
-    );
-
+  if(!loads.length){
+    alert("لم يتم اختيار أي حمل. أضف الأجهزة أولاً.");
     return;
-
   }
 
-
-  const result =
-    calculateSystem(
-      loads
-    );
-
-
-  displayResults(
-    result,
-    loads
-  );
-
+  const result = calculateSystem(loads);
+  displayResults(result, loads);
 }
 
 
@@ -4120,198 +3086,52 @@ function designSystem(){
 function analyzeAI(){
 
   const input =
-    document.getElementById(
-      "aiInput"
-    ).value.trim();
+    document.getElementById("aiInput").value.trim();
 
-
-  if(
-    !input
-  ){
-
-    alert(
-      "اكتب الأجهزة المطلوبة أولاً."
-    );
-
+  if(!input){
+    alert("اكتب الأجهزة المطلوبة أولاً.");
     return;
-
   }
 
+  const parsed = parseSolarMessage(input);
 
-  const parsed =
-    parseSolarMessage(
-      input
-    );
-
-
-  if(
-    !parsed.devices.length
-  ){
-
-    alert(
-      "لم أتعرف على الأجهزة في الطلب. حاول مثلاً: ثلاجتين ومكيف موية و10 لمبات لمدة 8 ساعات"
-    );
-
+  if(!parsed.devices.length){
+    alert("لم أتعرف على الأجهزة في الطلب. حاول مثلاً: ثلاجتين ومكيف موية و10 لمبات لمدة 8 ساعات");
     return;
-
   }
 
+  devices.forEach((device,index)=>{
+    document.getElementById(`qty_${index}`).value = 0;
+    document.getElementById(`hours_${index}`).value = device.hours;
+  });
 
-  /*
-    Clear predefined device quantities.
-  */
-
-  devices.forEach(
-    (device,index)=>{
-
-      document.getElementById(
-        `qty_${index}`
-      ).value =
-        0;
-
-
-      document.getElementById(
-        `hours_${index}`
-      ).value =
-        device.hours;
-
+  parsed.devices.forEach(parsedDevice=>{
+    const index = devices.findIndex(d => d.name === parsedDevice.name);
+    if(index >= 0){
+      document.getElementById(`qty_${index}`).value = parsedDevice.quantity;
+      document.getElementById(`hours_${index}`).value = parsed.hours;
     }
-  );
+  });
 
-
-  /*
-    Apply parser results.
-  */
-
-  parsed.devices.forEach(
-    parsedDevice=>{
-
-      const index =
-        devices.findIndex(
-          d =>
-            d.name ===
-            parsedDevice.name
-        );
-
-
-      if(
-        index >= 0
-      ){
-
-        document.getElementById(
-          `qty_${index}`
-        ).value =
-          parsedDevice.quantity;
-
-
-        document.getElementById(
-          `hours_${index}`
-        ).value =
-          parsed.hours;
-
-      }
-
-    }
-  );
-
-
-  /*
-    Set backup hours from AI request.
-  */
-
-  document.getElementById(
-    "backupHours"
-  ).value =
-    parsed.hours;
-
-
-  settings.backupHours =
-    parsed.hours;
-
+  document.getElementById("backupHours").value = parsed.hours;
+  settings.backupHours = parsed.hours;
 
   updateDeviceState();
-
-
-  /*
-    Design system.
-  */
-
   designSystem();
 
+  const total = parsed.devices.reduce(
+    (sum,d) => sum + d.power * d.quantity, 0
+  );
 
-  /*
-    Parser information.
-  */
-
-  const total =
-    parsed.devices.reduce(
-      (sum,d)=>
-        sum +
-        d.power *
-        d.quantity,
-      0
-    );
-
-
-  const dailyEnergy =
-    parsed.devices.reduce(
-      (sum,d)=>
-        sum +
-        d.power *
-        d.quantity *
-        parsed.hours,
-      0
-    ) / 1000;
-
-
-  document.getElementById(
-    "parserTest"
-  ).innerHTML = `
-
-    <b>
-      🤖 تحليل YAWAHAB SOLAR AI
-    </b>
-
-    <br><br>
-
-    <b>النص:</b>
-    ${input}
-
-    <br><br>
-
-    <b>النص بعد التطبيع:</b><br>
-    ${parsed.normalized}
-
-    <br><br>
-
-    <b>الأجهزة المكتشفة:</b>
-
-    <br>
-
-    ${parsed.devices
-      .map(
-        d =>
-          `${d.name} × ${d.quantity} = ${d.power*d.quantity}W`
-      )
-      .join("<br>")}
-
-    <br><br>
-
-    الحمل الكلي:
-    <b>${total}W</b>
-
-    <br>
-
-    الاستهلاك اليومي:
-    <b>${dailyEnergy.toFixed(2)} kWh</b>
-
-    <br>
-
-    ساعات التشغيل:
-    <b>${parsed.hours} ساعة</b>
-
+  document.getElementById("parserTest").innerHTML = `
+    <b>🤖 تحليل YAWAHAB SOLAR AI</b><br><br>
+    النص: ${input}<br><br>
+    النص بعد التطبيع: ${parsed.normalized}<br><br>
+    الأجهزة المكتشفة:<br>
+    ${parsed.devices.map(d => `${d.name} × ${d.quantity} = ${d.power*d.quantity}W`).join("<br>")}<br><br>
+    الحمل الكلي: <b>${total}W</b><br>
+    ساعات التشغيل: <b>${parsed.hours} ساعة</b>
   `;
-
 }
 
 
@@ -4320,15 +3140,8 @@ function analyzeAI(){
 ========================================================= */
 
 function useExample(text){
-
-  document.getElementById(
-    "aiInput"
-  ).value =
-    text;
-
-
+  document.getElementById("aiInput").value = text;
   analyzeAI();
-
 }
 
 
@@ -4338,155 +3151,45 @@ function useExample(text){
 
 function resetSystem(){
 
-  devices.forEach(
-    (device,index)=>{
+  devices.forEach((device,index)=>{
+    document.getElementById(`qty_${index}`).value = 0;
+    document.getElementById(`hours_${index}`).value = device.hours;
+  });
 
-      document.getElementById(
-        `qty_${index}`
-      ).value =
-        0;
+  document.getElementById("systemVoltage").value = "auto";
+  document.getElementById("aiInput").value = "";
+  document.getElementById("designNote").value = "";
+  document.getElementById("backupHours").value = 8;
+  document.getElementById("sunHours").value = 5.5;
+  document.getElementById("panelPower").value = 585;
 
-
-      document.getElementById(
-        `hours_${index}`
-      ).value =
-        device.hours;
-
-    }
-  );
-
-
-  document.getElementById(
-    "systemVoltage"
-  ).value =
-    "auto";
-
-
-  document.getElementById(
-    "aiInput"
-  ).value =
-    "";
-
-
-  document.getElementById(
-    "designNote"
-  ).value =
-    "";
-
-
-  document.getElementById(
-    "backupHours"
-  ).value =
-    8;
-
-
-  document.getElementById(
-    "sunHours"
-  ).value =
-    5.5;
-
-
-  document.getElementById(
-    "panelPower"
-  ).value =
-    585;
-
-
-  settings.backupHours =
-    8;
-
-
-  settings.sunHours =
-    5.5;
-
-
-  settings.panelPower =
-    585;
-
+  settings.backupHours = 8;
+  settings.sunHours = 5.5;
+  settings.panelPower = 585;
 
   customDevices = [];
 
+  document.getElementById("rPower").textContent = "0 W";
+  document.getElementById("rEnergy").textContent = "0 kWh";
+  document.getElementById("rVoltage").textContent = "—";
+  document.getElementById("rInverter").textContent = "—";
+  document.getElementById("rBattery").textContent = "—";
+  document.getElementById("rCurrent").textContent = "—";
+  document.getElementById("rRuntime").textContent = "—";
+  document.getElementById("rBatteryCount").textContent = "—";
+  document.getElementById("rPV").textContent = "0 kW";
+  document.getElementById("rPanels").textContent = "0 × 585W";
 
-  document.getElementById(
-    "rPower"
-  ).textContent =
-    "0 W";
-
-
-  document.getElementById(
-    "rEnergy"
-  ).textContent =
-    "0 kWh";
-
-
-  document.getElementById(
-    "rVoltage"
-  ).textContent =
-    "—";
-
-
-  document.getElementById(
-    "rInverter"
-  ).textContent =
-    "—";
-
-
-  document.getElementById(
-    "rBattery"
-  ).textContent =
-    "—";
-
-
-  document.getElementById(
-    "rCurrent"
-  ).textContent =
-    "—";
-
-
-  document.getElementById(
-    "rRuntime"
-  ).textContent =
-    "—";
-
-
-  document.getElementById(
-    "rBatteryCount"
-  ).textContent =
-    "—";
-
-
-  document.getElementById(
-    "rPV"
-  ).textContent =
-    "0 kW";
-
-
-  document.getElementById(
-    "rPanels"
-  ).textContent =
-    "0 × 585W";
-
-
-  document.getElementById(
-    "recommendationList"
-  ).innerHTML =
+  document.getElementById("recommendationList").innerHTML =
     "<li>أدخل الأحمال ثم اضغط تصميم النظام.</li>";
 
-
-  document.getElementById(
-    "warnings"
-  ).innerHTML =
+  document.getElementById("warnings").innerHTML =
     "لا توجد تنبيهات حالياً.";
 
-
-  document.getElementById(
-    "parserTest"
-  ).innerHTML =
+  document.getElementById("parserTest").innerHTML =
     "اختبار المحلل سيظهر هنا.";
 
-
   updateDeviceState();
-
 }
 
 
@@ -4494,31 +3197,12 @@ function resetSystem(){
    INITIALIZATION
 ========================================================= */
 
-document.addEventListener(
-  "DOMContentLoaded",
-  ()=>{
+document.addEventListener("DOMContentLoaded", ()=>{
+  renderDevices();
+  runParserTest();
+});
 
-    renderDevices();
-
-    runParserTest();
-
-  }
-);
-
-
-/* =========================================================
-   CONSOLE TESTS
-========================================================= */
-
-console.log(
-  "YAWAHAB SOLAR AI Parser Tests:",
-  parserSelfTests()
-);
-
-console.log(
-  "Main Parser Test:",
-  testSudaneseParser()
-);
+console.log("YAWAHAB SOLAR AI Engine Loaded Successfully.");
 
 </script>
 
